@@ -1,5 +1,6 @@
 let facts = [];
 let jokes = [];
+let advice = [];
 
 function newData() {
   let ID = Math.floor(Math.random() * 50);
@@ -7,20 +8,20 @@ function newData() {
 };
 
 function nextJoke() {
-  // console.log('button pressed');
-  // console.log(jokes)
   let ID = Math.floor(Math.random() * 10);
-  document.querySelector('#quote').innerHTML = jokes.jokes[ID].joke ;
+  document.querySelector('#quote').innerHTML = jokes.jokes[ID].joke;
 };
 
 
-   function componentDidMount() {
+
+
+  function componentDidMount() {
       fetch('https://jsonplaceholder.typicode.com/posts')
         .then(response => response.json())
         .then(data => facts = data)    
     }
 
-    function getJokes() {
+  function getJokes() {
       fetch('https://sv443.net/jokeapi/v2/joke/Any?blacklistFlags=nsfw,religious,political,racist,sexist&type=single&amount=10')
         .then(response => response.json())
         .then(data => jokes = data)    
