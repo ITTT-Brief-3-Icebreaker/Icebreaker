@@ -6,24 +6,48 @@
 
 body {
     margin: 0 auto;
+
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
 }
 
 header {
+    grid-column: 1/span 12;
+
+    display: inline-flex;
+    justify-content: space-between;
     border: 2px solid blue;
 }
 
 
-main {
-    max-width: 800px;
-    margin: 0 auto;
+.cards {
+    grid-column: 1/span 12;
     border: 2px solid red;
-    display: grid;
-    gap: 10px;
-    grid-template-columns: minmax(150px, auto) minmax(150px, auto);
 
 }
 
 div {
     border: 2px solid orange;
     padding: 2rem;
+}
+
+@media only screen and (min-width: 500px) {
+    .cards {
+         grid-column: 2 / span 10;
+    }
+    .jokes {
+        grid-column: 4 / span 3;
+    }
+}
+
+@media only screen and (min-width: 700px) {
+    .cards {
+        grid-column: 3 / span 8;
+   }
+}
+
+@media only screen and (min-width: 900px) {
+    .cards {
+        grid-column: 4 / span 6;
+   }
 }
