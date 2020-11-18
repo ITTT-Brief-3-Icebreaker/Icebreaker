@@ -10,20 +10,62 @@ body {
 
 header {
     border: 2px solid blue;
+    height: 20vh;
+    display: flex; 
+    justify-content: center;
+    align-items: center;
 }
 
 
 main {
-    max-width: 800px;
-    margin: 0 auto;
     border: 2px solid red;
     display: grid;
-    gap: 10px;
-    grid-template-columns: minmax(150px, auto) minmax(150px, auto);
-
+    grid-template-columns: minmax(auto, 400px) minmax(150px, auto)  minmax(150px, auto) minmax(auto, 400px);
 }
 
-div {
+.swiper-container {
+    width: 100%;
+    height: 100%;
+    grid-column: 1/-1;
+  }
+
+  .swiper-slide {
+    text-align: center;
+    font-size: 18px;
+    background: #fff;
+
+    /* Center slide text vertically */
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    -webkit-justify-content: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    -webkit-align-items: center;
+    align-items: center;
+  }
+
+.jokes {
+    grid-column: 2 / 4;
+}
+
+.pickup-lines {
+    grid-column: 2 / 4;
+}
+
+.facts {
+    grid-column: 2 / 4;
+}
+
+.cat-facts {
+    grid-column: 2 / 4;
+}
+
+.dummy {
     border: 2px solid orange;
     padding: 2rem;
 }

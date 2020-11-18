@@ -38,3 +38,10 @@ function nextJoke() {
 //     // const posts = [...this.state.posts, ...data]
 //     console.log("fetch done")
 //   }
+
+var swiper = new Swiper('.swiper-container', {
+  navigation: {
+    nextEl: '.swiper-button-next',
+    prevEl: '.swiper-button-prev',
+  },
+});
