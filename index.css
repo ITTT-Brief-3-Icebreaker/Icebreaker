@@ -6,6 +6,7 @@
 
 body {
     margin: 0 auto;
+    font-family: sans-serif;
 
     display: grid;
     grid-template-columns: repeat(12, 1fr);
@@ -16,19 +17,85 @@ header {
 
     display: inline-flex;
     justify-content: space-between;
-    border: 2px solid blue;
+    /* border: 2px solid blue; */
 }
 
 
 .cards {
     grid-column: 1/span 12;
-    border: 2px solid red;
+    /* border: 2px solid red; */
 
 }
 
 div {
-    border: 2px solid orange;
-    padding: 2rem;
+    /* border: 2px solid orange; */
+    padding: 1rem;
+}
+
+.card {
+    width: 200px;
+    height: 300px;
+
+    text-align: center;
+
+    border-radius: 10px;
+    border: 7px solid;
+
+    box-shadow: 2px 2px 5px gray;
+}
+
+.jokes-front {
+    background-color: purple;
+    border-color: white;
+}
+
+.jokes-back {
+    border-color: purple;
+}
+
+h2 {
+    background-color: white;
+    height: 130px;
+    width: 110px;
+    margin: 1.3rem;
+    margin-bottom: 0px;
+    padding-top: 20px;
+
+
+}
+
+.down-arrow {
+    padding: 0;
+    width: 20px;
+    height: 20px;
+    background-color: white;
+    border: none;
+    transform: rotate(45deg);
+    position: relative;
+    left: 65px;
+    top: -10px;
+
+}
+
+.jokes-front h3 {
+    color: white;
+    margin-top: 0.2rem;
+    padding: 0.5rem 0.2rem;
+    border-bottom: 1px solid white;
+}
+
+.jokes-front p {
+    padding-top: 0.5rem;
+    color: white;
+    font-size: 0.7rem;
+}
+
+.jokes-back {
+    text-align: left;
+}
+
+.answer {
+    margin-top: 1rem;
 }
 
 @media only screen and (min-width: 500px) {
