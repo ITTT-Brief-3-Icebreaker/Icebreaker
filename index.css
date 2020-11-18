@@ -41,7 +41,7 @@ main {
     grid-column: 1/-1;
   }
 
-  .swiper-slide {
+.swiper-slide {
     text-align: center;
     font-size: 18px;
     background: #fff;
@@ -59,7 +59,7 @@ main {
     -ms-flex-align: center;
     -webkit-align-items: center;
     align-items: center;
-  }
+}
 
 .jokes,
 .pickup-lines,
@@ -72,6 +72,10 @@ main {
 .dummy {
     border: 2px solid orange;
     padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
 .cards-container {
