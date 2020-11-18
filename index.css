@@ -1,8 +1,12 @@
-/* * {
+* {
     padding: 0;
     margin: 0;
     box-sizing: border-box;
 }
+
+
+/* 
+
 
 body {
     margin: 0 auto;
@@ -28,4 +32,8 @@ div {
 
 div {
     border: 2px solid black;
+}
+
+main {
+    margin-top: 30px;
 }
