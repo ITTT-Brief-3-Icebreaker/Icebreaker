@@ -14,13 +14,25 @@ header {
     display: flex; 
     justify-content: center;
     align-items: center;
+    font-size: var(--font-big);
 }
 
+footer {
+    height: 10vh;
+}
 
 main {
     border: 2px solid red;
     display: grid;
     grid-template-columns: minmax(auto, 400px) minmax(150px, auto)  minmax(150px, auto) minmax(auto, 400px);
+}
+
+:root {
+    --font-biggest: calc(28px + (48 - 28) * ((100vw - 375px) / (1600 - 375)));
+    --font-big: calc(16px + (34 - 16) * ((100vw - 375px) / (1600 - 375)));
+    --font-medium: calc(10px + (24 - 10) * ((100vw - 375px) / (1600 - 375)));
+    --font-small: calc(8px + (17 - 8) * ((100vw - 375px) / (1600 - 375)));
+    --font-smallest: calc(6px + (14 - 6) * ((100vw - 375px) / (1600 - 375)));
 }
 
 .swiper-container {
@@ -49,23 +61,50 @@ main {
     align-items: center;
   }
 
-.jokes {
-    grid-column: 2 / 4;
-}
-
-.pickup-lines {
-    grid-column: 2 / 4;
-}
-
-.facts {
-    grid-column: 2 / 4;
-}
-
+.jokes,
+.pickup-lines,
+.facts,
 .cat-facts {
     grid-column: 2 / 4;
 }
 
+
 .dummy {
     border: 2px solid orange;
     padding: 2rem;
+}
+
+.cards-container {
+    grid-column: 1/-1;
+}
+
+@media only screen and (min-width:0px) {
+    .cards.desktop {
+        display: none;
+    }
+}
+
+@media only screen and (min-width:885px) {
+    .cards.mobile {
+        display: none;
+    }
+    .cards.desktop {
+        display: grid;
+    }
+
+    .jokes {
+        grid-column: 2 / 3;
+    }
+    
+    .pickup-lines {
+        grid-column: 3 / 4;
+    }
+    
+    .facts {
+        grid-column: 2 / 3;
+    }
+    
+    .cat-facts {
+        grid-column: 3 / 4;
+    }
 }

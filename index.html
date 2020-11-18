@@ -15,7 +15,7 @@
        <nav></nav>
    </header>
 
-   <main class="cards">
+   <main class="cards mobile">
         <!-- Slider main container -->
         <div class="swiper-container">
             <!-- Additional required wrapper -->
@@ -25,7 +25,7 @@
                 <div class="swiper-slide">
                     <div class="jokes dummy">
                         <img src="images/Rule Card Purple.png" alt="">
-                        <button id="get_jokes"></button>
+                        <button id="get_jokes">Get jokes</button>
                     </div>
                 </div>
                 
@@ -37,8 +37,8 @@
                 
                 <div class="swiper-slide">
                     <div class="facts dummy">
-                        <button id="get_lines">Get lines</button>
                         <img src="images/Rule Card Gray.png" alt="">
+                        <button id="get_lines">Get lines</button>
                     </div>
                 </div>
                 
@@ -49,11 +49,31 @@
                 </div>
             </div>
     
-            <!-- If we need navigation buttons -->
+            <!-- navigation buttons -->
             <div class="swiper-button-prev"></div>
             <div class="swiper-button-next"></div>
         </div>
    </main>
+
+   <main class="cards desktop">
+        <div class="jokes dummy">
+            <img src="images/Rule Card Purple.png" alt="">
+            <button id="get_jokes_desktop">Get jokes</button>
+        </div>
+
+        <div class="pickup-lines dummy">
+            <img src="images/Play Card Blue.png" alt="">
+        </div>
+
+        <div class="facts dummy">
+            <img src="images/Rule Card Gray.png" alt="">
+            <button id="get_lines_desktop">Get lines</button>
+        </div>
+
+        <div class="cat-facts dummy">
+            <img src="images/Play Card Yellow.png" alt="">
+        </div>
+    </main>
 
    
    
@@ -62,6 +82,8 @@
    
    <button id="next_line">Next line</button>
    <p id="line"></p>
+
+   <footer></footer>
 
    <script src="app.js" defer></script>
    <script src="event-listeners.js" defer></script>
