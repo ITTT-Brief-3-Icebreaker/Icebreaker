@@ -6,6 +6,75 @@
 
 body {
     margin: 0 auto;
+    font-family: sans-serif;
+}
+
+.card {
+    width: 200px;
+    height: 300px;
+
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+
+    border-radius: 10px;
+    border: 7px solid;
+
+    box-shadow: 2px 2px 5px gray;
+}
+
+.jokes-front {
+    background-color: purple;
+    border-color: white;
+}
+
+.jokes-back {
+    border-color: purple;
+}
+
+h2 {
+    background-color: white;
+    height: 130px;
+    width: 110px;
+    margin: 1.3rem;
+    margin-bottom: 0px;
+    padding-top: 20px;
+    box-shadow: 2px 2px 5px black;
+}
+
+.down-arrow {
+    padding: 0;
+    width: 20px;
+    height: 20px;
+    background-color: white;
+    border: none;
+    transform: rotate(45deg);
+    position: relative;
+    top: -10px;
+    /* box-shadow: 2px 2px 5px black; */
+
+}
+
+.jokes-front h3 {
+    color: white;
+    margin-top: 0.2rem;
+    padding: 0.5rem 0.2rem;
+    border-bottom: 1px solid white;
+}
+
+.jokes-front p {
+    padding-top: 0.5rem;
+    color: white;
+    font-size: 0.7rem;
+}
+
+.jokes-back {
+    text-align: left;
+}
+
+.answer {
+    margin-top: 1rem;
 }
 
 header {
@@ -111,4 +180,17 @@ main {
     .cat-facts {
         grid-column: 3 / 4;
     }
+
+}
+
+@media only screen and (min-width: 500px) {
+   
+}
+
+@media only screen and (min-width: 700px) {
+   
+}
+
+@media only screen and (min-width: 900px) {
+    
 }
