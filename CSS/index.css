@@ -1,0 +1,121 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0 auto;
+    font-family: sans-serif;
+    background: linear-gradient(
+    to bottom,
+    rgba(255,255, 255, 60),
+    rgba(255, 255, 255, 0)
+  ),url(../images/Ice.jpg);
+    height: 100vh;
+    background-repeat: no-repeat;
+}
+
+:root {
+    --font-biggest: calc(28px + (48 - 28) * ((100vw - 375px) / (1600 - 375)));
+    --font-big: calc(16px + (34 - 16) * ((100vw - 375px) / (1600 - 375)));
+    --font-medium: calc(10px + (24 - 10) * ((100vw - 375px) / (1600 - 375)));
+    --font-small: calc(8px + (17 - 8) * ((100vw - 375px) / (1600 - 375)));
+    --font-smallest: calc(6px + (14 - 6) * ((100vw - 375px) / (1600 - 375)));
+}
+
+.card {
+    width: 200px;
+    height: 300px;
+
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+
+    border-radius: 10px;
+    border: 7px solid;
+
+    box-shadow: 2px 2px 5px gray;
+}
+
+.jokes-front {
+    background-color: purple;
+    border-color: white;
+}
+
+.jokes-back {
+    border-color: purple;
+}
+
+h2 {
+    background-color: white;
+    height: 130px;
+    width: 110px;
+    margin: 1.3rem;
+    margin-bottom: 0px;
+    padding-top: 20px;
+    box-shadow: 2px 2px 5px black;
+}
+
+.down-arrow {
+    padding: 0;
+    width: 20px;
+    height: 20px;
+    background-color: white;
+    border: none;
+    transform: rotate(45deg);
+    position: relative;
+    top: -10px;
+    /* box-shadow: 2px 2px 5px black; */
+
+}
+
+.jokes-front h3 {
+    color: white;
+    margin-top: 0.2rem;
+    padding: 0.5rem 0.2rem;
+    border-bottom: 1px solid white;
+}
+
+.jokes-front p {
+    padding-top: 0.5rem;
+    color: white;
+    font-size: 0.7rem;
+}
+
+.jokes-back {
+    text-align: left;
+}
+
+.answer {
+    margin-top: 1rem;
+}
+
+header {
+    /* height: 20vh; */
+    margin-top: 20px;
+    display: flex; 
+    justify-content: flex-start;
+    align-items: center;
+    font-size: var(--font-big);
+}
+
+footer {
+    height: 10vh;
+}
+
+main {
+    display: grid;
+    grid-template-columns: minmax(auto, 400px) minmax(150px, auto)  minmax(150px, auto) minmax(auto, 400px);
+}
+
+.dummy {
+    /* border: 2px solid orange; */
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
