@@ -7,12 +7,11 @@ function newData() {
   document.querySelector('#line').innerHTML = 'titel: ' + facts[ID].title + '<br />body: ' + facts[ID].body;
 };
 
-function nextJoke() {
-  let ID = Math.floor(Math.random() * 10);
-  document.querySelector('#quote').innerHTML = jokes.jokes[ID].joke;
-};
+// function nextJoke() {
+//   let ID = Math.floor(Math.random() * 10);
+//   document.querySelector('#quote').innerHTML = jokes.jokes[ID].joke;
+// };
 
-getJokes();
 
 
   function componentDidMount() {
