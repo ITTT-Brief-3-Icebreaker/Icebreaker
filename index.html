@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <link href="index.css" type="text/css" rel="stylesheet" />
+    <link href="CSS/index.css" type="text/css" rel="stylesheet" />
     <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
 
     <title>Home | Icebreaker</title>
@@ -12,44 +12,18 @@
 <body>
    <header>
        <h1>Icebreaker</h1>
-       <nav></nav>
+       <nav>hamburder</nav>
    </header>
 
-   <main class="cards desktop">
-        <div class="jokes dummy">
-            <div class="jokes-front card"  id="get_jokes">
-                <h2>ICE<br>BRE<br>AKER</h2>
-                <div class="down-arrow"></div>
-                <h3>JOKE CARD</h3>
-                <p>Get to know each other</p>
-            </div>
-        </div>
+   <main class=" ">
 
-        <div class="pickup-lines dummy">
-            <img src="images/Play Card Blue.png" alt="">
-        </div>
+    <div class="" id="container">
 
-        <div class="facts dummy">
-            <img src="images/Rule Card Gray.png" alt="">
-            <button id="get_lines_desktop">Get lines</button>
-        </div>
-
-        <div class="cat-facts dummy">
-            <img src="images/Play Card Yellow.png" alt="">
-        </div>
-    </main>
-
-
-<main class="cards mobile">
-    <!-- Slider main container -->
-    <div class="swiper-container">
-        <!-- Additional required wrapper -->
-        <div class="swiper-wrapper">
+        <div class="cards desktop" id="wrapper">
             
-            <!-- Slides -->
-            <div class="swiper-slide">
+            <div class="slide">
                 <div class="jokes dummy">
-                    <div class="jokes-front card"  id="get_jokes">
+                    <div class="jokes-front front card"  id="get_jokes">
                         <h2>ICE<br>BRE<br>AKER</h2>
                         <div class="down-arrow"></div>
                         <h3>JOKE CARD</h3>
@@ -58,20 +32,20 @@
                 </div>
             </div>
             
-            <div class="swiper-slide">
+            <div class="slide">
                 <div class="pickup-lines dummy">
                     <img src="images/Play Card Blue.png" alt="">
                 </div>
             </div>
             
-            <div class="swiper-slide">
+            <div class="slide">
                 <div class="facts dummy">
                     <img src="images/Rule Card Gray.png" alt="">
                     <button id="get_lines">Get lines</button>
                 </div>
             </div>
             
-            <div class="swiper-slide">
+            <div class="slide">
                 <div class="cat-facts dummy">
                     <img src="images/Play Card Yellow.png" alt="">
                 </div>
@@ -82,10 +56,23 @@
         <div class="swiper-button-prev"></div>
         <div class="swiper-button-next"></div>
     </div>
-</main>
+    </main> 
 
+
+<!-- <main class="cards mobile">
+   
+</main> -->
+
+
+        <!-- Back side of card to display joke -->
+    <!-- 
+        <div class="jokes-back card" id="next_joke">
+            <h3>JOKE CARD</h3>
+            <p id="quote" class="answer"></p>
+        </div> -->
    <footer></footer>
 
+   <script src="media.js"></script>
    <script src="app.js" defer></script>
    <script src="event-listeners.js" defer></script>
    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>

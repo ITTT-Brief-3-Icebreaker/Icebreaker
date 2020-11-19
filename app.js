@@ -12,7 +12,7 @@ function nextJoke() {
   document.querySelector('#quote').innerHTML = jokes.jokes[ID].joke;
 };
 
-
+getJokes();
 
 
   function componentDidMount() {
@@ -22,9 +22,11 @@ function nextJoke() {
     }
 
   function getJokes() {
+    console.log('eeg')
       fetch('https://sv443.net/jokeapi/v2/joke/Any?blacklistFlags=nsfw,religious,political,racist,sexist&type=single&amount=10')
         .then(response => response.json())
-        .then(data => jokes = data)    
+        .then(data => {jokes = data, localStorage.setItem('Jokes', JSON.stringify(jokes))})    
+        // .then(jokes => )
     }
     
 
