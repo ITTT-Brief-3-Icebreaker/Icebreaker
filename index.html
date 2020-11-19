@@ -4,56 +4,80 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
 
 
     <link href="index.css" type="text/css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
 
     <title>Home | Icebreaker</title>
 </head>
 
 <body>
+
     <header>
-        <div class="contain">
-            <div class="col">
-                <h1>Icebreaker</h1>
-                <nav></nav>
-            </div>
-        </div>
+        <h1>Icebreaker</h1>
+        <nav></nav>
     </header>
-    <div class="container mt-10">
-        <div class="row pl-0 pr-0">
-            <div class="cat-facts col-lg-2 col-sm-2">
-                <button id="get-facts ">slider</button>
 
+    <main class="cards mobile">
+        <!-- Slider main container -->
+        <div class="swiper-container">
+            <!-- Additional required wrapper -->
+            <div class="swiper-wrapper">
+
+                <!-- Slides -->
+                <div class="swiper-slide">
+                    <div class="jokes dummy">
+                        <img src="images/Rule Card Purple.png" alt="">
+                        <button id="get_jokes">Get jokes</button>
+                    </div>
+                </div>
+
+                <div class="swiper-slide">
+                    <div class="pickup-lines dummy">
+                        <img src="images/Play Card Blue.png" alt="">
+                    </div>
+                </div>
+
+                <div class="swiper-slide">
+                    <div class="facts dummy">
+                        <img src="images/Rule Card Gray.png" alt="">
+                        <button id="get_lines">Get lines</button>
+                    </div>
+                </div>
+
+                <div class="swiper-slide">
+                    <div class="cat-facts dummy">
+                        <img src="images/Play Card Yellow.png" alt="">
+                    </div>
+                </div>
             </div>
-            <div class="jokes mt-10 col-lg-5 col-sm-10">
-                <button id="get_jokes">Get jokes</button>
-            </div>
 
-            <div class="pickup-lines col-lg-5 col-sm-10">
-                <button id="get_lines ">Get lines</button>
-
-            </div>
-
-
-
-            <div class="cat-facts col-lg-5 col-sm-10">
-                <button id="get-facts ">Get Facts</button>
-
-            </div>
-            <div class="cat-facts col-lg-5 col-sm-10">
-                <button id="get-facts ">Get Facts</button>
-
-            </div>
-            <div class="cat-facts col-lg-2 col-sm-2">
-                <button id="get-facts ">slider</button>
-
-            </div>
-
+            <!-- navigation buttons -->
+            <div class="swiper-button-prev"></div>
+            <div class="swiper-button-next"></div>
         </div>
-    </div>
+    </main>
+
+    <main class="cards desktop">
+        <div class="jokes dummy">
+            <img src="images/Rule Card Purple.png" alt="">
+            <button id="get_jokes_desktop">Get jokes</button>
+        </div>
+
+        <div class="pickup-lines dummy">
+            <img src="images/Play Card Blue.png" alt="">
+        </div>
+
+        <div class="facts dummy">
+            <img src="images/Rule Card Gray.png" alt="">
+            <button id="get_lines_desktop">Get lines</button>
+        </div>
+
+        <div class="cat-facts dummy">
+            <img src="images/Play Card Yellow.png" alt="">
+        </div>
+    </main>
 
 
 
@@ -63,10 +87,12 @@
     <button id="next_line">Next line</button>
     <p id="line"></p>
 
-    <script src="app.js"></script>
-    <script src="event-listeners.js"></script>
-    <script src="https://code.jquery.com/jquery-3.5.1.min.js" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+    <footer></footer>
+
+    <script src="app.js" defer></script>
+    <script src="event-listeners.js" defer></script>
+    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+
 </body>
 
 </html>
