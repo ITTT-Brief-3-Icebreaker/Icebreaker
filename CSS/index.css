@@ -11,7 +11,7 @@ body {
     to bottom,
     rgba(255,255, 255, 60),
     rgba(255, 255, 255, 0)
-  ),url(./images/Ice.jpg);
+  ),url(../images/Ice.jpg);
     height: 100vh;
     background-repeat: no-repeat;
 }
