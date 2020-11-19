@@ -7,28 +7,14 @@
 body {
     margin: 0 auto;
     font-family: sans-serif;
-
-    display: grid;
-    grid-template-columns: repeat(12, 1fr);
 }
 
 header {
-    grid-column: 1/span 12;
-
     display: inline-flex;
     justify-content: space-between;
-    /* border: 2px solid blue; */
-}
-
-
-.cards {
-    grid-column: 1/span 12;
-    /* border: 2px solid red; */
-
 }
 
 div {
-    /* border: 2px solid orange; */
     padding: 1rem;
 }
 
@@ -60,8 +46,7 @@ h2 {
     margin: 1.3rem;
     margin-bottom: 0px;
     padding-top: 20px;
-
-
+    box-shadow: 2px 2px 5px black;
 }
 
 .down-arrow {
@@ -74,6 +59,7 @@ h2 {
     position: relative;
     left: 65px;
     top: -10px;
+    /* box-shadow: 2px 2px 5px black; */
 
 }
 
@@ -99,22 +85,13 @@ h2 {
 }
 
 @media only screen and (min-width: 500px) {
-    .cards {
-         grid-column: 2 / span 10;
-    }
-    .jokes {
-        grid-column: 4 / span 3;
-    }
+   
 }
 
 @media only screen and (min-width: 700px) {
-    .cards {
-        grid-column: 3 / span 8;
-   }
+   
 }
 
 @media only screen and (min-width: 900px) {
-    .cards {
-        grid-column: 4 / span 6;
-   }
+    
 }
