@@ -7,11 +7,10 @@ function newData() {
   document.querySelector('#line').innerHTML = 'titel: ' + facts[ID].title + '<br />body: ' + facts[ID].body;
 };
 
-function nextJoke() {
-  let ID = Math.floor(Math.random() * 10);
-  document.querySelector('#quote').innerHTML = jokes.jokes[ID].joke;
-};
-
+// function nextJoke() {
+//   let ID = Math.floor(Math.random() * 10);
+//   document.querySelector('#quote').innerHTML = jokes.jokes[ID].joke;
+// };
 
 
 
@@ -22,9 +21,11 @@ function nextJoke() {
     }
 
   function getJokes() {
+    console.log('eeg')
       fetch('https://sv443.net/jokeapi/v2/joke/Any?blacklistFlags=nsfw,religious,political,racist,sexist&type=single&amount=10')
         .then(response => response.json())
-        .then(data => jokes = data)    
+        .then(data => {jokes = data, localStorage.setItem('Jokes', JSON.stringify(jokes))})    
+        // .then(jokes => )
     }
     
 
