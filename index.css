@@ -180,6 +180,9 @@ main {
     .cat-facts {
         grid-column: 3 / 4;
     }
+
+}
+
 @media only screen and (min-width: 500px) {
    
 }
