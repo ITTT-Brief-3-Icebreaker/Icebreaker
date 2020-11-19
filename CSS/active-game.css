@@ -1,0 +1,16 @@
+.jokes-back {
+    background: #fff;
+    text-align: left;
+    border: 7px solid purple;
+}
+
+.jokes {
+    grid-column: 2 /3;
+}
+
+h3 {
+    margin: 0.7rem;
+}
+.answer {
+    margin-top: 1rem;
+}

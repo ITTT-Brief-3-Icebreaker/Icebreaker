@@ -7,13 +7,31 @@
 body {
     margin: 0 auto;
     font-family: sans-serif;
+    background: linear-gradient(
+    to bottom,
+    rgba(255,255, 255, 60),
+    rgba(255, 255, 255, 0)
+  ),url(../images/Ice.jpg);
+    height: 100vh;
+    background-repeat: no-repeat;
 }
 
-
-
+:root {
+    --font-biggest: calc(28px + (48 - 28) * ((100vw - 375px) / (1600 - 375)));
+    --font-big: calc(16px + (34 - 16) * ((100vw - 375px) / (1600 - 375)));
+    --font-medium: calc(10px + (24 - 10) * ((100vw - 375px) / (1600 - 375)));
+    --font-small: calc(8px + (17 - 8) * ((100vw - 375px) / (1600 - 375)));
+    --font-smallest: calc(6px + (14 - 6) * ((100vw - 375px) / (1600 - 375)));
+}
 .card {
-    width: 200px;
-    height: 300px;
+    width: 215px;
+    height: 315px;
+
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
 
     border-radius: 10px;
     border: 7px solid;
@@ -34,6 +52,11 @@ body {
     background-color: purple;
 }
 
+.jokes {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
 
 h2 {
     background-color: white;
@@ -80,10 +103,10 @@ h2 {
 }
 
 header {
-    border: 2px solid blue;
-    height: 20vh;
+    /* height: 20vh; */
+    margin-top: 20px;
     display: flex; 
-    justify-content: center;
+    justify-content: flex-start;
     align-items: center;
     font-size: var(--font-big);
 }
@@ -93,106 +116,10 @@ footer {
 }
 
 main {
-    border: 2px solid red;
     display: grid;
     grid-template-columns: minmax(auto, 400px) minmax(150px, auto)  minmax(150px, auto) minmax(auto, 400px);
 }
 
-:root {
-    --font-biggest: calc(28px + (48 - 28) * ((100vw - 375px) / (1600 - 375)));
-    --font-big: calc(16px + (34 - 16) * ((100vw - 375px) / (1600 - 375)));
-    --font-medium: calc(10px + (24 - 10) * ((100vw - 375px) / (1600 - 375)));
-    --font-small: calc(8px + (17 - 8) * ((100vw - 375px) / (1600 - 375)));
-    --font-smallest: calc(6px + (14 - 6) * ((100vw - 375px) / (1600 - 375)));
-}
-
-.swiper-container {
-    width: 100%;
-    height: 100%;
-    grid-column: 1/-1;
-  }
-
-.swiper-slide {
-    text-align: center;
-    font-size: 18px;
-    background: #fff;
-
-    /* Center slide text vertically */
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: -webkit-flex;
-    display: flex;
-    -webkit-box-pack: center;
-    -ms-flex-pack: center;
-    -webkit-justify-content: center;
-    justify-content: center;
-    -webkit-box-align: center;
-    -ms-flex-align: center;
-    -webkit-align-items: center;
-    align-items: center;
-}
-
-.jokes,
-.pickup-lines,
-.facts,
-.cat-facts {
-    grid-column: 2 / 4;
-}
-
-
 .dummy {
     border: 2px solid orange;
-    padding: 2rem;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-}
-
-.cards-container {
-    grid-column: 1/-1;
-}
-
-@media only screen and (min-width:0px) {
-    .cards.desktop {
-        display: none;
-    }
-}
-
-@media only screen and (min-width:885px) {
-    .cards.mobile {
-        display: none;
-    }
-    .cards.desktop {
-        display: grid;
-    }
-
-    .jokes {
-        grid-column: 2 / 3;
-    }
-    
-    .pickup-lines {
-        grid-column: 3 / 4;
-    }
-    
-    .facts {
-        grid-column: 2 / 3;
-    }
-    
-    .cat-facts {
-        grid-column: 3 / 4;
-    }
-
-}
-
-@media only screen and (min-width: 500px) {
-   
-}
-
-@media only screen and (min-width: 700px) {
-   
-}
-
-@media only screen and (min-width: 900px) {
-    
 }
