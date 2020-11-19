@@ -23,10 +23,9 @@ body {
     --font-small: calc(8px + (17 - 8) * ((100vw - 375px) / (1600 - 375)));
     --font-smallest: calc(6px + (14 - 6) * ((100vw - 375px) / (1600 - 375)));
 }
-
 .card {
-    width: 200px;
-    height: 300px;
+    width: 215px;
+    height: 315px;
 
     display: flex;
     justify-content: center;
@@ -47,6 +46,12 @@ body {
 
 .jokes-back {
     border-color: purple;
+}
+
+.jokes {
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 h2 {
@@ -112,10 +117,5 @@ main {
 }
 
 .dummy {
-    /* border: 2px solid orange; */
-    padding: 2rem;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+    border: 2px solid orange;
 }

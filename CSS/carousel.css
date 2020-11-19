@@ -30,16 +30,6 @@
     grid-column: 2 / 4;
 }
 
-
-.dummy {
-    /* border: 2px solid orange; */
-    padding: 2rem;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-}
-
 .cards-container {
     grid-column: 1/-1;
 }
