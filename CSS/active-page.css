@@ -33,7 +33,6 @@ main {
     box-shadow: 2px 2px 5px gray;
 }
 
-
 .jokes-back {
     border-color: purple;
 }
@@ -48,8 +47,6 @@ h3 {
 .answer {
     margin-top: 1rem;
 }
-
-
 
 
 /* REPEATED CSS */
