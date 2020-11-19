@@ -1,7 +1,10 @@
 // JOKES
 document.querySelector('#get_jokes').addEventListener('click', getJokes);
-// document.querySelector('#next_joke').addEventListener('click', nextJoke) 
 
+
+if (document.querySelector('#next_joke')) {
+document.querySelector('#next_joke').addEventListener('click', nextJoke) 
+}
 // document.querySelector('#get_jokes_desktop').addEventListener('click', getJokes);
 
 // // RANDOM LATIN
