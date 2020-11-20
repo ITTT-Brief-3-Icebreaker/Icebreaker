@@ -27,7 +27,7 @@
 .pickup-lines,
 .facts,
 .cat-facts {
-    grid-column: 2 / 4;
+    grid-column: 2 / 6;
 }
 
 .cards-container {

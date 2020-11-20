@@ -6,7 +6,8 @@
 
 body {
     margin: 0 auto;
-    font-family: sans-serif;
+    font-family: 'Roboto Condensed', sans-serif;
+    ;
     background: linear-gradient(
     to bottom,
     rgba(255,255, 255, 60),
@@ -35,7 +36,7 @@ body {
 
     box-shadow: 2px 2px 5px gray;
 
-    overflow: scroll;
+    /* overflow: scroll; */
 }
 
 
@@ -52,7 +53,7 @@ body {
     background-color: var(--purple);
 }
 
-.jokes {
+.flexCenter {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -105,6 +106,7 @@ h2 {
 header {
     /* height: 20vh; */
     margin-top: 20px;
+    margin-bottom: 30px;
     display: flex; 
     justify-content: flex-start;
     align-items: center;
@@ -117,7 +119,7 @@ footer {
 
 main {
     display: grid;
-    grid-template-columns: minmax(auto, 400px) minmax(150px, auto)  minmax(150px, auto) minmax(auto, 400px);
+    grid-template-columns: minmax(auto, 400px) repeat(4, minmax(71px, auto)) minmax(auto, 400px);
 }
 
 .dummy {

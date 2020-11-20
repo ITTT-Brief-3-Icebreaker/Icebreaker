@@ -27,7 +27,7 @@ function newData() {
         // .then(jokes => )
     }
 
-    getFacts()
+    // getFacts()
     function getFacts() {
       console.log('Facts')
         fetch('https://opentdb.com/api.php?amount=10')

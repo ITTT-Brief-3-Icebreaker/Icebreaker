@@ -16,3 +16,8 @@ if (document.querySelector('#next_joke')) {
 
 // document.querySelector('#get_advice').addEventListener('click', getAdvice);
 // document.querySelector('#next_advice').addEventListener('click', nextAdvice) 
+
+let favourites = document.querySelector('.heart')
+if (favourites) {
+    favourites.addEventListener('click', fillHeart)
+}
