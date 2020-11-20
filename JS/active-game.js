@@ -1,29 +1,41 @@
 let jokes = JSON.parse(localStorage.getItem('Jokes'));
 let quote = document.querySelector('#quote');
-var toggle = true;
-let savedFavourites = []
 
+var toggle = true;
 ID = 0;
+let savedFavourites;
+
+if (JSON.parse(localStorage.getItem('Favourites'))){
+    savedFavourites = JSON.parse(localStorage.getItem('Favourites'));
+} else {
+    savedFavourites = [];
+};
 
 function displayJoke() {
     quote.innerHTML = jokes[ID].joke;
+
+    for (i = 0; i < savedFavourites.length; i++) {
+        if (jokes[ID].id == savedFavourites[i].id) {
+            favourites.src  = "./images/heart red.svg";
+            toggle = false;
+        }
+    }
 }
 
 function nextJoke() {
     ID++;
     toggle = true;
     favourites.src = "./images/heart.svg";
-    displayJoke()
+    displayJoke();
 
     if (ID == jokes.length - 1) {
-        getJokes()
+        getJokes();
         ID = 0;
     }
   };
 
-displayJoke();
-
 function fillHeart() {
+
     if (toggle === true) {
         favourites.src  = "./images/heart red.svg";
         addToFavourites();
@@ -31,24 +43,25 @@ function fillHeart() {
        favourites.src = "./images/heart.svg";
        removeFromFavourites();
     }
+
     toggle = !toggle; 
-    console.log(toggle)
 }
 
-
 function addToFavourites() {
-    console.log("added")
+    
     savedFavourites.push(jokes[ID])
     localStorage.setItem('Favourites', JSON.stringify(savedFavourites))
 }
 
 function removeFromFavourites() {
-    console.log("removed")
+
     for (i = 0; i < savedFavourites.length; i++) {
         if (jokes[ID].id == savedFavourites[i].id) {
-            // savedFavourites[i]
             savedFavourites.splice(i, 1);
         }
     }
+
     localStorage.setItem('Favourites', JSON.stringify(savedFavourites))
 }
+
+displayJoke();
