@@ -1,21 +1,35 @@
-let jokes = JSON.parse(localStorage.getItem('Jokes'));
-let quote = document.querySelector('#quote');
 
-ID = 0;
+let activeGame = (function(eventListners, API) {  
+    let quote = document.querySelector('#quote');
 
-function displayJoke() {
-    quote.innerHTML = jokes[ID].joke;
-}
+    let jokes = [];
+    let ID = 0;
 
-function nextJoke() {
-    ID++;
-
-    displayJoke()
-
-    if (ID == jokes.length - 1) {
-        getJokes()
-        ID = 0;
+    let getJokes = function () {
+        jokes = JSON.parse(localStorage.getItem('Jokes'));
     }
-  };
+    let displayJoke = function () {
+        quote.innerHTML = jokes[ID].joke;
+    };
 
-    displayJoke();
+    return {
+        nextJoke: function () {
+            ID++;
+
+            displayJoke()
+
+            if (ID == jokes.length - 1) {
+                API.getJokes()
+                ID = 0;
+            }
+        },
+
+        loadPage: function () {
+            getJokes();
+            displayJoke();
+            eventListners.nextJoke();
+        }
+    }
+})(setupEventListeners, fetchAPIs);
+
+activeGame.loadPage();

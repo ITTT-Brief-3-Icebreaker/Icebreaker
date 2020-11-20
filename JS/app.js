@@ -1,41 +1,26 @@
-let facts = [];
-let advice = [];
+let index = (function(eventListeners) {
 
-function newData() {
-  let ID = Math.floor(Math.random() * 50);
-  document.querySelector('#line').innerHTML = 'titel: ' + facts[ID].title + '<br />body: ' + facts[ID].body;
-};
+  let swiper = new Swiper('.swiper-container', {
+    navigation: {
+      nextEl: '.swiper-button-next',
+      prevEl: '.swiper-button-prev',
+    },
+  });
 
-// function nextJoke() {
-//   let ID = Math.floor(Math.random() * 10);
-//   document.querySelector('#quote').innerHTML = jokes.jokes[ID].joke;
-// };
-
-
-
-  // function componentDidMount() {
-  //     fetch('https://jsonplaceholder.typicode.com/posts')
-  //       .then(response => response.json())
-  //       .then(data => facts = data)    
-  //   }
-
-  function getJokes() {
-    console.log('get new Jokes')
-      fetch('https://sv443.net/jokeapi/v2/joke/Any?blacklistFlags=nsfw,religious,political,racist,sexist&type=single&amount=10')
-        .then(response => response.json())
-        .then(data => localStorage.setItem('Jokes', JSON.stringify(data.jokes)))    
-        // .then(jokes => )
+  return {
+    loadPage: function () {
+      console.log('load index')
+      eventListeners.getJokes()
     }
+  }
 
-    getFacts()
-    function getFacts() {
-      console.log('Facts')
-        fetch('https://opentdb.com/api.php?amount=10')
-          .then(response => response.json())
-          .then(data => {facts = data, localStorage.setItem('Facts', JSON.stringify(facts))})    
-          // .then(jokes => )
-      }
-    
+})(setupEventListeners);
+
+index.loadPage();
+
+
+
+
 
 
 // ALTERNATIVE WAY OF WRITING
@@ -47,10 +32,3 @@ function newData() {
 //     // const posts = [...this.state.posts, ...data]
 //     console.log("fetch done")
 //   }
-
-var swiper = new Swiper('.swiper-container', {
-  navigation: {
-    nextEl: '.swiper-button-next',
-    prevEl: '.swiper-button-prev',
-  },
-});
