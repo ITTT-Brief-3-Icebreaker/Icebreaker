@@ -13,11 +13,11 @@ function newData() {
 
 
 
-  function componentDidMount() {
-      fetch('https://jsonplaceholder.typicode.com/posts')
-        .then(response => response.json())
-        .then(data => facts = data)    
-    }
+  // function componentDidMount() {
+  //     fetch('https://jsonplaceholder.typicode.com/posts')
+  //       .then(response => response.json())
+  //       .then(data => facts = data)    
+  //   }
 
   function getJokes() {
     console.log('get new Jokes')
@@ -26,6 +26,15 @@ function newData() {
         .then(data => localStorage.setItem('Jokes', JSON.stringify(data.jokes)))    
         // .then(jokes => )
     }
+
+    getFacts()
+    function getFacts() {
+      console.log('Facts')
+        fetch('https://opentdb.com/api.php?amount=10')
+          .then(response => response.json())
+          .then(data => {facts = data, localStorage.setItem('Facts', JSON.stringify(facts))})    
+          // .then(jokes => )
+      }
     
 
 
