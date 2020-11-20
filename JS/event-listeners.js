@@ -5,8 +5,10 @@ document.querySelector('#get_jokes').addEventListener('click', getJokes);
 if (document.querySelector('#next_joke')) {
     document.querySelector('#next_joke').addEventListener('click', nextJoke) 
 }
-// document.querySelector('#get_jokes_desktop').addEventListener('click', getJokes);
 
+if (document.querySelector('#get_jokes_mobile')){
+document.querySelector('#get_jokes_mobile').addEventListener('click', getJokes);
+}
 // // RANDOM LATIN
 // document.querySelector('#get_lines').addEventListener('click', componentDidMount);
 // document.querySelector('#next_line').addEventListener('click', newData) 
