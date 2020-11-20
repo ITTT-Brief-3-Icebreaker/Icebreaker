@@ -8,7 +8,7 @@ document.querySelector('#quote').innerHTML = jokesArray.jokes[ID].joke;
 function nextJoke() {
 
     ID++;
-
+    console.log(ID)
     document.querySelector('#quote').innerHTML = jokesArray.jokes[ID].joke;
 
     if (ID == jokesArray.amount - 1) {
