@@ -1,7 +1,7 @@
 .jokes-back {
     background: #fff;
     text-align: left;
-    border: 7px solid purple;
+    border: 7px solid var(--purple);
     padding: 0.5rem;
 }
 
