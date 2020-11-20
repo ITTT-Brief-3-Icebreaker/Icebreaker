@@ -22,6 +22,9 @@ body {
     --font-medium: calc(10px + (24 - 10) * ((100vw - 375px) / (1600 - 375)));
     --font-small: calc(8px + (17 - 8) * ((100vw - 375px) / (1600 - 375)));
     --font-smallest: calc(6px + (14 - 6) * ((100vw - 375px) / (1600 - 375)));
+
+    --purple: #564787;
+    
 }
 .card {
     width: 215px;
@@ -46,7 +49,7 @@ body {
 }
 
 .jokes-front {
-    background-color: purple;
+    background-color: var(--purple);
 }
 
 .jokes {

@@ -1,5 +1,4 @@
 let facts = [];
-let jokes = [];
 let advice = [];
 
 function newData() {
@@ -21,10 +20,10 @@ function newData() {
     }
 
   function getJokes() {
-    console.log('eeg')
+    console.log('get new Jokes')
       fetch('https://sv443.net/jokeapi/v2/joke/Any?blacklistFlags=nsfw,religious,political,racist,sexist&type=single&amount=10')
         .then(response => response.json())
-        .then(data => {jokes = data, localStorage.setItem('Jokes', JSON.stringify(jokes))})    
+        .then(data => localStorage.setItem('Jokes', JSON.stringify(data.jokes)))    
         // .then(jokes => )
     }
     
