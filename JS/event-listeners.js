@@ -1,9 +1,12 @@
 // JOKES
-document.querySelector('#get_jokes').addEventListener('click', getJokes);
+if (document.querySelector('#get_jokes')) {
+    document.querySelector('#get_jokes').addEventListener('click', getJokes);
+}
 
 
-if (document.querySelector('#next_joke')) {
-    document.querySelector('#next_joke').addEventListener('click', nextJoke) 
+
+if (document.querySelector('#next')) {
+    document.querySelector('#next').addEventListener('click', next) 
 }
 // document.querySelector('#get_jokes_desktop').addEventListener('click', getJokes);
 

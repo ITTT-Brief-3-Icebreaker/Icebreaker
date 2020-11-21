@@ -1,10 +1,4 @@
-let facts = [];
 let advice = [];
-
-function newData() {
-  let ID = Math.floor(Math.random() * 50);
-  document.querySelector('#line').innerHTML = 'titel: ' + facts[ID].title + '<br />body: ' + facts[ID].body;
-};
 
 // function nextJoke() {
 //   let ID = Math.floor(Math.random() * 10);
@@ -30,9 +24,11 @@ function newData() {
     getFacts()
     function getFacts() {
       console.log('Facts')
-        fetch('https://opentdb.com/api.php?amount=10')
+        fetch('https://opentdb.com/api.php?amount=20&category=9&difficulty=easy&type=boolean')
           .then(response => response.json())
-          .then(data => {facts = data, localStorage.setItem('Facts', JSON.stringify(facts))})    
+          .then(data => {
+            facts = data.results, localStorage.setItem('Facts', JSON.stringify(facts))
+          })    
           // .then(jokes => )
       }
     
