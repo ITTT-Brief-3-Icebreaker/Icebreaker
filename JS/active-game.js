@@ -19,3 +19,5 @@ function nextJoke() {
   };
 
     displayJoke();
+
+    // Issue: gets new jokes but does not update the array on this page. 
