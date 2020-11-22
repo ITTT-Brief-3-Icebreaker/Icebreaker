@@ -15,8 +15,7 @@
       fetch('https://opentdb.com/api.php?amount=10')
         .then(response => response.json())
         .then(data => {localStorage.setItem('Facts', JSON.stringify(data.results))})    
-    
-        
+       
     localStorage.setItem('Clicked', JSON.stringify('Facts'));
   }
     
