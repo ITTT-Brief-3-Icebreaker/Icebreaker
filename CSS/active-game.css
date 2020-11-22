@@ -23,8 +23,8 @@
     height: 20px;
 }
 
-#next_joke {
-    height: 86%;
+#next {
+    height: 100%;
 }
 
 .answer {
