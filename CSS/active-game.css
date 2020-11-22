@@ -6,6 +6,7 @@
     z-index: 1;
     grid-row-start: 1;
     margin-top: 50%;
+    padding: 6%;
 }
 
 .jokes {
@@ -20,12 +21,10 @@
 .heart {
     display: block;
     height: 20px;
-    margin: 6%
 }
 
 #next_joke {
     height: 86%;
-    padding: 6%;
 }
 
 .answer {
