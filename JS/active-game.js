@@ -1,12 +1,30 @@
-let jokes = JSON.parse(localStorage.getItem('Jokes'));
 let quote = document.querySelector('#quote');
+let cardTitle = document.querySelector('#card-title');
 let heart = document.querySelector('.heart');
 
-var toggle = true;
-ID = 0;
-let savedFavourites;
+let toggle = true;
+let ID = 0;
+let jokes, factsArray, savedFavourites, selected;
 
-function getFavourites() { 
+function getJokesFromLocalStorage() {
+    jokes = JSON.parse(localStorage.getItem('Jokes'));
+};
+
+function getFactsFromLocalStorage() {
+    factsArray = JSON.parse(localStorage.getItem('Facts'));
+};
+
+function loadPage() {
+    selected = JSON.parse(localStorage.getItem('Clicked'));
+    console.log('selected: ' + selected);
+    if (selected == 'Jokes') {
+        loadJokes();
+    } else if (selected == 'Facts') {
+        loadFacts();
+    }
+}
+
+function getFavouriteJokes() { 
     if (JSON.parse(localStorage.getItem('Favourites'))){
         savedFavourites = JSON.parse(localStorage.getItem('Favourites'));
     } else {
@@ -14,7 +32,13 @@ function getFavourites() {
     };
 };
 
+function displayFact() {
+    quote.innerHTML = factsArray[ID].question + '<br> <br> A: ' 
+                        + factsArray[ID].correct_answer;
+}
+
 function displayJoke() {
+    // console.log(ID)
     quote.innerHTML = jokes[ID].joke;
 
     for (i = 0; i < savedFavourites.length; i++) {
@@ -25,17 +49,34 @@ function displayJoke() {
     }
 }
 
+function nextFact() {
+    ID++;
+    displayFact();
+}
+
 function nextJoke() {
     ID++;
     toggle = true;
     favourites.src = "./images/heart.svg";
-    displayJoke();
+    
 
-    if (ID == jokes.length - 1) {
-        getJokes();
+    if (ID == jokes.length) {
+        const promise = new Promise(function(resolve, reject) {
+            getJokes();
+            resolve();
+        })
+            .then(function (result) {
+                getJokesFromLocalStorage();
+            })
+            .then(function() {
+                // console.log('new joke')
+                displayJoke();
+            });
         ID = 0;
-    }
-  };
+    } else {
+        displayJoke();
+    };
+};
 
 function fillHeart() {
 
@@ -51,7 +92,6 @@ function fillHeart() {
 }
 
 function addToFavourites() {
-    
     savedFavourites.push(jokes[ID])
     localStorage.setItem('Favourites', JSON.stringify(savedFavourites))
 }
@@ -67,6 +107,27 @@ function removeFromFavourites() {
     localStorage.setItem('Favourites', JSON.stringify(savedFavourites))
 }
 
-getFavourites();
-displayJoke();
-console.log(jokes)
+function loadJokes() {
+    getJokesFromLocalStorage()
+    getFavouriteJokes();
+    displayJoke();
+};
+
+function loadFacts() {
+    getFactsFromLocalStorage();
+    displayFact();
+
+    // TODO : change title of front card
+    cardTitle.innerHTML = 'QUESTION'
+
+    document.querySelector('#next_joke').id = "next-fact";
+
+    document.querySelector('.jokes-front').style = 'background-color: gray';
+    document.querySelector('.jokes-back').style = 'border-color: gray';
+};
+ 
+
+
+loadPage()
+
+// Possible to make only one load function? that recognizes what was clicked and then displays correctly?
