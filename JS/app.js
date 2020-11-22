@@ -7,6 +7,7 @@
     // } else {
     //     console.log('already has jokes')
     // }
+    localStorage.setItem('Clicked', JSON.stringify('Jokes'))
   }
 
   function getFacts() {
@@ -14,7 +15,10 @@
       fetch('https://opentdb.com/api.php?amount=10')
         .then(response => response.json())
         .then(data => {localStorage.setItem('Facts', JSON.stringify(data.results))})    
-    }
+    
+        
+    localStorage.setItem('Clicked', JSON.stringify('Facts'));
+  }
     
   var swiper = new Swiper('.swiper-container', {
     navigation: {
