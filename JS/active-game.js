@@ -80,6 +80,8 @@ function nextJoke() {
 
 function fillHeart() {
 
+    console.log(event.target)
+
     if (toggle === true) {
         heart.src  = "./images/heart red.svg";
         addToFavourites();
@@ -120,13 +122,18 @@ function loadFacts() {
     // TODO : change title of front card
     cardTitle.innerHTML = 'QUESTION'
 
-    document.querySelector('#next_joke').id = "next-fact";
-
     document.querySelector('.jokes-front').style = 'background-color: gray';
     document.querySelector('.jokes-back').style = 'border-color: gray';
 };
  
 
+function next() {
+    if (selected == 'Jokes') {
+        nextJoke();
+    } else if (selected == 'Facts') {
+        nextFact();
+    }
+}
 
 loadPage()
 
