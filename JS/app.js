@@ -32,3 +32,18 @@ index.loadPage();
 //     // const posts = [...this.state.posts, ...data]
 //     console.log("fetch done")
 //   }
+    getFacts()
+    function getFacts() {
+      console.log('Facts')
+        fetch('https://opentdb.com/api.php?amount=10')
+          .then(response => response.json())
+          .then(data => {facts = data, localStorage.setItem('Facts', JSON.stringify(facts))})    
+          // .then(jokes => )
+      }
+
+var swiper = new Swiper('.swiper-container', {
+  navigation: {
+    nextEl: '.swiper-button-next',
+    prevEl: '.swiper-button-prev',
+  },
+});
