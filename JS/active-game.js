@@ -2,9 +2,8 @@ let quote = document.querySelector('#quote');
 let cardTitle = document.querySelector('#card-title');
 let heart = document.querySelector('.heart');
 
-let toggle;
+let jokes, game, factsArray, savedFavourites, selected, color, toggle;
 let ID = 0;
-let jokes, game, factsArray, savedFavourites, selected, color;
 
 let Card = function(type, color, entry) {
     this.type = type,
