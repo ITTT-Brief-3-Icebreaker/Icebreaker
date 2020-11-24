@@ -103,11 +103,6 @@ h2 {
     margin-top: 1rem;
 }
 
-#quote {
-    word-break: break-word;
-    overflow: scroll;
-}
-
 header {
     /* height: 20vh; */
     margin-top: 20px;
