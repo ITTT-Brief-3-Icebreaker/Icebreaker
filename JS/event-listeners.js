@@ -3,8 +3,11 @@ document.querySelector('#get_jokes').addEventListener('click', getJokes);
 
 
 if (document.querySelector('#next_joke')) {
-    document.querySelector('#next_joke').addEventListener('click', nextJoke) 
+    document.querySelector('#next_joke').addEventListener('click', nextJoke)
 }
+
+// document.querySelector("#next_pickup-line").addEventListener("click", nextPickUpLine);
+
 // document.querySelector('#get_jokes_desktop').addEventListener('click', getJokes);
 
 // // RANDOM LATIN
@@ -15,4 +18,4 @@ if (document.querySelector('#next_joke')) {
 
 
 // document.querySelector('#get_advice').addEventListener('click', getAdvice);
-// document.querySelector('#next_advice').addEventListener('click', nextAdvice) 
+// document.querySelector('#next_advice').addEventListener('click', nextAdvice)

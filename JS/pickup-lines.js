@@ -1,27 +1,42 @@
-let pickupLinesHtml = document.querySelector('#next_quote');
-
 let ID = 0;
+let pickupLinesHtml = document.getElementById("pickup-lines");
+document.querySelector("#next_pickup-line").addEventListener("click", nextPickUpLine);
 
-function displayQuote() {
-    quotes.innerHTML = jokes[ID].joke;
-}
 
-function nextQuote() {
+
+
+
+function nextPickUpLine() {
     ID++;
 
-    displayQuote()
+    displayPickUpLine()
+    getPickupLines()
+}
 
-    if (ID == jokes.length - 1) {
-        getQuotes()
-        ID = 0;
-    }
-};
+//     if (ID == jokes.length - 1) {
+//         getQuotes()
+//         ID = 0;
+//     }
+// };
 
-displayJoke();
+// displayJoke();
+let apiURL = "https://codeshifu-pickup-lines.glitch.me/api";
+// let pickUpLines = "";
 
 async function getPickupLines() {
-    let response = await fetch('https://codeshifu-pickup-lines.glitch.me/api');
-    let pickUpLines = await response.json();
+    let response = await fetch(apiURL);
+    pickUpData = await response.json();
+    localStorage.setItem("pickUpLines", pickUpData.data[ID]);
     // .then (data => data.JSON()
-    console.log(pickUpLines)
+    console.log(pickUpData.data[ID])
+
+
 }
+
+
+function displayPickUpLine() {
+    document.getElementById("pickup-lines").innerHTML = localStorage.getItem("pickUpLines");
+    console.log("display")
+}
+// getPickupLines()
+// displayPickUpLine()
