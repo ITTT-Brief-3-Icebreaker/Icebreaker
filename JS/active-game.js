@@ -131,6 +131,16 @@ function next() {
         displayFact();
     }
 
+    if (savedFavourites.length > 0) {
+        isFavourite();
+    }
+
+    if (ID == game.length - 1) {
+        ID = 0;
+    }
+}
+
+function isFavourite() {
     if (game[ID].id != undefined) {
         for (i = 0; i < savedFavourites.length; i++) {
 
@@ -152,10 +162,6 @@ function next() {
                 toggle = true;
             }
         }
-    }
-
-    if (ID == game.length - 1) {
-        ID = 0;
     }
 }
 

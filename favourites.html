@@ -17,7 +17,7 @@
         <nav></nav>
    </header>
 
-    <main class="cards">
+    <main class="cards favourites-container">
             <!-- Front side of card -->
             <div class="jokes flexCenter">
                 <div class="jokes-front front card"  id="get_jokes">
@@ -31,9 +31,9 @@
             <!-- Back side of card to display joke -->
             <div class="jokes-back card">
                 <div id="next">
-                <div class="heartContainer">
-                    <img class="heart" src="./images/heart.svg" alt="click heart to add to favourites">
-                </div>
+                    <div class="heartContainer">
+                        <img class="heart" src="./images/heart.svg" alt="click heart to add to favourites">
+                    </div>
                 
                     <h3 id="card-title">JOKE CARD</h3>
                     <p id="quote" class="answer"></p>
@@ -44,8 +44,8 @@
    <footer></footer>
    
    <script src="./JS/app.js" defer></script>
-   <script src="./JS/event-listeners.js" defer></script>
-   <script src="./JS/active-game.js"></script>
+   <!-- <script src="./JS/event-listeners.js" defer></script> -->
+   <script src="./JS/favourites.js"></script>
    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
 </body>
 </html>
