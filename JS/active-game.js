@@ -2,21 +2,31 @@ let quote = document.querySelector('#quote');
 let cardTitle = document.querySelector('#card-title');
 let heart = document.querySelector('.heart');
 
-let toggle = true;
+let toggle;
 let ID = 0;
-let jokes, factsArray, savedFavourites, selected;
+let jokes, game, factsArray, savedFavourites, selected, color;
 
-function getJokesFromLocalStorage() {
-    jokes = JSON.parse(localStorage.getItem('Jokes'));
-};
+let Card = function(type, color, entry) {
+    this.type = type,
+    this.color = color,
+    this.entry = entry
+}
 
-function getFactsFromLocalStorage() {
-    factsArray = JSON.parse(localStorage.getItem('Facts'));
+function getFromLocalStorage(key) { 
+    game = JSON.parse(localStorage.getItem(key));
+    console.log(game)
+    if (JSON.parse(localStorage.getItem('Favourites'))) {
+        savedFavourites = JSON.parse(localStorage.getItem('Favourites'));
+    } else {
+        savedFavourites = [];
+    };
 };
 
 function loadPage() {
+    toggle = true;
     selected = JSON.parse(localStorage.getItem('Clicked'));
     console.log('selected: ' + selected);
+    getFromLocalStorage(selected);
     if (selected == 'Jokes') {
         loadJokes();
     } else if (selected == 'Facts') {
@@ -24,8 +34,8 @@ function loadPage() {
     }
 }
 
-function getFavouriteJokes() { 
-    if (JSON.parse(localStorage.getItem('Favourites'))){
+function getFavouriteJokes() {
+    if (JSON.parse(localStorage.getItem('Favourites'))) {
         savedFavourites = JSON.parse(localStorage.getItem('Favourites'));
     } else {
         savedFavourites = [];
@@ -33,43 +43,27 @@ function getFavouriteJokes() {
 };
 
 function displayFact() {
-    quote.innerHTML = factsArray[ID].question + '<br> <br> A: ' 
-                        + factsArray[ID].correct_answer;
+    quote.innerHTML = game[ID].question + '<br> <br> A: ' +
+        game[ID].correct_answer + '<br> <br> Incorrect Answers: ' + game[ID].incorrect_answers;
 }
 
 function displayJoke() {
-    // console.log(ID)
-    quote.innerHTML = jokes[ID].joke;
-
-    for (i = 0; i < savedFavourites.length; i++) {
-        if (jokes[ID].id == savedFavourites[i].id) {
-            heart.src  = "./images/heart red.svg";
-            toggle = false;
-        }
-    }
-}
-
-function nextFact() {
-    ID++;
-    displayFact();
+    quote.innerHTML = game[ID].joke;  
 }
 
 function nextJoke() {
-    ID++;
-    toggle = true;
-    favourites.src = "./images/heart.svg";
-    
+    // ID++;
+    // toggle = true;
 
-    if (ID == jokes.length) {
+    if (ID == game.length) {
         const promise = new Promise(function(resolve, reject) {
-            getJokes();
-            resolve();
-        })
-            .then(function (result) {
+                getJokes();
+                resolve();
+            })
+            .then(function(result) {
                 getJokesFromLocalStorage();
             })
             .then(function() {
-                // console.log('new joke')
                 displayJoke();
             });
         ID = 0;
@@ -80,21 +74,21 @@ function nextJoke() {
 
 function fillHeart() {
 
-    console.log(event.target)
-
     if (toggle === true) {
-        heart.src  = "./images/heart red.svg";
+        console.log('added')
+        heart.src = "./images/heart red.svg";
         addToFavourites();
     } else {
-       heart.src = "./images/heart.svg";
-       removeFromFavourites();
+        console.log('removed')
+        heart.src = "./images/heart.svg";
+        removeFromFavourites();
     }
-
-    toggle = !toggle; 
+    toggle = !toggle;
 }
 
 function addToFavourites() {
-    savedFavourites.push(jokes[ID])
+    let newFavourite = new Card (selected, color, game[ID])
+    savedFavourites.push(newFavourite);
     localStorage.setItem('Favourites', JSON.stringify(savedFavourites))
 }
 
@@ -110,28 +104,58 @@ function removeFromFavourites() {
 }
 
 function loadJokes() {
-    getJokesFromLocalStorage()
-    getFavouriteJokes();
+    color = '#564787';
     displayJoke();
 };
 
 function loadFacts() {
-    getFactsFromLocalStorage();
     displayFact();
 
     // TODO : change title of front card
     cardTitle.innerHTML = 'QUESTION'
 
-    document.querySelector('.jokes-front').style = 'background-color: gray';
-    document.querySelector('.jokes-back').style = 'border-color: gray';
+    color = '#696773';
+    document.querySelector('.jokes-front').style = 'background-color: ' + color + ';';
+    document.querySelector('.jokes-back').style = 'border-color: ' + color + ';';
 };
- 
+
 
 function next() {
+    ID++;
+    toggle = true;
+    heart.src = "./images/heart.svg";
+
     if (selected == 'Jokes') {
-        nextJoke();
+        displayJoke();
     } else if (selected == 'Facts') {
-        nextFact();
+        displayFact();
+    }
+
+    if (game[ID].id != undefined) {
+        for (i = 0; i < savedFavourites.length; i++) {
+
+            console.log('is not undefinied')
+            if (game[ID].id == savedFavourites[i].entry.id) {
+
+                heart.src = "./images/heart red.svg";
+                
+                toggle = true;
+            }
+        }
+    } else if (game[ID].question != undefined) {
+        for (i = 0; i < savedFavourites.length; i++) {
+
+            if (game[ID].question == savedFavourites[i].entry.question) {
+
+                heart.src = "./images/heart red.svg";
+                console.log('question: ' + game[ID].question)
+                toggle = true;
+            }
+        }
+    }
+
+    if (ID == game.length - 1) {
+        ID = 0;
     }
 }
 
