@@ -25,6 +25,7 @@
 
 #next {
     height: 100%;
+    overflow: scroll
 }
 
 .answer {

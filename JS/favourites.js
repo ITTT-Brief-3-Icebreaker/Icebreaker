@@ -1,4 +1,5 @@
 let getAllFavourites, selected, favouritesContainer;
+let toggle = true;
 
 document.querySelector('.select_btn').addEventListener('click', chooseCategories)
 
@@ -30,8 +31,12 @@ function displaySelectedCategories(i) {
     container.className = "jokes-back card";
     let next = document.createElement('div')
     next.id = "next";
+    let heartContainer = document.createElement('div')
+    heartContainer.className = "heartContainer";
+    let heartSvg = document.createElement("img")
+    heartSvg.className = "heart"
+    heartSvg.src = "./images/heart red.svg";
 
-    container.appendChild(next);
     
     let title = document.createElement("h3")
     title.id = "card-title";
@@ -51,9 +56,11 @@ function displaySelectedCategories(i) {
 
     container.style = 'border-color: ' + getAllFavourites[i].color + ';';
     
+    container.appendChild(next);
+    next.appendChild(heartContainer);
+    heartContainer.appendChild(heartSvg);
     next.appendChild(title);
     next.appendChild(quote);
-
     favouritesContainer.appendChild(container);
 }
 
@@ -73,3 +80,27 @@ function getFavourites() {
 
 getFavourites()
 renderFavourites();
+
+function fillHeart() {
+    if (toggle === true) {
+        console.log('added')
+        heartSvg.src = "./images/heart red.svg";
+        addToFavourites();
+    } else {
+        console.log('removed')
+        heartSvg.src = "./images/heart.svg";
+        removeFromFavourites();
+    }
+    toggle = !toggle;
+}
+
+function removeFromFavourites() {
+
+    for (i = 0; i < savedFavourites.length; i++) {
+        if (jokes[ID].id == savedFavourites[i].id) {
+            savedFavourites.splice(i, 1);
+        }
+    }
+
+    localStorage.setItem('Favourites', JSON.stringify(savedFavourites))
+}

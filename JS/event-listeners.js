@@ -22,3 +22,4 @@ if (document.querySelector('#facts-mobile')) {
     document.querySelector('#facts-mobile').addEventListener('click', getFacts);
     console.log('gactalkdg')
 }
+

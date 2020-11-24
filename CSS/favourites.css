@@ -1,5 +1,13 @@
 
 .cards.favourites-container {
-    display: grid;
-    grid-template-columns: auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    margin: 0 50px 0 50px;
+}
+
+.jokes-back {
+    padding: 2%;
+    margin: 2%;
 }
