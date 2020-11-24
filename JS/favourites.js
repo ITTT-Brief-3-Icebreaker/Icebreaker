@@ -21,7 +21,6 @@ function chooseCategories() {
             displaySelectedCategories(i);
         } 
     }
-
 };
 
 function displaySelectedCategories(i) {
