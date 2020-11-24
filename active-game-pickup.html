@@ -5,8 +5,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <link href="CSS/index.css" type="text/css" rel="stylesheet" />
-    <link href="CSS/mediaqueries.css" type="text/css" rel="stylesheet" />
+    <!-- <link href="CSS/index.css" type="text/css" rel="stylesheet" /> -->
+    <!-- <link href="CSS/mediaqueries.css" type="text/css" rel="stylesheet" /> -->
     <link href="CSS/active-game.css" type="text/css" rel="stylesheet" />
     <!-- <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" /> -->
 
@@ -23,8 +23,8 @@
 
     <main class="cards">
         <!-- Front side of card -->
-        <div class="pickup-lines">
-            <div class="pickup-lines-front front card" id="get-pickup-lines">
+        <div class="quotes">
+            <div class="quotes-front front card" id="get-quotes">
                 <h2>ICE<br>BRE<br>AKER</h2>
                 <div class="down-arrow"></div>
                 <h3>JOKE CARD</h3>
@@ -33,7 +33,7 @@
         </div>
 
         <!-- Back side of card to display joke -->
-        <div class="pickup-lines-back card" id="next_pickup-lines">
+        <div class="quotes-back card" id="next_quote">
             <h3>JOKE CARD</h3>
             <p id="quote" class="answer"></p>
         </div>
@@ -44,7 +44,9 @@
     <script src="./JS/app.js" defer></script>
     <script src="./JS/event-listeners.js" defer></script>
     <script src="./JS/active-game.js"></script>
+    <script src="./JS/pickup-lines.js"></script>
     <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+
 </body>
 
 </html>
