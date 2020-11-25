@@ -1,3 +1,7 @@
+var url_string = window.location.href;
+var url = new URL(url_string);
+var selected1 = url.searchParams.get("game");
+
 let quote = document.querySelector('#quote');
 let cardTitle = document.querySelector('#card-title');
 let heart = document.querySelector('.heart');
