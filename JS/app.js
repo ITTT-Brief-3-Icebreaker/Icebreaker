@@ -1,22 +1,28 @@
+
+  
   function getJokes() {
     // if (JSON.parse(localStorage.getItem('Jokes')) == undefined) {
       console.log('get new Jokes')
       fetch('https://sv443.net/jokeapi/v2/joke/Any?blacklistFlags=nsfw,religious,political,racist,sexist&type=single&amount=100')
         .then(response => response.json())
-        .then(data => localStorage.setItem('Jokes', JSON.stringify(data.jokes))) 
-    // } else {
-    //     console.log('already has jokes')
-    // }
-    localStorage.setItem('Clicked', JSON.stringify('Jokes'))
+        .then(data => {
+          localStorage.setItem('Jokes', JSON.stringify(data.jokes)),
+          setup()
+      })
+   
+    // localStorage.setItem('Clicked', JSON.stringify('Jokes'))
   }
 
   function getFacts() {
     console.log('Facts')
       fetch('https://opentdb.com/api.php?amount=10')
         .then(response => response.json())
-        .then(data => {localStorage.setItem('Facts', JSON.stringify(data.results))})    
+        .then(data => {
+          localStorage.setItem('Facts', JSON.stringify(data.results)),
+          setup()
+        })    
        
-    localStorage.setItem('Clicked', JSON.stringify('Facts'));
+    // localStorage.setItem('Clicked', JSON.stringify('Facts'));
   }
    
   function getInsults() {
@@ -27,6 +33,19 @@
        
     localStorage.setItem('Clicked', JSON.stringify('Insult'));
   }
+
+  let apiURL = "https://codeshifu-pickup-lines.glitch.me/api";
+
+  async function getPickupLines() {
+    let response = await fetch(apiURL);
+    pickUpData = await response.json();
+    localStorage.setItem("pickUpLines", JSON.stringify(pickUpData.data));
+    // .then (data => data.JSON()
+    console.log(pickUpData.data[ID])
+    setup();
+
+
+}
 
   var swiper = new Swiper('.swiper-container', {
     navigation: {
