@@ -2,10 +2,11 @@ let quote = document.querySelector('#quote');
 let cardTitle = document.querySelector('#card-title');
 let heart = document.querySelector('.heart');
 
-let jokes, game, factsArray, savedFavourites, selected, color, toggle;
+let jokes, game, savedFavourites, selected, color, toggle, nr;
 let ID = 0;
 
-let Card = function(type, color, entry) {
+let Card = function(nr, type, color, entry) {
+    this.nr = nr,
     this.type = type,
     this.color = color,
     this.entry = entry
@@ -14,11 +15,15 @@ let Card = function(type, color, entry) {
 function getFromLocalStorage(key) { 
     game = JSON.parse(localStorage.getItem(key));
     console.log(game)
-    if (JSON.parse(localStorage.getItem('Favourites'))) {
+    if (JSON.parse(localStorage.getItem('Favourites')) && localStorage.Favourites.length > 3) {
         savedFavourites = JSON.parse(localStorage.getItem('Favourites'));
+        console.log(savedFavourites)
+        nr = savedFavourites[savedFavourites.length - 1].nr;
     } else {
         savedFavourites = [];
+        nr = 0;
     };
+    console.log(nr);
 };
 
 function loadPage() {
@@ -33,13 +38,13 @@ function loadPage() {
     }
 }
 
-function getFavouriteJokes() {
-    if (JSON.parse(localStorage.getItem('Favourites'))) {
-        savedFavourites = JSON.parse(localStorage.getItem('Favourites'));
-    } else {
-        savedFavourites = [];
-    };
-};
+// function getFavouriteJokes() {
+//     if (JSON.parse(localStorage.getItem('Favourites'))) {
+//         savedFavourites = JSON.parse(localStorage.getItem('Favourites'));
+//     } else {
+//         savedFavourites = [];
+//     };
+// };
 
 function displayFact() {
     quote.innerHTML = game[ID].question + '<br> <br> A: ' +
@@ -50,26 +55,24 @@ function displayJoke() {
     quote.innerHTML = game[ID].joke;  
 }
 
-function nextJoke() {
-    // ID++;
-    // toggle = true;
+// function nextJoke() {
 
-    if (ID == game.length) {
-        const promise = new Promise(function(resolve, reject) {
-                getJokes();
-                resolve();
-            })
-            .then(function(result) {
-                getJokesFromLocalStorage();
-            })
-            .then(function() {
-                displayJoke();
-            });
-        ID = 0;
-    } else {
-        displayJoke();
-    };
-};
+//     if (ID == game.length) {
+//         const promise = new Promise(function(resolve, reject) {
+//                 getJokes();
+//                 resolve();
+//             })
+//             .then(function(result) {
+//                 getJokesFromLocalStorage();
+//             })
+//             .then(function() {
+//                 displayJoke();
+//             });
+//         ID = 0;
+//     } else {
+//         displayJoke();
+//     };
+// };
 
 function fillHeart() {
 
@@ -86,15 +89,17 @@ function fillHeart() {
 }
 
 function addToFavourites() {
-    let newFavourite = new Card (selected, color, game[ID])
+    let newFavourite = new Card (nr, selected, color, game[ID])
     savedFavourites.push(newFavourite);
     localStorage.setItem('Favourites', JSON.stringify(savedFavourites))
+    nr++;
 }
 
 function removeFromFavourites() {
 
     for (i = 0; i < savedFavourites.length; i++) {
-        if (jokes[ID].id == savedFavourites[i].id) {
+        if (game[ID].id == savedFavourites[i].id) {
+            console.log(savedFavourites[i].id)
             savedFavourites.splice(i, 1);
         }
     }
@@ -140,25 +145,22 @@ function next() {
 }
 
 function isFavourite() {
+
     if (game[ID].id != undefined) {
         for (i = 0; i < savedFavourites.length; i++) {
-
-            console.log('is not undefinied')
             if (game[ID].id == savedFavourites[i].entry.id) {
-
                 heart.src = "./images/heart red.svg";
-                
-                toggle = true;
+                toggle = false;
             }
         }
+
     } else if (game[ID].question != undefined) {
         for (i = 0; i < savedFavourites.length; i++) {
 
             if (game[ID].question == savedFavourites[i].entry.question) {
-
                 heart.src = "./images/heart red.svg";
                 console.log('question: ' + game[ID].question)
-                toggle = true;
+                toggle = false;
             }
         }
     }
