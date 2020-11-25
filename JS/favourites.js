@@ -13,6 +13,10 @@ function chooseCategories() {
         selected.push('Facts');
     }
 
+    if (document.querySelector('.add_pickup_lines').checked) {
+        selected.push('pickUpLines')
+    }
+
     favouritesContainer.innerHTML = "";
     
     for (i = 0; i < getAllFavourites.length; i++) {
@@ -54,6 +58,9 @@ function displaySelectedCategories(i) {
     } else if (getAllFavourites[i].type == "Facts") {
         quote.innerHTML = getAllFavourites[i].entry.question + '<br> <br> A: ' +
         getAllFavourites[i].entry.correct_answer + '<br> <br> Incorrect Answers: ' + getAllFavourites[i].entry.incorrect_answers;
+
+    } else if (getAllFavourites[i].type == "pickUpLines") {
+        quote.innerHTML = getAllFavourites[i].entry;
     }
 
     container.style = 'border-color: ' + getAllFavourites[i].color + ';';
