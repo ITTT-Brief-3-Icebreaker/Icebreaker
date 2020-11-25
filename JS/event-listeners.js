@@ -23,7 +23,7 @@ if (document.querySelector('#next')) {
 //     document.querySelector('#facts-mobile').addEventListener('click', getFacts);
 // }
 
-if (document.querySelector('.remove')) {
+function setupRemoveFunction() {
     document.querySelectorAll('.remove').forEach(element => {
         console.log(element), element.addEventListener('click', removeFromAllFavourites)
     })

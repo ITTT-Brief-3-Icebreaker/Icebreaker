@@ -26,6 +26,8 @@ function chooseCategories() {
             displaySelectedCategories(i);
         } 
     }
+
+    setupRemoveFunction();
 };
 
 function displaySelectedCategories(i) {
@@ -102,5 +104,7 @@ function removeFromAllFavourites() {
 
 getFavourites()
 renderFavourites();
+setupRemoveFunction();
 
 // TODO: reset nr:s of getAllFavourites after one has been removed on both favourites and active-game
+// BUG: not able to remove favourite after the list has been modified?
