@@ -5,6 +5,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed&display=swap" rel="stylesheet" />
+
     <link href="./CSS/index.css" type="text/css" rel="stylesheet" />
     <link href="./CSS/carousel.css" type="text/css" rel="stylesheet" />
     <link href="./CSS/mediaqueries.css" type="text/css" rel="stylesheet" />
@@ -21,7 +23,7 @@
     </header>
 
     <main class="cards desktop">
-        <div class="jokes">
+        <div class="jokes flexCenter">
             <a href="active-game.html">
                 <div class="jokes-front front card" id="get_jokes">
                     <h2>ICE<br>BRE<br>AKER</h2>
@@ -43,12 +45,12 @@
             </a>
         </div>
 
-        <div class="facts">
+        <div class="facts flexCenter">
             <img src="images/Rule Card Gray.png" alt="">
             <!-- <button id="get_lines_desktop">Get lines</button> -->
         </div>
 
-        <div class="cat-facts">
+        <div class="cat-facts flexCenter">
             <img src="images/Play Card Yellow.png" alt="">
         </div>
     </main>
@@ -62,9 +64,9 @@
 
                 <!-- Slides -->
                 <div class="swiper-slide">
-                    <div class="jokes dummy">
-                        <a href="active-page.html">
-                            <div class="jokes-front front card" id="get_jokes">
+                    <div class="jokes">
+                        <a href="active-game.html">
+                            <div class="jokes-front front card" id="get_jokes_mobile">
                                 <h2>ICE<br>BRE<br>AKER</h2>
                                 <div class="down-arrow"></div>
                                 <h3>JOKE CARD</h3>
@@ -75,38 +77,31 @@
                 </div>
 
                 <div class="swiper-slide">
-                    <div class="pickup-lines dummy">
+                    <div class="pickup-lines">
                         <img src="images/Play Card Blue.png" alt="">
                     </div>
                 </div>
 
                 <div class="swiper-slide">
-                    <div class="facts dummy">
-                        <img src="images/Rule Card Gray.png" alt="">
-                        <button id="get_lines">Get lines</button>
+                    <div class="facts">
+                        <a href="active-game.html">
+                            <img src="images/Rule Card Gray.png" alt="" id="facts-mobile">
+                        </a>
                     </div>
                 </div>
 
                 <div class="swiper-slide">
-                    <div class="cat-facts dummy">
+                    <div class="cat-facts">
                         <img src="images/Play Card Yellow.png" alt="">
                     </div>
                 </div>
-            </div>
 
-            <!-- navigation buttons -->
-            <div class="swiper-button-prev"></div>
-            <div class="swiper-button-next"></div>
-        </div>
+                <!-- navigation buttons -->
+                <div class="swiper-button-prev"></div>
+                <div class="swiper-button-next"></div>
+            </div>
     </main>
 
-
-    <!-- Back side of card to display joke -->
-    <!-- 
-        <div class="jokes-back card" id="next_joke">
-            <h3>JOKE CARD</h3>
-            <p id="quote" class="answer"></p>
-        </div> -->
     <footer></footer>
 
     <script src="./JS/app.js" defer></script>

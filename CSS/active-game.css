@@ -2,16 +2,31 @@
     background: #fff;
     text-align: left;
     border: 7px solid var(--purple);
-    padding: 0.5rem;
+    grid-column: 6 / 3;
+    z-index: 1;
+    grid-row-start: 1;
+    margin-top: 50%;
+    padding: 6%;
 }
 
 .jokes {
-    grid-column: 2 /3;
+    grid-column: 2 / 5;
+    grid-row-start: 1;
 }
 
-h3 {
-    margin: 0.7rem;
+.heartContainer {
+    display: flex;
+    justify-content: flex-end;
 }
+.heart {
+    display: block;
+    height: 20px;
+}
+
+#next {
+    height: 100%;
+}
+
 .answer {
     margin-top: 1rem;
 }

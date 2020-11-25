@@ -1,67 +1,46 @@
-let facts = [];
-let advice = [];
-let quotes = [];
+  function getJokes() {
+      // if (JSON.parse(localStorage.getItem('Jokes')) == undefined) {
+      console.log('get new Jokes')
+      fetch('https://sv443.net/jokeapi/v2/joke/Any?blacklistFlags=nsfw,religious,political,racist,sexist&type=single&amount=100')
+          .then(response => response.json())
+          .then(data => localStorage.setItem('Jokes', JSON.stringify(data.jokes)))
+          // } else {
+          //     console.log('already has jokes')
+          // }
+      localStorage.setItem('Clicked', JSON.stringify('Jokes'))
+  }
 
-function newData() {
-    let ID = Math.floor(Math.random() * 50);
-    document.querySelector('#line').innerHTML = 'titel: ' + facts[ID].title + '<br />body: ' + facts[ID].body;
-};
+  function getFacts() {
+      console.log('Facts')
+      fetch('https://opentdb.com/api.php?amount=10')
+          .then(response => response.json())
+          .then(data => { localStorage.setItem('Facts', JSON.stringify(data.results)) })
 
-// function nextJoke() {
-//   let ID = Math.floor(Math.random() * 10);
-//   document.querySelector('#quote').innerHTML = jokes.jokes[ID].joke;
-// };
+      localStorage.setItem('Clicked', JSON.stringify('Facts'));
+  }
 
+  function getInsults() {
+      console.log('Insult')
+      fetch('https://api.fungenerators.com/taunt/generate?category=new-age-insult&limit=5')
+          .then(response => response.json())
+          .then(data => { localStorage.setItem('Insults', JSON.stringify(data.results)) })
 
+      localStorage.setItem('Clicked', JSON.stringify('Insult'));
+  }
 
-// function componentDidMount() {
-//     fetch('https://jsonplaceholder.typicode.com/posts')
-//       .then(response => response.json())
-//       .then(data => facts = data)    
-//   }
+  var swiper = new Swiper('.swiper-container', {
+      navigation: {
+          nextEl: '.swiper-button-next',
+          prevEl: '.swiper-button-prev',
+      },
+  });
 
-function getJokes() {
-    console.log('get new Jokes')
-    fetch('https://sv443.net/jokeapi/v2/joke/Any?blacklistFlags=nsfw,religious,political,racist,sexist&type=single&amount=10')
-        .then(response => response.json())
-        .then(data => localStorage.setItem('Jokes', JSON.stringify(data.jokes)))
-        // .then(jokes => )
-    console.log('Jokes')
-}
-
-getFacts()
-
-function getFacts() {
-    console.log('Facts')
-    fetch('https://opentdb.com/api.php?amount=10')
-        .then(response => response.json())
-        .then(data => { facts = data, localStorage.setItem('Facts', JSON.stringify(facts)) })
-        // .then(jokes => )
-}
-// getPickupLines()
-
-// function getPickupLines() {
-//     fetch('https://type.fit/api/quotes')
-//         .then(response => response.json())
-//         .then(data => {quotes = data, localStorage.setItem('quotes', JSON.stringify(data.text)))
-//     console.log(data);
-// }
-
-
-
-// ALTERNATIVE WAY OF WRITING
-// async function componentDidMount() {
-//     console.log("fetch init")
-//     const response = await fetch('https://callook.info/W1AW/json')
-//     const data = await response.json()
-//     console.log(data)
-//     // const posts = [...this.state.posts, ...data]
-//     console.log("fetch done")
-//   }
-
-var swiper = new Swiper('.swiper-container', {
-    navigation: {
-        nextEl: '.swiper-button-next',
-        prevEl: '.swiper-button-prev',
-    },
-});
+  // ALTERNATIVE WAY OF WRITING
+  // async function componentDidMount() {
+  //     console.log("fetch init")
+  //     const response = await fetch('https://callook.info/W1AW/json')
+  //     const data = await response.json()
+  //     console.log(data)
+  //     // const posts = [...this.state.posts, ...data]
+  //     console.log("fetch done")
+  //   }
