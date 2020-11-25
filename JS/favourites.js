@@ -1,5 +1,5 @@
-let getAllFavourites, selected, favouritesContainer;
-let toggle = true;
+let getAllFavourites, selected, favouritesContainer, heartSvg;
+let toggle = false;
 
 document.querySelector('.select_btn').addEventListener('click', chooseCategories)
 
@@ -29,11 +29,14 @@ function displaySelectedCategories(i) {
     let container = document.createElement('div')
     container.className = "jokes-back card";
     let next = document.createElement('div')
-    next.id = "next";
+    next.className = "next";
     let heartContainer = document.createElement('div')
     heartContainer.className = "heartContainer";
-    let heartSvg = document.createElement("img")
+    
+    heartSvg = document.createElement("img")
     heartSvg.className = "heart"
+    heartSvg.classList.add("remove");
+    heartSvg.id = getAllFavourites[i].nr;
     heartSvg.src = "./images/heart red.svg";
 
     
@@ -64,7 +67,7 @@ function displaySelectedCategories(i) {
 }
 
 function renderFavourites() {
-    console.log("hello")
+
     favouritesContainer = document.querySelector(".favourites-container");
     favouritesContainer.innerHTML = "";
 
@@ -77,29 +80,20 @@ function getFavourites() {
     getAllFavourites = JSON.parse(localStorage.getItem('Favourites'));
 }
 
-getFavourites()
-renderFavourites();
 
-function fillHeart() {
-    if (toggle === true) {
-        console.log('added')
-        heartSvg.src = "./images/heart red.svg";
-        addToFavourites();
-    } else {
-        console.log('removed')
-        heartSvg.src = "./images/heart.svg";
-        removeFromFavourites();
-    }
-    toggle = !toggle;
-}
+function removeFromAllFavourites() {
 
-function removeFromFavourites() {
-
-    for (i = 0; i < savedFavourites.length; i++) {
-        if (jokes[ID].id == savedFavourites[i].id) {
-            savedFavourites.splice(i, 1);
+    for (i = 0; i < getAllFavourites.length; i++) {
+        if (event.target.id == getAllFavourites[i].nr) {
+            event.target.parentNode.parentNode.parentNode.style = "display: none;";
+            getAllFavourites.splice(i, 1);
         }
     }
 
-    localStorage.setItem('Favourites', JSON.stringify(savedFavourites))
+    localStorage.setItem('Favourites', JSON.stringify(getAllFavourites))
 }
+
+getFavourites()
+renderFavourites();
+
+// TODO: reset nr:s of getAllFavourites after one has been removed on both favourites and active-game
