@@ -1,0 +1,34 @@
+.pickup-lines-back {
+    background: #fff;
+    text-align: left;
+    border: 7px solid var(--purple);
+    grid-column: 6 / 3;
+    z-index: 1;
+    grid-row-start: 1;
+    margin-top: 50%;
+    padding: 6%;
+}
+
+.pickup-lines {
+    grid-column: 2 / 5;
+    grid-row-start: 1;
+}
+
+.heartContainer {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.heart {
+    display: block;
+    height: 20px;
+}
+
+
+/* #next_pickup-line {
+    height: 100%;
+} */
+
+.answer {
+    margin-top: 1rem;
+}

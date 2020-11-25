@@ -10,7 +10,6 @@ function nextPickUpLine() {
     ID++;
 
     displayPickUpLine()
-    getPickupLines()
 }
 
 //     if (ID == pickUpLinesKey.length - 1) {
@@ -21,7 +20,7 @@ function nextPickUpLine() {
 
 // displayJoke();
 let apiURL = "https://codeshifu-pickup-lines.glitch.me/api";
-// let pickUpLines = "";
+// let pickUpData = "";
 
 async function getPickupLines() {
     let response = await fetch(apiURL);
@@ -38,6 +37,8 @@ function displayPickUpLine() {
     document.getElementById("pickup-lines").innerHTML = localStorage.getItem("pickUpLinesKey");
     console.log("display")
 }
-displayPickUpLine()
-    // getPickupLines()
-    // displayPickUpLine()
+getPickupLines()
+
+// displayPickUpLine()
+// getPickupLines()
+// displayPickUpLine()
