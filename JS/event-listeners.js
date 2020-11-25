@@ -7,7 +7,7 @@ if (document.querySelector('#get_jokes_mobile')) {
     document.querySelector('#get_jokes_mobile').addEventListener('click', getJokes);
 }
 if (document.querySelector('#get-pickup-lines')) {
-    document.querySelector('#get-pickup-lines').addEventListener('click', getPickupLines);
+    document.querySelector('#get-pickup-lines').addEventListener('click', getPickUpLines);
 }
 
 if (document.querySelector('#next')) {
@@ -18,6 +18,10 @@ if (document.querySelector('#next')) {
             next();
         }
     })
+}
+
+if(document.querySelector('#facts-desktop')){
+    document.querySelector('#facts-desktop').addEventListener('click', getFacts);
 }
 
 if (document.querySelector('#facts-mobile')) {

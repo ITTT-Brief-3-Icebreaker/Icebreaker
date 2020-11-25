@@ -7,14 +7,14 @@ let ID = 0;
 
 let Card = function(nr, type, color, entry) {
     this.nr = nr,
-        this.type = type,
-        this.color = color,
-        this.entry = entry
+    this.type = type,
+    this.color = color,
+    this.entry = entry
 }
 
 function getFromLocalStorage(key) {
     game = JSON.parse(localStorage.getItem(key));
-    console.log(game)
+    // console.log(game)
     if (JSON.parse(localStorage.getItem('Favourites')) && localStorage.Favourites.length > 3) {
         savedFavourites = JSON.parse(localStorage.getItem('Favourites'));
         console.log(savedFavourites)
@@ -35,7 +35,7 @@ function loadPage() {
         loadJokes();
     } else if (selected == 'Facts') {
         loadFacts();
-    } else if (selected == 'pickUpLines') {
+    } else if (selected == 'PickUpLines') {
         loadPickUpLines()
     }
 }
@@ -151,6 +151,8 @@ function next() {
         displayJoke();
     } else if (selected == 'Facts') {
         displayFact();
+    } else if (selected == 'PickUpLines') {
+        displayPickUpLine();
     }
 
     if (savedFavourites.length > 0) {
