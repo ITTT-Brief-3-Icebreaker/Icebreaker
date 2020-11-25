@@ -7,12 +7,12 @@ let ID = 0;
 
 let Card = function(nr, type, color, entry) {
     this.nr = nr,
-    this.type = type,
-    this.color = color,
-    this.entry = entry
+        this.type = type,
+        this.color = color,
+        this.entry = entry
 }
 
-function getFromLocalStorage(key) { 
+function getFromLocalStorage(key) {
     game = JSON.parse(localStorage.getItem(key));
     console.log(game)
     if (JSON.parse(localStorage.getItem('Favourites')) && localStorage.Favourites.length > 3) {
@@ -35,6 +35,8 @@ function loadPage() {
         loadJokes();
     } else if (selected == 'Facts') {
         loadFacts();
+    } else if (selected == 'pickUpLines') {
+        loadPickUpLines()
     }
 }
 
@@ -52,7 +54,11 @@ function displayFact() {
 }
 
 function displayJoke() {
-    quote.innerHTML = game[ID].joke;  
+    quote.innerHTML = game[ID].joke;
+}
+
+function displayPickUpLine() {
+    quote.innerHTML = game[ID];
 }
 
 // function nextJoke() {
@@ -89,7 +95,7 @@ function fillHeart() {
 }
 
 function addToFavourites() {
-    let newFavourite = new Card (nr, selected, color, game[ID])
+    let newFavourite = new Card(nr, selected, color, game[ID])
     savedFavourites.push(newFavourite);
     localStorage.setItem('Favourites', JSON.stringify(savedFavourites))
     nr++;
@@ -122,6 +128,18 @@ function loadFacts() {
     document.querySelector('.jokes-front').style = 'background-color: ' + color + ';';
     document.querySelector('.jokes-back').style = 'border-color: ' + color + ';';
 };
+
+function loadPickUpLines() {
+    displayPickUpLine();
+
+    // TODO : change title of front card
+    cardTitle.innerHTML = 'Pick Up Lines'
+
+    color = '#009FB7';
+    document.querySelector('.jokes-front').style = 'background-color: ' + color + ';';
+    document.querySelector('.jokes-back').style = 'border-color: ' + color + ';';
+
+}
 
 
 function next() {

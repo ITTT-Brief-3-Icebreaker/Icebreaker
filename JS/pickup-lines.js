@@ -25,7 +25,7 @@ let apiURL = "https://codeshifu-pickup-lines.glitch.me/api";
 async function getPickupLines() {
     let response = await fetch(apiURL);
     pickUpData = await response.json();
-    localStorage.setItem("pickUpLinesKey", pickUpData.data[ID]);
+    localStorage.setItem("pickUpLines", pickUpData.data[ID]);
     // .then (data => data.JSON()
     console.log(pickUpData.data[ID])
 
@@ -34,7 +34,7 @@ async function getPickupLines() {
 
 // let pickUpLines = localStorage.getItem("pickUpLinesKey")
 function displayPickUpLine() {
-    document.getElementById("pickup-lines").innerHTML = localStorage.getItem("pickUpLinesKey");
+    document.getElementById("pickup-lines").innerHTML = localStorage.getItem("pickUpLines");
     console.log("display")
 }
 getPickupLines()

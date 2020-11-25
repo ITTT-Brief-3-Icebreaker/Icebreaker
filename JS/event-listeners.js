@@ -6,6 +6,9 @@ if (document.querySelector('#get_jokes')) {
 if (document.querySelector('#get_jokes_mobile')) {
     document.querySelector('#get_jokes_mobile').addEventListener('click', getJokes);
 }
+if (document.querySelector('#get-pickup-lines')) {
+    document.querySelector('#get-pickup-lines').addEventListener('click', getPickupLines);
+}
 
 if (document.querySelector('#next')) {
     document.querySelector('#next').addEventListener('click', function() {

@@ -28,12 +28,26 @@
       localStorage.setItem('Clicked', JSON.stringify('Insult'));
   }
 
+  let apiURL = "https://codeshifu-pickup-lines.glitch.me/api";
+
+  async function getPickupLines() {
+      let response = await fetch(apiURL);
+      pickUpData = await response.json();
+      localStorage.setItem("pickUpLines", JSON.stringify(pickUpData.data));
+
+      localStorage.setItem('Clicked', JSON.stringify('pickUpLines'));
+
+
+  }
+
   var swiper = new Swiper('.swiper-container', {
       navigation: {
           nextEl: '.swiper-button-next',
           prevEl: '.swiper-button-prev',
       },
   });
+
+  // getPickupLines()
 
   // ALTERNATIVE WAY OF WRITING
   // async function componentDidMount() {
