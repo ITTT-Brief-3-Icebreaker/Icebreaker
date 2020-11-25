@@ -11,3 +11,19 @@
     padding: 2%;
     margin: 2%;
 }
+
+.checkboxes {
+    display: flex;
+    justify-content: center;
+}
+
+.check {
+    margin: 2px 5px 2px 5px;
+}
+
+.select_btn {
+    border: 1px solid #272727;
+    border-radius: 6px;
+    padding: 4px;
+    background: #fff;
+}
