@@ -1,6 +1,6 @@
-
 let quote = document.querySelector('#quote');
 let cardTitle = document.querySelector('#card-title');
+let frontTitle = document.querySelector('#front-title');
 let heart = document.querySelector('.heart');
 
 let jokes, game, savedFavourites, selected, color, toggle, nr;
@@ -11,6 +11,22 @@ let Card = function(nr, type, color, entry) {
     this.type = type,
     this.color = color,
     this.entry = entry
+}
+
+function loadPage() {
+    let url_string = window.location.href;
+    let url = new URL(url_string);
+    selected = url.searchParams.get("selected");
+
+    toggle = true;
+
+    if (selected == 'Jokes') {
+        getJokes();
+    } else if (selected == 'Facts') {
+        getFacts();
+    } else if (selected == 'pickUpLines') {
+        getPickupLines()
+    }
 }
 
 function getFromLocalStorage(key) { 
@@ -25,38 +41,46 @@ function getFromLocalStorage(key) {
     };
 };
 
-function loadPage() {
-    let url_string = window.location.href;
-    let url = new URL(url_string);
-    selected = url.searchParams.get("selected");
-    console.log('1')
-
-    toggle = true;
+function setup() {
+    getFromLocalStorage(selected)
 
     if (selected == 'Jokes') {
-        getJokes();
+        loadJokes();
     } else if (selected == 'Facts') {
-        getFacts();
+        loadFacts();
     } else if (selected == 'pickUpLines') {
-        getPickupLines()
-    }
-
+        loadPickUpLines()
+    };
 }
 
-function setup() {
-    console.log('setup')
-        console.log('selected: ' + selected)
-        console.log('3')
-        getFromLocalStorage(selected)
+function loadJokes() {
+    color = '#564787';
+    displayJoke();
+};
 
-        if (selected == 'Jokes') {
-            console.log('5')
-            loadJokes();
-        } else if (selected == 'Facts') {
-            loadFacts();
-        } else if (selected == 'pickUpLines') {
-            loadPickUpLines()
-        };
+function loadFacts() {
+    displayFact();
+
+    // TODO : change title of front card
+    cardTitle.innerHTML = 'QUESTION';
+    frontTitle.innerHTML = 'QUESTION';
+
+    color = '#696773';
+    document.querySelector('.jokes-front').style = 'background-color: ' + color + ';';
+    document.querySelector('.jokes-back').style = 'border-color: ' + color + ';';
+};
+
+function loadPickUpLines() {
+    displayPickUpLine();
+
+    // TODO : change title of front card
+    cardTitle.innerHTML = 'PICK-UP LINE'
+    frontTitle.innerHTML = 'PICK-UP LINE'
+
+    color = '#009FB7';
+    document.querySelector('.jokes-front').style = 'background-color: ' + color + ';';
+    document.querySelector('.jokes-back').style = 'border-color: ' + color + ';';
+
 }
 
 function displayFact() {
@@ -71,87 +95,6 @@ function displayJoke() {
 function displayPickUpLine() {
     quote.innerHTML = game[ID];
 }
-
-function nextJoke() {
-
-    if (ID == game.length) {
-        const promise = new Promise(function(resolve, reject) {
-                getJokes();
-                resolve();
-            })
-            .then(function(result) {
-                getJokesFromLocalStorage();
-            })
-            .then(function() {
-                displayJoke();
-            });
-        ID = 0;
-    } else {
-        displayJoke();
-    };
-};
-
-function fillHeart() {
-
-    if (toggle === true) {
-        console.log('added')
-        heart.src = "./images/heart red.svg";
-        addToFavourites();
-    } else {
-        console.log('removed')
-        heart.src = "./images/heart.svg";
-        removeFromFavourites();
-    }
-    toggle = !toggle;
-}
-
-function addToFavourites() {
-    let newFavourite = new Card (nr, selected, color, game[ID])
-    savedFavourites.push(newFavourite);
-    localStorage.setItem('Favourites', JSON.stringify(savedFavourites))
-    nr++;
-}
-
-function removeFromFavourites() {
-
-    for (i = 0; i < savedFavourites.length; i++) {
-        if (game[ID].id == savedFavourites[i].id) {
-            console.log(savedFavourites[i].id)
-            savedFavourites.splice(i, 1);
-        }
-    }
-
-    localStorage.setItem('Favourites', JSON.stringify(savedFavourites))
-}
-
-function loadJokes() {
-    color = '#564787';
-    displayJoke();
-};
-
-function loadFacts() {
-    displayFact();
-
-    // TODO : change title of front card
-    cardTitle.innerHTML = 'QUESTION'
-
-    color = '#696773';
-    document.querySelector('.jokes-front').style = 'background-color: ' + color + ';';
-    document.querySelector('.jokes-back').style = 'border-color: ' + color + ';';
-};
-
-function loadPickUpLines() {
-    displayPickUpLine();
-
-    // TODO : change title of front card
-    cardTitle.innerHTML = 'Pick Up Lines'
-
-    color = '#009FB7';
-    document.querySelector('.jokes-front').style = 'background-color: ' + color + ';';
-    document.querySelector('.jokes-back').style = 'border-color: ' + color + ';';
-
-}
-
 
 function next() {
     ID++;
@@ -177,26 +120,98 @@ function next() {
 
 function isFavourite() {
 
-    if (game[ID].id != undefined) {
+    if (selected == 'pickUpLines') {
+        for (i = 0; i < savedFavourites.length; i++) {
+            if (game[ID] == savedFavourites[i].entry) {
+                heart.src = "./images/heart red.svg";
+                toggle = false;
+            }
+        }
+    } else if (game[ID].id != undefined) {
         for (i = 0; i < savedFavourites.length; i++) {
             if (game[ID].id == savedFavourites[i].entry.id) {
                 heart.src = "./images/heart red.svg";
                 toggle = false;
             }
         }
-
     } else if (game[ID].question != undefined) {
         for (i = 0; i < savedFavourites.length; i++) {
-
             if (game[ID].question == savedFavourites[i].entry.question) {
                 heart.src = "./images/heart red.svg";
-                console.log('question: ' + game[ID].question)
                 toggle = false;
-            }
+            }  
         }
     }
 }
 
+function fillHeart() {
+
+    if (toggle === true) {
+        console.log('added')
+        heart.src = "./images/heart red.svg";
+        addToFavourites();
+    } else {
+        console.log('removed')
+        heart.src = "./images/heart.svg";
+        removeFromFavourites();
+    }
+    toggle = !toggle;
+}
+
+function addToFavourites() {
+    let newFavourite = new Card (nr, selected, color, game[ID])
+    savedFavourites.push(newFavourite);
+    localStorage.setItem('Favourites', JSON.stringify(savedFavourites))
+    nr++;
+}
+
+function removeFromFavourites() {
+
+    for (i = 0; i < savedFavourites.length; i++) {
+        if (game[ID].id == savedFavourites[i].nr || 
+            game[ID] == savedFavourites[i].entry ||
+            game[ID].id == savedFavourites[i].entry.id) {
+            savedFavourites.splice(i, 1);
+            console.log('spliced')
+        } 
+    }
+
+    localStorage.setItem('Favourites', JSON.stringify(savedFavourites))
+}
+
 loadPage()
 
-// Possible to make only one load function? that recognizes what was clicked and then displays correctly?
+
+// function nextJoke() {
+
+//     if (ID == game.length) {
+//         const promise = new Promise(function(resolve, reject) {
+//                 getJokes();
+//                 resolve();
+//             })
+//             .then(function(result) {
+//                 getJokesFromLocalStorage();
+//             })
+//             .then(function() {
+//                 displayJoke();
+//             });
+//         ID = 0;
+//     } else {
+//         displayJoke();
+//     };
+// };
+
+
+// Tried to simplify the function but didnt get it to works so far 
+// function isFavourite() {
+//     for (i = 0; i < savedFavourites.length; i++) {
+//         if (game[ID] == savedFavourites[i].entry ||
+//             game[ID].id == savedFavourites[i].entry.nr ||
+//             game[ID].question == savedFavourites[i].entry.question) {
+//                 heart.src = "./images/heart red.svg";  
+//                 console.log('true')
+//                 toggle = false;
+//         }
+        
+//     }
+// }
