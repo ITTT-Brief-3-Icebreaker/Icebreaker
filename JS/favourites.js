@@ -1,7 +1,7 @@
 let getAllFavourites, selected, favouritesContainer, heartSvg;
 let toggle = false;
 
-document.querySelector('.select_btn').addEventListener('click', chooseCategories)
+document.querySelector('.select_btn').addEventListener('click', chooseCategories);
 
 function chooseCategories() {
     let selected = [];
@@ -12,9 +12,8 @@ function chooseCategories() {
     if (document.querySelector('.add_facts').checked) {
         selected.push('Facts');
     }
-
     if (document.querySelector('.add_pickup_lines').checked) {
-        selected.push('pickUpLines')
+        selected.push('pickUpLines');
     }
 
     favouritesContainer.innerHTML = "";
@@ -34,8 +33,10 @@ function displaySelectedCategories(i) {
 
     let container = document.createElement('div')
     container.className = "jokes-back card";
+
     let next = document.createElement('div')
     next.className = "next";
+
     let heartContainer = document.createElement('div')
     heartContainer.className = "heartContainer";
     
@@ -89,7 +90,6 @@ function getFavourites() {
     getAllFavourites = JSON.parse(localStorage.getItem('Favourites'));
 }
 
-
 function removeFromAllFavourites() {
 
     for (i = 0; i < getAllFavourites.length; i++) {
@@ -107,4 +107,3 @@ renderFavourites();
 setupRemoveFunction();
 
 // TODO: reset nr:s of getAllFavourites after one has been removed on both favourites and active-game
-// BUG: not able to remove favourite after the list has been modified?
