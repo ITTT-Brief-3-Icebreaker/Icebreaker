@@ -46,7 +46,7 @@ async function getPickupLines() {
 }
 
 function getConversation() {
-    fetch('https://conversationstarter.free.beeceptor.com/lines')
+    fetch('https://run.mocky.io/v3/038ea8b2-5c2c-43e0-8283-d089008d658d')
         .then(response => response.json())
         .then(conversStarter => {
             localStorage.setItem('conversation', JSON.stringify(conversStarter.lines))
