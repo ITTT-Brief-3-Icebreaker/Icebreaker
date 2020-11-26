@@ -1,5 +1,7 @@
 let quote = document.querySelector('#quote');
-let cardTitle = document.querySelector('#card-title');
+let cardFront = document.querySelector('.jokes-front');
+let cardBack =  document.querySelector('.jokes-back');
+let backTitle = document.querySelector('#card-title');
 let frontTitle = document.querySelector('#front-title');
 let heart = document.querySelector('.heart');
 
@@ -46,6 +48,12 @@ function getFromLocalStorage(key) {
 function setup() {
     getFromLocalStorage(selected)
 
+    cardFront.classList.remove('loading')
+    quote.classList.remove('loading')
+    frontTitle.classList.remove('loading')
+    backTitle.classList.remove('loading')
+    
+
     if (selected == 'Jokes') {
         loadJokes();
     } else if (selected == 'Facts') {
@@ -63,7 +71,7 @@ function loadJokes() {
 
     color = '#564787';
 
-    cardTitle.innerHTML = 'JOKE'
+    backTitle.innerHTML = 'JOKE'
     frontTitle.innerHTML = 'JOKE CARD'
 
     document.querySelector('.jokes-front').style = 'background-color: ' + color + ';';
@@ -74,7 +82,7 @@ function loadFacts() {
     displayFact();
 
     // TODO : change title of front card
-    cardTitle.innerHTML = 'QUESTION';
+    backTitle.innerHTML = 'QUESTION';
     frontTitle.innerHTML = 'QUESTION';
 
     color = '#696773';
@@ -86,7 +94,7 @@ function loadPickUpLines() {
     displayPickUpLine();
 
     // TODO : change title of front card
-    cardTitle.innerHTML = 'PICK-UP LINE'
+    backTitle.innerHTML = 'PICK-UP LINE'
     frontTitle.innerHTML = 'PICK-UP LINE'
 
     color = '#009FB7';
@@ -98,7 +106,7 @@ function loadPickUpLines() {
 function loadConversation() {
     displayConversation();
 
-    cardTitle.innerHTML = 'CONVERSATION STARTER'
+    backTitle.innerHTML = 'CONVERSATION STARTER'
     frontTitle.innerHTML = 'CONVERSATION STARTER'
 
     color = '#FED766';
@@ -208,8 +216,9 @@ function removeFromFavourites() {
     localStorage.setItem('Favourites', JSON.stringify(savedFavourites))
 }
 
-loadPage()
-
+// setTimeout(() => {
+    loadPage();
+//   }, 5000);
 
 // function nextJoke() {
 
@@ -234,9 +243,9 @@ loadPage()
 // Tried to simplify the function but didnt get it to works so far 
 // function isFavourite() {
 //     for (i = 0; i < savedFavourites.length; i++) {
-//         if (game[ID] == savedFavourites[i].entry ||
-//             game[ID].id == savedFavourites[i].entry.nr ||
-//             game[ID].question == savedFavourites[i].entry.question) {
+//         if (game[ID] === savedFavourites[i].entry ||
+//             game[ID].id === savedFavourites[i].entry.id ||
+//             game[ID].question === savedFavourites[i].entry.question) {
 //                 heart.src = "./images/heart red.svg";  
 //                 console.log('true')
 //                 toggle = false;
