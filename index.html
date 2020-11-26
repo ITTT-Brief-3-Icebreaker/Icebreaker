@@ -22,7 +22,7 @@
 
    <main class="cards desktop">
         <div class="jokes flexCenter">
-            <a href="active-game.html">
+            <a href="active-game.html?selected=Jokes">
                 <div class="jokes-front front card"  id="get_jokes">
                     <h2>ICE<br>BRE<br>AKER</h2>
                     <div class="down-arrow"></div>
@@ -33,12 +33,16 @@
         </div>
 
         <div class="pickup-lines flexCenter">
+            <a href="active-game.html?selected=pickUpLines">
             <img src="images/Play Card Blue.png" alt="">
+        </a>
         </div>
 
         <div class="facts flexCenter">
+            <a href="active-game.html?selected=Facts">
             <img src="images/Rule Card Gray.png" alt="">
             <!-- <button id="get_lines_desktop">Get lines</button> -->
+        </a>
         </div>
 
         <div class="cat-facts flexCenter">
@@ -55,9 +59,9 @@
             
             <!-- Slides -->
             <div class="swiper-slide">
-                <div class="jokes dummy">
-                    <a href="active-game.html">
-                        <div class="jokes-front front card"  id="get_jokes">
+                <div class="jokes">
+                    <a href="active-game.html?selected=Jokes">
+                        <div class="jokes-front front card"  id="get_jokes_mobile">
                             <h2>ICE<br>BRE<br>AKER</h2>
                             <div class="down-arrow"></div>
                             <h3>JOKE CARD</h3>
@@ -69,13 +73,17 @@
             
             <div class="swiper-slide">
                 <div class="pickup-lines">
-                    <img src="images/Play Card Blue.png" alt="">
+                    <a href="active-game.html?selected=pickUpLines">
+                        <img src="images/Play Card Blue.png" alt="">
+                    </a>
                 </div>
             </div>
             
             <div class="swiper-slide">
                 <div class="facts">
-                    <img src="images/Rule Card Gray.png" alt="">
+                    <a href="active-game.html?selected=Facts">
+                        <img src="images/Rule Card Gray.png" alt="" id="facts-mobile">
+                    </a>
                 </div>
             </div>
             
@@ -92,17 +100,10 @@
     </div>
 </main>
 
-
-        <!-- Back side of card to display joke -->
-    <!-- 
-        <div class="jokes-back card" id="next_joke">
-            <h3>JOKE CARD</h3>
-            <p id="quote" class="answer"></p>
-        </div> -->
    <footer></footer>
 
    <script src="./JS/app.js" defer></script>
-   <script src="./JS/event-listeners.js" defer></script>
+   <!-- <script src="./JS/event-listeners.js" defer></script> -->
    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
 </body>
 </html>

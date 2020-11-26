@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link href="./CSS/index.css" type="text/css" rel="stylesheet" />
+    <link href="./CSS/active-game.css" type="text/css" rel="stylesheet" />
+    <link href="./CSS/favourites.css" type="text/css" rel="stylesheet" />
+    <link href="./CSS/mediaqueries.css" type="text/css" rel="stylesheet" />
+
+    <title>Favourites | Icebreaker</title>
+</head>
+<body>
+   <header>
+    <a href="index.html"><img src="./images/Logo.png" alt="Icebreaker title" id="desktopLogo"></a>
+    <a href="index.html"><img src="./images/Logo small.png" alt="Icebreaker title" id="mobileLogo"></a>
+        <nav></nav>
+   </header>
+
+   <apart>
+        <section class="checkboxes">
+            <!-- <p>What do you want to display?</p> -->
+
+            <div class="check">
+                <input type="checkbox" class="add_jokes" id="jokes" name="jokes" value="1">
+                    <label for="jokes">Jokes</label>
+            </div>
+
+            <div class="check">
+                <input type="checkbox" class="add_facts" id="facts" name="facts" value="2">
+                    <label for="facts">Facts</label>
+            </div>
+            
+            <div class="check">
+                <input type="checkbox" class="add_pickup_lines" id="pickup" name="pickup" value="3">
+                    <label for="pickup">Pickup Lines</label>
+            </div>
+
+           <!-- Submit button -->
+            <input type="submit" value="Select" class="select_btn">
+        </section>
+   </apart>
+   
+    <main class="cards favourites-container">
+            <!-- Back side of card to display joke -->
+            <div class="jokes-back card">
+                <div id="next">
+                    <div class="heartContainer">
+                        <img class="heart" src="./images/heart.svg" alt="click heart to add to favourites">
+                    </div>
+                
+                    <h3 id="card-title">JOKE CARD</h3>
+                    <p id="quote" class="answer"></p>
+                </div>
+            </div>
+    </main>
+
+   <footer></footer>
+   
+   <script src="./JS/app.js" defer></script>
+   <script src="./JS/event-listeners.js"></script>
+   <script src="./JS/favourites.js"></script>
+   
+   <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+</body>
+</html>
