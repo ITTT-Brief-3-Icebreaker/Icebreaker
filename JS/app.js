@@ -39,7 +39,7 @@ async function getPickupLines() {
     pickUpData = await response.json();
     localStorage.setItem("pickUpLines", JSON.stringify(pickUpData.data));
     // .then (data => data.JSON()
-    console.log(pickUpData.data[ID])
+    // console.log(pickUpData.data[ID])
     setup();
 
 
@@ -51,12 +51,8 @@ function getConversation() {
         .then(conversStarter => {
             localStorage.setItem('conversation', JSON.stringify(conversStarter.lines))
             console.log(conversStarter.lines[0].text)
-
+            setup()
         })
-    localStorage.setItem('Clicked', JSON.stringify('conversation'));
-    setup()
-
-
 }
 
 var swiper = new Swiper('.swiper-container', {
