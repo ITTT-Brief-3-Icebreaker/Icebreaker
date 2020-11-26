@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -13,17 +14,18 @@
 
     <title>Home | Icebreaker</title>
 </head>
-<body>
-   <header>
-       <img src="./images/Logo.png" alt="Icebreaker title" id="desktopLogo">
-       <img src="./images/Logo small.png" alt="Icebreaker title" id="mobileLogo">
-       <nav></nav>
-   </header>
 
-   <main class="cards desktop">
+<body>
+    <header>
+        <img src="./images/Logo.png" alt="Icebreaker title" id="desktopLogo">
+        <img src="./images/Logo small.png" alt="Icebreaker title" id="mobileLogo">
+        <nav></nav>
+    </header>
+
+    <main class="cards desktop">
         <div class="jokes flexCenter">
             <a href="active-game.html?selected=Jokes">
-                <div class="jokes-front front card"  id="get_jokes">
+                <div class="jokes-front front card" id="get_jokes">
                     <h2>ICE<br>BRE<br>AKER</h2>
                     <div class="down-arrow"></div>
                     <h3>JOKE CARD</h3>
@@ -34,76 +36,79 @@
 
         <div class="pickup-lines flexCenter">
             <a href="active-game.html?selected=pickUpLines">
-            <img src="images/Play Card Blue.png" alt="">
-        </a>
+                <img src="images/Play Card Blue.png" alt="">
+            </a>
         </div>
 
         <div class="facts flexCenter">
             <a href="active-game.html?selected=Facts">
-            <img src="images/Rule Card Gray.png" alt="">
-            <!-- <button id="get_lines_desktop">Get lines</button> -->
-        </a>
+                <img src="images/Rule Card Gray.png" alt="">
+                <!-- <button id="get_lines_desktop">Get lines</button> -->
+            </a>
         </div>
 
-        <div class="cat-facts flexCenter">
-            <img src="images/Play Card Yellow.png" alt="">
+        <div class="conversation flexCenter">
+            <a href="active-game.html?selected=conversation">
+                <img src="images/Play Card Yellow.png" alt="">
+            </a>
         </div>
     </main>
 
 
-<main class="cards mobile">
-    <!-- Slider main container -->
-    <div class="swiper-container">
-        <!-- Additional required wrapper -->
-        <div class="swiper-wrapper">
-            
-            <!-- Slides -->
-            <div class="swiper-slide">
-                <div class="jokes">
-                    <a href="active-game.html?selected=Jokes">
-                        <div class="jokes-front front card"  id="get_jokes_mobile">
-                            <h2>ICE<br>BRE<br>AKER</h2>
-                            <div class="down-arrow"></div>
-                            <h3>JOKE CARD</h3>
-                            <p>Get to know each other</p>
-                        </div>
-                    </a>
+    <main class="cards mobile">
+        <!-- Slider main container -->
+        <div class="swiper-container">
+            <!-- Additional required wrapper -->
+            <div class="swiper-wrapper">
+
+                <!-- Slides -->
+                <div class="swiper-slide">
+                    <div class="jokes">
+                        <a href="active-game.html?selected=Jokes">
+                            <div class="jokes-front front card" id="get_jokes_mobile">
+                                <h2>ICE<br>BRE<br>AKER</h2>
+                                <div class="down-arrow"></div>
+                                <h3>JOKE CARD</h3>
+                                <p>Get to know each other</p>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="swiper-slide">
+                    <div class="pickup-lines">
+                        <a href="active-game.html?selected=pickUpLines">
+                            <img src="images/Play Card Blue.png" alt="">
+                        </a>
+                    </div>
+                </div>
+
+                <div class="swiper-slide">
+                    <div class="facts">
+                        <a href="active-game.html?selected=Facts">
+                            <img src="images/Rule Card Gray.png" alt="" id="facts-mobile">
+                        </a>
+                    </div>
+                </div>
+
+                <div class="swiper-slide">
+                    <div class="cat-facts">
+                        <img src="images/Play Card Yellow.png" alt="">
+                    </div>
                 </div>
             </div>
-            
-            <div class="swiper-slide">
-                <div class="pickup-lines">
-                    <a href="active-game.html?selected=pickUpLines">
-                        <img src="images/Play Card Blue.png" alt="">
-                    </a>
-                </div>
-            </div>
-            
-            <div class="swiper-slide">
-                <div class="facts">
-                    <a href="active-game.html?selected=Facts">
-                        <img src="images/Rule Card Gray.png" alt="" id="facts-mobile">
-                    </a>
-                </div>
-            </div>
-            
-            <div class="swiper-slide">
-                <div class="cat-facts">
-                    <img src="images/Play Card Yellow.png" alt="">
-                </div>
-            </div>
+
+            <!-- navigation buttons -->
+            <div class="swiper-button-prev"></div>
+            <div class="swiper-button-next"></div>
         </div>
+    </main>
 
-        <!-- navigation buttons -->
-        <div class="swiper-button-prev"></div>
-        <div class="swiper-button-next"></div>
-    </div>
-</main>
+    <footer></footer>
 
-   <footer></footer>
-
-   <script src="./JS/app.js" defer></script>
-   <!-- <script src="./JS/event-listeners.js" defer></script> -->
-   <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+    <script src="./JS/app.js" defer></script>
+    <!-- <script src="./JS/event-listeners.js" defer></script> -->
+    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
 </body>
+
 </html>

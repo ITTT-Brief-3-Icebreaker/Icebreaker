@@ -8,9 +8,9 @@ let ID = 0;
 
 let Card = function(nr, type, color, entry) {
     this.nr = nr,
-    this.type = type,
-    this.color = color,
-    this.entry = entry
+        this.type = type,
+        this.color = color,
+        this.entry = entry
 }
 
 function loadPage() {
@@ -26,10 +26,12 @@ function loadPage() {
         getFacts();
     } else if (selected == 'pickUpLines') {
         getPickupLines()
+    } else if (selected == 'conversation') {
+        getConversation()
     }
 }
 
-function getFromLocalStorage(key) { 
+function getFromLocalStorage(key) {
 
     game = JSON.parse(localStorage.getItem(key));
     if (JSON.parse(localStorage.getItem('Favourites')) && localStorage.Favourites.length > 3) {
@@ -50,6 +52,8 @@ function setup() {
         loadFacts();
     } else if (selected == 'pickUpLines') {
         loadPickUpLines()
+    } else if (selected == 'conversation') {
+        loadConversation()
     };
 }
 
@@ -83,17 +87,34 @@ function loadPickUpLines() {
 
 }
 
+function loadConversation() {
+    displayConversation();
+
+    // TODO : change title of front card
+    cardTitle.innerHTML = 'CONVERSATION STARTER'
+    frontTitle.innerHTML = 'CONVERSATION STARTER'
+
+    color = '#FED766';
+    document.querySelector('.jokes-front').style = 'background-color: ' + color + ';';
+    document.querySelector('.jokes-back').style = 'border-color: ' + color + ';';
+
+}
+
 function displayFact() {
     quote.innerHTML = game[ID].question + '<br> <br> A: ' +
         game[ID].correct_answer + '<br> <br> Incorrect Answers: ' + game[ID].incorrect_answers;
 }
 
 function displayJoke() {
-    quote.innerHTML = game[ID].joke;  
+    quote.innerHTML = game[ID].joke;
 }
 
 function displayPickUpLine() {
     quote.innerHTML = game[ID];
+}
+
+function displayConversation() {
+    quote.innerHTML = game[ID].text;
 }
 
 function next() {
@@ -107,8 +128,9 @@ function next() {
         displayFact();
     } else if (selected == 'pickUpLines') {
         displayPickUpLine();
+    } else if (selected == 'conversation') {
+        displayConversation();
     }
-
     if (savedFavourites.length > 0) {
         isFavourite();
     }
@@ -139,7 +161,7 @@ function isFavourite() {
             if (game[ID].question == savedFavourites[i].entry.question) {
                 heart.src = "./images/heart red.svg";
                 toggle = false;
-            }  
+            }
         }
     }
 }
@@ -159,7 +181,7 @@ function fillHeart() {
 }
 
 function addToFavourites() {
-    let newFavourite = new Card (nr, selected, color, game[ID])
+    let newFavourite = new Card(nr, selected, color, game[ID])
     savedFavourites.push(newFavourite);
     localStorage.setItem('Favourites', JSON.stringify(savedFavourites))
     nr++;
@@ -168,12 +190,12 @@ function addToFavourites() {
 function removeFromFavourites() {
 
     for (i = 0; i < savedFavourites.length; i++) {
-        if (game[ID].id == savedFavourites[i].nr || 
+        if (game[ID].id == savedFavourites[i].nr ||
             game[ID] == savedFavourites[i].entry ||
             game[ID].id == savedFavourites[i].entry.id) {
             savedFavourites.splice(i, 1);
             console.log('spliced')
-        } 
+        }
     }
 
     localStorage.setItem('Favourites', JSON.stringify(savedFavourites))
@@ -212,6 +234,6 @@ loadPage()
 //                 console.log('true')
 //                 toggle = false;
 //         }
-        
+
 //     }
 // }

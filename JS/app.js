@@ -1,42 +1,40 @@
-
-  
-  function getJokes() {
+function getJokes() {
     // if (JSON.parse(localStorage.getItem('Jokes')) == undefined) {
-      console.log('get new Jokes')
-      fetch('https://sv443.net/jokeapi/v2/joke/Any?blacklistFlags=nsfw,religious,political,racist,sexist&type=single&amount=100')
+    console.log('get new Jokes')
+    fetch('https://sv443.net/jokeapi/v2/joke/Any?blacklistFlags=nsfw,religious,political,racist,sexist&type=single&amount=100')
         .then(response => response.json())
         .then(data => {
-          localStorage.setItem('Jokes', JSON.stringify(data.jokes)),
-          setup()
-      })
-   
+            localStorage.setItem('Jokes', JSON.stringify(data.jokes)),
+                setup()
+        })
+
     // localStorage.setItem('Clicked', JSON.stringify('Jokes'))
-  }
+}
 
-  function getFacts() {
+function getFacts() {
     console.log('Facts')
-      fetch('https://opentdb.com/api.php?amount=10')
+    fetch('https://opentdb.com/api.php?amount=10')
         .then(response => response.json())
         .then(data => {
-          localStorage.setItem('Facts', JSON.stringify(data.results)),
-          setup()
-        })    
-       
+            localStorage.setItem('Facts', JSON.stringify(data.results)),
+                setup()
+        })
+
     // localStorage.setItem('Clicked', JSON.stringify('Facts'));
-  }
-   
-  function getInsults() {
+}
+
+function getInsults() {
     console.log('Insult')
-      fetch('https://api.fungenerators.com/taunt/generate?category=new-age-insult&limit=5')
+    fetch('https://api.fungenerators.com/taunt/generate?category=new-age-insult&limit=5')
         .then(response => response.json())
-        .then(data => {localStorage.setItem('Insults', JSON.stringify(data.results))})    
-       
+        .then(data => { localStorage.setItem('Insults', JSON.stringify(data.results)) })
+
     localStorage.setItem('Clicked', JSON.stringify('Insult'));
-  }
+}
 
-  let apiURL = "https://codeshifu-pickup-lines.glitch.me/api";
+let apiURL = "https://codeshifu-pickup-lines.glitch.me/api";
 
-  async function getPickupLines() {
+async function getPickupLines() {
     let response = await fetch(apiURL);
     pickUpData = await response.json();
     localStorage.setItem("pickUpLines", JSON.stringify(pickUpData.data));
@@ -47,12 +45,26 @@
 
 }
 
-  var swiper = new Swiper('.swiper-container', {
+function getConversation() {
+    fetch('https://conversationstarter.free.beeceptor.com/lines')
+        .then(response => response.json())
+        .then(conversStarter => {
+            localStorage.setItem('conversation', JSON.stringify(conversStarter.lines))
+            console.log(conversStarter.lines[0].text)
+
+        })
+    localStorage.setItem('Clicked', JSON.stringify('conversation'));
+    setup()
+
+
+}
+
+var swiper = new Swiper('.swiper-container', {
     navigation: {
-      nextEl: '.swiper-button-next',
-      prevEl: '.swiper-button-prev',
+        nextEl: '.swiper-button-next',
+        prevEl: '.swiper-button-prev',
     },
-  });
+});
 
 // ALTERNATIVE WAY OF WRITING
 // async function componentDidMount() {
