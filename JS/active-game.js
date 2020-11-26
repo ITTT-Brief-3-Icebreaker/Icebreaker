@@ -58,8 +58,16 @@ function setup() {
 }
 
 function loadJokes() {
-    color = '#564787';
+    
     displayJoke();
+
+    color = '#564787';
+
+    cardTitle.innerHTML = 'JOKE'
+    frontTitle.innerHTML = 'JOKE CARD'
+
+    document.querySelector('.jokes-front').style = 'background-color: ' + color + ';';
+    document.querySelector('.jokes-back').style = 'border-color: ' + color + ';';
 };
 
 function loadFacts() {
@@ -90,7 +98,6 @@ function loadPickUpLines() {
 function loadConversation() {
     displayConversation();
 
-    // TODO : change title of front card
     cardTitle.innerHTML = 'CONVERSATION STARTER'
     frontTitle.innerHTML = 'CONVERSATION STARTER'
 
