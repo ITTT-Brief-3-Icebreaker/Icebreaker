@@ -24,19 +24,24 @@
     }
 
     .jokes {
-        grid-column: 2 / 3;
+        grid-column: 2 / 4;
     }
     
     .pickup-lines {
-        grid-column: 3 / 4;
+        grid-column: 4 / 6;
     }
     
     .facts {
-        grid-column: 2 / 3;
+        grid-column: 2 / 4;
     }
     
     .cat-facts {
-        grid-column: 3 / 4;
+        grid-column: 4 / 6;
+    }
+
+    .jokes-back {
+        grid-column: 4 / 6;
+        margin-top: 0%;
     }
 
 }

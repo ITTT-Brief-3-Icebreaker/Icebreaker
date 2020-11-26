@@ -1,0 +1,29 @@
+
+.cards.favourites-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    margin: 0 50px 0 50px;
+}
+
+.jokes-back {
+    padding: 2%;
+    margin: 2%;
+}
+
+.checkboxes {
+    display: flex;
+    justify-content: center;
+}
+
+.check {
+    margin: 2px 5px 2px 5px;
+}
+
+.select_btn {
+    border: 1px solid #272727;
+    border-radius: 6px;
+    padding: 4px;
+    background: #fff;
+}
