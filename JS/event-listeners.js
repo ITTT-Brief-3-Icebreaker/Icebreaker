@@ -8,6 +8,12 @@ if (document.querySelector('#get_jokes')) {
 if (document.querySelector('#next')) {
     document.querySelector('#next').addEventListener('click', next) 
 }
+
+
+if (document.querySelector('#favorite-btn')) {
+    document.querySelector('#favorite-btn').addEventListener('click', favorite) 
+}
+
 // document.querySelector('#get_jokes_desktop').addEventListener('click', getJokes);
 
 // // RANDOM LATIN
