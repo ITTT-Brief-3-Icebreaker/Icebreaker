@@ -118,9 +118,6 @@ function next() {
     }
 }
 
-<<<<<<< HEAD
-displayJoke();
-=======
 function isFavourite() {
 
     if (selected == 'pickUpLines') {
@@ -146,7 +143,6 @@ function isFavourite() {
         }
     }
 }
->>>>>>> 9985a3ada690eed8ee092aa04496c4840344ecdb
 
 function fillHeart() {
 
@@ -182,8 +178,6 @@ function removeFromFavourites() {
 
     localStorage.setItem('Favourites', JSON.stringify(savedFavourites))
 }
-<<<<<<< HEAD
-=======
 
 loadPage()
 
@@ -221,4 +215,3 @@ loadPage()
         
 //     }
 // }
->>>>>>> 9985a3ada690eed8ee092aa04496c4840344ecdb
