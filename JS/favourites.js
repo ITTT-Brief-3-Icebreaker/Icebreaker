@@ -15,6 +15,9 @@ function chooseCategories() {
     if (document.querySelector('.add_pickup_lines').checked) {
         selected.push('pickUpLines');
     }
+    if (document.querySelector('.add_conversation').checked) {
+        selected.push('Conversation');
+    }
 
     favouritesContainer.innerHTML = "";
 
@@ -64,7 +67,7 @@ function displaySelectedCategories(i) {
 
     } else if (getAllFavourites[i].type == "pickUpLines") {
         quote.innerHTML = getAllFavourites[i].entry;
-    } else if (getAllFavourites[i].type == "conversation") {
+    } else if (getAllFavourites[i].type == "Conversation") {
         quote.innerHTML = getAllFavourites[i].entry.text;
     }
     container.style = 'border-color: ' + getAllFavourites[i].color + ';';
