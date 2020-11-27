@@ -28,7 +28,8 @@ function loadPage() {
         getFacts();
     } else if (selected == 'pickUpLines') {
         getPickupLines()
-    } else if (selected == 'conversation') {
+    } else if (selected == 'Conversation') {
+        console.log(1)
         getConversation()
     }
 }
@@ -60,7 +61,7 @@ function setup() {
         loadFacts();
     } else if (selected == 'pickUpLines') {
         loadPickUpLines()
-    } else if (selected == 'conversation') {
+    } else if (selected == 'Conversation') {
         loadConversation()
     };
 }
@@ -143,7 +144,7 @@ function next() {
         displayFact();
     } else if (selected == 'pickUpLines') {
         displayPickUpLine();
-    } else if (selected == 'conversation') {
+    } else if (selected == 'Conversation') {
         displayConversation();
     }
     if (savedFavourites.length > 0) {
