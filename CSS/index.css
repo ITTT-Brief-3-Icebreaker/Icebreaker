@@ -39,7 +39,6 @@ body {
     /* overflow: scroll; */
 }
 
-
 .front {
     display: flex;
     justify-content: center;
@@ -47,10 +46,6 @@ body {
     align-items: center;
     border-color: white;
     text-align: center;
-}
-
-.jokes-front {
-    background-color: var(--purple);
 }
 
 .flexCenter {
