@@ -13,7 +13,7 @@
     <!-- <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" /> -->
     
 
-    <title>Favorites | Icebreaker</title>
+    <title>Favorite | Icebreaker</title>
 </head>
 <body>
     <div class="container">
@@ -69,8 +69,11 @@
             </div>
             
             <!-- Back side of card to display joke -->
-            <div class="jokes-back card" id="next">
-                <h3 class="t">NEXT</h3>
+            <div class="jokes-back card" >
+                <button class="btn-favorite" id="favorite-btn">
+                    <i class="fa-heart" id="favorite-icon"></i>
+                </button>
+                <h3 class="t" id="next">NEXT</h3>
                 <p id="quote" class="answer"></p>
             </div>
     </main>
@@ -79,7 +82,6 @@
    
    <script src="plugins/jquery/jquery-3.5.1.min.js"></script>
    <script src="plugins/bootstrap/js/bootstrap.min.js"></script>
-   <script src="./JS/app.js" defer></script>
    <script src="./JS/event-listeners.js" defer></script>
    <script src="./JS/favorite.js"></script>
    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>

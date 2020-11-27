@@ -20,8 +20,6 @@ let advice = [];
         .then(data => localStorage.setItem('Jokes', JSON.stringify(data.jokes)))    
         // .then(jokes => )
     }
-
-    getFacts()
     function getFacts() {
       console.log('Facts')
         fetch('https://opentdb.com/api.php?amount=20&category=9&difficulty=easy&type=boolean')
@@ -30,7 +28,9 @@ let advice = [];
             facts = data.results, localStorage.setItem('Facts', JSON.stringify(facts))
           })    
           // .then(jokes => )
-      }
+   }
+   getFacts();
+   getJokes();
     
 
 

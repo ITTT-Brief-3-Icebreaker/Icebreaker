@@ -1,7 +1,4 @@
-// JOKES
-if (document.querySelector('#get_jokes')) {
-    document.querySelector('#get_jokes').addEventListener('click', getJokes);
-}
+
 
 
 
