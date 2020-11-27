@@ -7,7 +7,7 @@ function chooseCategories() {
     let selected = [];
 
     if (document.querySelector('.add_jokes').checked) {
-       selected.push('Jokes');
+        selected.push('Jokes');
     }
     if (document.querySelector('.add_facts').checked) {
         selected.push('Facts');
@@ -17,13 +17,13 @@ function chooseCategories() {
     }
 
     favouritesContainer.innerHTML = "";
-    
-    for (i = 0; i < getAllFavourites.length; i++) {
-        for(j = 0; j < selected.length; j++)
 
-        if (getAllFavourites[i].type == selected[j]) {
+    for (i = 0; i < getAllFavourites.length; i++) {
+        for (j = 0; j < selected.length; j++)
+
+            if (getAllFavourites[i].type == selected[j]) {
             displaySelectedCategories(i);
-        } 
+        }
     }
 
     setupRemoveFunction();
@@ -39,14 +39,14 @@ function displaySelectedCategories(i) {
 
     let heartContainer = document.createElement('div')
     heartContainer.className = "heartContainer";
-    
+
     heartSvg = document.createElement("img")
     heartSvg.className = "heart"
     heartSvg.classList.add("remove");
     heartSvg.id = getAllFavourites[i].nr;
     heartSvg.src = "./images/heart red.svg";
 
-    
+
     let title = document.createElement("h3")
     title.id = "card-title";
     title.innerHTML = getAllFavourites[i].type
@@ -56,18 +56,19 @@ function displaySelectedCategories(i) {
     quote.className = "answer";
 
     if (getAllFavourites[i].type == "Jokes") {
-        quote.innerHTML = getAllFavourites[i].entry.joke; 
+        quote.innerHTML = getAllFavourites[i].entry.joke;
 
     } else if (getAllFavourites[i].type == "Facts") {
         quote.innerHTML = getAllFavourites[i].entry.question + '<br> <br> A: ' +
-        getAllFavourites[i].entry.correct_answer + '<br> <br> Incorrect Answers: ' + getAllFavourites[i].entry.incorrect_answers;
+            getAllFavourites[i].entry.correct_answer + '<br> <br> Incorrect Answers: ' + getAllFavourites[i].entry.incorrect_answers;
 
     } else if (getAllFavourites[i].type == "pickUpLines") {
         quote.innerHTML = getAllFavourites[i].entry;
+    } else if (getAllFavourites[i].type == "conversation") {
+        quote.innerHTML = getAllFavourites[i].entry.text;
     }
-
     container.style = 'border-color: ' + getAllFavourites[i].color + ';';
-    
+
     container.appendChild(next);
     next.appendChild(heartContainer);
     heartContainer.appendChild(heartSvg);
@@ -81,7 +82,7 @@ function renderFavourites() {
     favouritesContainer = document.querySelector(".favourites-container");
     favouritesContainer.innerHTML = "";
 
-    for(let i = 0; i < getAllFavourites.length; i++){
+    for (let i = 0; i < getAllFavourites.length; i++) {
         displaySelectedCategories(i);
     };
 }

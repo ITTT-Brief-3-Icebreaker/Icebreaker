@@ -1,6 +1,6 @@
 let quote = document.querySelector('#quote');
 let cardFront = document.querySelector('.jokes-front');
-let cardBack =  document.querySelector('.jokes-back');
+let cardBack = document.querySelector('.jokes-back');
 let backTitle = document.querySelector('#card-title');
 let frontTitle = document.querySelector('#front-title');
 let heart = document.querySelector('.heart');
@@ -52,7 +52,7 @@ function setup() {
     quote.classList.remove('loading')
     frontTitle.classList.remove('loading')
     backTitle.classList.remove('loading')
-    
+
 
     if (selected == 'Jokes') {
         loadJokes();
@@ -66,7 +66,7 @@ function setup() {
 }
 
 function loadJokes() {
-    
+
     displayJoke();
 
     color = '#564787';
@@ -217,7 +217,7 @@ function removeFromFavourites() {
 }
 
 // setTimeout(() => {
-    loadPage();
+loadPage();
 //   }, 5000);
 
 // function nextJoke() {
