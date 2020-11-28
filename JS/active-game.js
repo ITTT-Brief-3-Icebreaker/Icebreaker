@@ -1,5 +1,7 @@
 let quote = document.querySelector('#quote');
-let cardTitle = document.querySelector('#card-title');
+let cardFront = document.querySelector('.jokes-front');
+let cardBack = document.querySelector('.jokes-back');
+let backTitle = document.querySelector('#card-title');
 let frontTitle = document.querySelector('#front-title');
 let heart = document.querySelector('.heart');
 
@@ -8,9 +10,9 @@ let ID = 0;
 
 let Card = function(nr, type, color, entry) {
     this.nr = nr,
-    this.type = type,
-    this.color = color,
-    this.entry = entry
+        this.type = type,
+        this.color = color,
+        this.entry = entry
 }
 
 function loadPage() {
@@ -26,10 +28,13 @@ function loadPage() {
         getFacts();
     } else if (selected == 'pickUpLines') {
         getPickupLines()
+    } else if (selected == 'Conversation') {
+        console.log(1)
+        getConversation()
     }
 }
 
-function getFromLocalStorage(key) { 
+function getFromLocalStorage(key) {
 
     game = JSON.parse(localStorage.getItem(key));
     if (JSON.parse(localStorage.getItem('Favourites')) && localStorage.Favourites.length > 3) {
@@ -44,25 +49,41 @@ function getFromLocalStorage(key) {
 function setup() {
     getFromLocalStorage(selected)
 
+    cardFront.classList.remove('loading')
+    quote.classList.remove('loading')
+    frontTitle.classList.remove('loading')
+    backTitle.classList.remove('loading')
+
+
     if (selected == 'Jokes') {
         loadJokes();
     } else if (selected == 'Facts') {
         loadFacts();
     } else if (selected == 'pickUpLines') {
         loadPickUpLines()
+    } else if (selected == 'Conversation') {
+        loadConversation()
     };
 }
 
 function loadJokes() {
-    color = '#564787';
+
     displayJoke();
+
+    color = '#564787';
+
+    backTitle.innerHTML = 'JOKE'
+    frontTitle.innerHTML = 'JOKE CARD'
+
+    document.querySelector('.jokes-front').style = 'background-color: ' + color + ';';
+    document.querySelector('.jokes-back').style = 'border-color: ' + color + ';';
 };
 
 function loadFacts() {
     displayFact();
 
     // TODO : change title of front card
-    cardTitle.innerHTML = 'QUESTION';
+    backTitle.innerHTML = 'QUESTION';
     frontTitle.innerHTML = 'QUESTION';
 
     color = '#696773';
@@ -74,10 +95,22 @@ function loadPickUpLines() {
     displayPickUpLine();
 
     // TODO : change title of front card
-    cardTitle.innerHTML = 'PICK-UP LINE'
+    backTitle.innerHTML = 'PICK-UP LINE'
     frontTitle.innerHTML = 'PICK-UP LINE'
 
     color = '#009FB7';
+    document.querySelector('.jokes-front').style = 'background-color: ' + color + ';';
+    document.querySelector('.jokes-back').style = 'border-color: ' + color + ';';
+
+}
+
+function loadConversation() {
+    displayConversation();
+
+    backTitle.innerHTML = 'CONVERSATION STARTER'
+    frontTitle.innerHTML = 'CONVERSATION STARTER'
+
+    color = '#FED766';
     document.querySelector('.jokes-front').style = 'background-color: ' + color + ';';
     document.querySelector('.jokes-back').style = 'border-color: ' + color + ';';
 
@@ -89,11 +122,15 @@ function displayFact() {
 }
 
 function displayJoke() {
-    quote.innerHTML = game[ID].joke;  
+    quote.innerHTML = game[ID].joke;
 }
 
 function displayPickUpLine() {
     quote.innerHTML = game[ID];
+}
+
+function displayConversation() {
+    quote.innerHTML = game[ID].text;
 }
 
 function next() {
@@ -107,8 +144,9 @@ function next() {
         displayFact();
     } else if (selected == 'pickUpLines') {
         displayPickUpLine();
+    } else if (selected == 'Conversation') {
+        displayConversation();
     }
-
     if (savedFavourites.length > 0) {
         isFavourite();
     }
@@ -139,7 +177,7 @@ function isFavourite() {
             if (game[ID].question == savedFavourites[i].entry.question) {
                 heart.src = "./images/heart red.svg";
                 toggle = false;
-            }  
+            }
         }
     }
 }
@@ -159,7 +197,7 @@ function fillHeart() {
 }
 
 function addToFavourites() {
-    let newFavourite = new Card (nr, selected, color, game[ID])
+    let newFavourite = new Card(nr, selected, color, game[ID])
     savedFavourites.push(newFavourite);
     localStorage.setItem('Favourites', JSON.stringify(savedFavourites))
     nr++;
@@ -168,19 +206,20 @@ function addToFavourites() {
 function removeFromFavourites() {
 
     for (i = 0; i < savedFavourites.length; i++) {
-        if (game[ID].id == savedFavourites[i].nr || 
+        if (game[ID].id == savedFavourites[i].nr ||
             game[ID] == savedFavourites[i].entry ||
             game[ID].id == savedFavourites[i].entry.id) {
             savedFavourites.splice(i, 1);
             console.log('spliced')
-        } 
+        }
     }
 
     localStorage.setItem('Favourites', JSON.stringify(savedFavourites))
 }
 
-loadPage()
-
+// setTimeout(() => {
+loadPage();
+//   }, 5000);
 
 // function nextJoke() {
 
@@ -205,13 +244,13 @@ loadPage()
 // Tried to simplify the function but didnt get it to works so far 
 // function isFavourite() {
 //     for (i = 0; i < savedFavourites.length; i++) {
-//         if (game[ID] == savedFavourites[i].entry ||
-//             game[ID].id == savedFavourites[i].entry.nr ||
-//             game[ID].question == savedFavourites[i].entry.question) {
+//         if (game[ID] === savedFavourites[i].entry ||
+//             game[ID].id === savedFavourites[i].entry.id ||
+//             game[ID].question === savedFavourites[i].entry.question) {
 //                 heart.src = "./images/heart red.svg";  
 //                 console.log('true')
 //                 toggle = false;
 //         }
-        
+
 //     }
 // }
