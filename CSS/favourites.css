@@ -14,11 +14,15 @@
 
 .checkboxes {
     display: flex;
-    justify-content: center;
+    justify-content: space-evenly;
+    padding: 20px;
+    margin: 0 10% 4% 10%;
+    border-radius: 15px;
+    flex-wrap: wrap;
 }
 
 .check {
-    margin: 2px 5px 2px 5px;
+    margin: 5px;
 }
 
 .select_btn {

@@ -25,18 +25,16 @@ body {
     --font-smallest: calc(6px + (14 - 6) * ((100vw - 375px) / (1600 - 375)));
 
     --purple: #564787;
-    
+    --yellow: #fed766;
+    --blue: #009fb7;
+    --gray: #696773;
 }
 .card {
     width: 215px;
     height: 315px;
-
     border-radius: 10px;
     border: 7px solid;
-
     box-shadow: 2px 2px 5px gray;
-
-    /* overflow: scroll; */
 }
 
 .front {
@@ -64,7 +62,7 @@ h2 {
     box-shadow: 2px 2px 5px black;
 }
 
-.down-arrow {
+/* .down-arrow {
     padding: 0;
     width: 20px;
     height: 20px;
@@ -73,9 +71,8 @@ h2 {
     transform: rotate(45deg);
     position: relative;
     top: -10px;
-    /* box-shadow: 2px 2px 5px black; */
-
-}
+    box-shadow: 2px 2px 5px black;
+} */
 
 .jokes-front h3 {
     color: white;
@@ -115,8 +112,25 @@ footer {
 main {
     display: grid;
     grid-template-columns: minmax(auto, 400px) repeat(4, minmax(71px, auto)) minmax(auto, 400px);
+    grid-gap: 2%;
 }
+
+.conversation h3,
+.conversation p {
+    color: #000;
+    border-color: #000;
+}
+
+.border {
+    border-bottom: 1px solid #fff;
+} 
 
 .dummy {
     border: 2px solid orange;
+}
+
+.cardLink {
+    outline: none;
+    text-decoration: none;
+    color: #000;
 }
