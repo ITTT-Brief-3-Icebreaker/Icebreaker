@@ -23,11 +23,6 @@
     align-items: center;
 }
 
-div.swiper-button-next, 
-div.swiper-button-prev {
-    top: 57%;
-}
-
 .jokes,
 .pickup-lines,
 .facts,
