@@ -64,6 +64,40 @@ var swiper = new Swiper('.swiper-container', {
     },
 });
 
+
+let cardLink = document.querySelectorAll(".cardLink").forEach(card => {
+    card.addEventListener("click", event => {
+        card.classList.add('animate__animated', 'animate__flipOutY');
+    })
+})
+
+function selectedJokes() {
+    setTimeout(function(){
+        window.location.href = "active-game.html?selected=Jokes"
+    }, 600)
+}
+
+function selectedPickup() {
+    setTimeout(function(){
+        window.location.href = "active-game.html?selected=pickUpLines"
+    }, 600)
+}
+
+function selectedTrivia() {
+    setTimeout(function(){
+        window.location.href = "active-game.html?selected=Facts"
+    }, 600)
+}
+
+function selectedTopics() {
+    setTimeout(function(){
+        window.location.href = "active-game.html?selected=Conversation"
+    }, 600)
+}
+
+
+
+
 // ALTERNATIVE WAY OF WRITING
 // async function componentDidMount() {
 //     console.log("fetch init")

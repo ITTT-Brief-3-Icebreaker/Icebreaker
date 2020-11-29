@@ -111,7 +111,10 @@ function loadConversation() {
     frontTitle.innerHTML = 'CONVERSATION STARTER'
 
     color = '#FED766';
-    document.querySelector('.jokes-front').style = 'background-color: ' + color + ';';
+    let black = '#000000';
+    let jokesFront = document.querySelector('.jokes-front')
+    jokesFront.style = 'background-color: ' + color + ';';
+    jokesFront.fontcolor = black;
     document.querySelector('.jokes-back').style = 'border-color: ' + color + ';';
 
 }

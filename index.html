@@ -10,7 +10,9 @@
     <link href="./CSS/index.css" type="text/css" rel="stylesheet" />
     <link href="./CSS/carousel.css" type="text/css" rel="stylesheet" />
     <link href="./CSS/mediaqueries.css" type="text/css" rel="stylesheet" />
+
     <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
 
     <title>Home | Icebreaker</title>
 </head>
@@ -19,12 +21,11 @@
     <header>
         <img src="./images/Logo.png" alt="Icebreaker title" id="desktopLogo">
         <img src="./images/Logo small.png" alt="Icebreaker title" id="mobileLogo">
-        <nav></nav>
     </header>
 
     <main class="cards desktop">
         <div class="jokes flexCenter">
-            <a href="active-game.html?selected=Jokes" class="cardLink">
+            <a href="javascript:void(0)" class="cardLink" onclick="selectedJokes()">
                 <div class="jokes-front front card" id="get_jokes" style="background-color: var(--purple);">
                     <img src="./images/Icepick.png" alt="">
                     <h3>JOKES</h3>
@@ -34,7 +35,7 @@
         </div>
 
         <div class="pickup-lines flexCenter">
-            <a href="active-game.html?selected=pickUpLines" class="cardLink">
+            <a href="javascript:void(0)" class="cardLink" onclick="selectedPickup()">
                 <div class="jokes-front front card" style="background-color: var(--blue);">
                     <img src="./images/Icepick.png" alt="">
                     <h3>PICK UP LINES</h3>
@@ -45,7 +46,7 @@
         </div>
 
         <div class="facts flexCenter">
-            <a href="active-game.html?selected=Facts" class="cardLink">
+            <a href="javascript:void(0)" class="cardLink" onclick="selectedTrivia()">
                 <div class="jokes-front front card" style="background-color: var(--gray);">
                     <img src="./images/Icepick.png" alt="">
                     <h3>TRIVIA</h3>
@@ -56,7 +57,7 @@
         </div>
 
         <div class="conversation flexCenter">
-            <a href="active-game.html?selected=Conversation" class="cardLink">
+            <a href="javascript:void(0)" class="cardLink" onclick="selectedTopics()">
                 <div class="jokes-front front card" style="background-color: var(--yellow);">
                     <img src="./images/Icepick.png" alt="">
                     <h3>TOPICS</h3>
