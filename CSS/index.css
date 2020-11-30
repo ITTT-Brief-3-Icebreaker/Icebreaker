@@ -13,9 +13,8 @@ body {
     rgba(255,255, 255, 60),
     rgba(255, 255, 255, 0)
   ),url(../images/Ice.jpg);
-    /* height: 100vh; */
-    /* background-image: url(../images/Ice.jpg); */
-    background-repeat: repeat;
+    height: 100vh;
+    background-repeat: no-repeat;
 }
 
 :root {
@@ -52,6 +51,15 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
+    color: #555050;
+}
+
+#topicsDescription {
+    color: #555050;
+}
+
+.desciptionP {
+    margin-left: 10px;
 }
 
 h2 {
@@ -63,18 +71,6 @@ h2 {
     padding-top: 20px;
     box-shadow: 2px 2px 5px black;
 }
-
-/* .down-arrow {
-    padding: 0;
-    width: 20px;
-    height: 20px;
-    background-color: white;
-    border: none;
-    transform: rotate(45deg);
-    position: relative;
-    top: -10px;
-    box-shadow: 2px 2px 5px black;
-} */
 
 .jokes-front h3 {
     color: white;
@@ -133,3 +129,9 @@ main {
     text-decoration: none;
     color: #000;
 }
+
+.cardLink:hover {
+    -ms-transform: scale(1.05); /* IE 9 */
+    -webkit-transform: scale(1.05); /* Safari 3-8 */
+    transform: scale(1.05); 
+  }
