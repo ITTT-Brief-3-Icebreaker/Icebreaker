@@ -107,13 +107,16 @@ function loadPickUpLines() {
 function loadConversation() {
     displayConversation();
 
-    backTitle.innerHTML = 'CONVERSATION STARTER'
-    frontTitle.innerHTML = 'CONVERSATION STARTER'
+    backTitle.innerHTML = 'TALKING TOPICS'
+    frontTitle.innerHTML = 'TALKING TOPICS'
 
     color = '#FED766';
     let black = '#000000';
     let jokesFront = document.querySelector('.jokes-front')
     jokesFront.style = 'background-color: ' + color + ';';
+    jokesFront.childNodes.forEach(element => {
+        element.style = 'color: ' + black + ';' + 'border-color: ' + black + ';';
+    })
     jokesFront.fontcolor = black;
     document.querySelector('.jokes-back').style = 'border-color: ' + color + ';';
 

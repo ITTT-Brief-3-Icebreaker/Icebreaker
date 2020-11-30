@@ -23,15 +23,6 @@ function getFacts() {
     // localStorage.setItem('Clicked', JSON.stringify('Facts'));
 }
 
-function getInsults() {
-    console.log('Insult')
-    fetch('https://api.fungenerators.com/taunt/generate?category=new-age-insult&limit=5')
-        .then(response => response.json())
-        .then(data => { localStorage.setItem('Insults', JSON.stringify(data.results)) })
-
-    localStorage.setItem('Clicked', JSON.stringify('Insult'));
-}
-
 let apiURL = "https://codeshifu-pickup-lines.glitch.me/api";
 
 async function getPickupLines() {
