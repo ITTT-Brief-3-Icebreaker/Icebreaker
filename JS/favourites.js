@@ -109,9 +109,12 @@ function renderFavourites() {
     favouritesContainer = document.querySelector(".favourites-container");
     favouritesContainer.innerHTML = "";
 
-    let arrayLength = getAllFavourites.length;
+    setupPages()
 
-    nrOfPages = Math.ceil(arrayLength / 8)
+}
+
+function setupPages() {
+    nrOfPages = Math.ceil(getAllFavourites.length / 8)
     
     if (nrOfPages > 1) {
         for (let i = 0; i < 8; i++) {
@@ -130,7 +133,6 @@ function renderFavourites() {
         document.querySelector('#nr-of-pages').appendChild(link);
     };
 }
-
 function getFavourites() {
     getAllFavourites = JSON.parse(localStorage.getItem('Favourites'));
 }
@@ -146,13 +148,16 @@ function removeFromAllFavourites() {
 
     localStorage.setItem('Favourites', JSON.stringify(getAllFavourites))
 
-    if (getAllFavourites.length > end) {
-        displaySelectedCategories(end-1);
+    if (getAllFavourites.length >= end) {
+        displaySelectedCategories(end - 1);
     }
 
-    console.log(pageID)
-
     setupRemoveFunction();
+
+    if (nrOfPages > Math.ceil(getAllFavourites.length / 8)) {
+        nrOfPages = Math.ceil(getAllFavourites.length / 8);
+        document.querySelector('#nr-of-pages').lastChild.style = 'display: none;';
+    }
 }
 
 getFavourites()
@@ -161,4 +166,4 @@ setupRemoveFunction();
 
 // TODO: reset nr:s of getAllFavourites after one has been removed on both favourites and active-game
 
-// TODO: remove page numbers when pages are empty
+// BUG: doesnt display the last entry when the previous is deleted
