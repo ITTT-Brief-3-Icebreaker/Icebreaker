@@ -1,7 +1,31 @@
-let getAllFavourites, selected, favouritesContainer, heartSvg;
+let getAllFavourites, selected, favouritesContainer, heartSvg, nrOfPages;
 let toggle = false;
+let pageID = 1;
+let end = 8;
 
 document.querySelector('.select_btn').addEventListener('click', chooseCategories);
+
+document.querySelector('#nr-of-pages').addEventListener('click', goToPage);
+
+function goToPage() {
+    let pageID = event.target.id;
+    end = 8 * pageID;
+    let start = end - 8;
+
+    favouritesContainer.innerHTML = "";
+
+    if (nrOfPages > pageID) {
+        for (let i = start; i < end; i++) {
+            displaySelectedCategories(i)   
+        }
+    } else {
+        for (let i = start; i < getAllFavourites.length; i++) {
+            displaySelectedCategories(i);
+        }
+    }
+
+    setupRemoveFunction();
+}
 
 function chooseCategories() {
     let selected = [];
@@ -85,9 +109,31 @@ function renderFavourites() {
     favouritesContainer = document.querySelector(".favourites-container");
     favouritesContainer.innerHTML = "";
 
-    for (let i = 0; i < getAllFavourites.length; i++) {
-        displaySelectedCategories(i);
+    let arrayLength = getAllFavourites.length;
+
+    nrOfPages = Math.ceil(arrayLength / 8)
+
+    console.log(nrOfPages)
+    
+    if (nrOfPages > 1) {
+        for (let i = 0; i < 8; i++) {
+            displaySelectedCategories(i);
+        }
+    } else {
+        for (let i = 0; i < getAllFavourites.length; i++) {
+            displaySelectedCategories(i);
+        }
+    }
+    
+    for (i = 0; i < nrOfPages; i++) {
+        let link = document.createElement('a');
+        link.innerHTML = i + 1;
+        link.id = (i + 1);
+        console.log(link.id)
+        document.querySelector('#nr-of-pages').appendChild(link);
     };
+
+    console.log('length: ' + getAllFavourites.length)
 }
 
 function getFavourites() {
@@ -104,6 +150,16 @@ function removeFromAllFavourites() {
     }
 
     localStorage.setItem('Favourites', JSON.stringify(getAllFavourites))
+
+    console.log('end: ' + end)
+    if (getAllFavourites.length > end) {
+        console.log(getAllFavourites.length, end)
+        displaySelectedCategories(end-1);
+    }
+
+    console.log(pageID)
+
+    setupRemoveFunction();
 }
 
 getFavourites()
@@ -111,3 +167,5 @@ renderFavourites();
 setupRemoveFunction();
 
 // TODO: reset nr:s of getAllFavourites after one has been removed on both favourites and active-game
+
+// TODO: remove page numbers when pages are empty
