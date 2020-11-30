@@ -112,8 +112,6 @@ function renderFavourites() {
     let arrayLength = getAllFavourites.length;
 
     nrOfPages = Math.ceil(arrayLength / 8)
-
-    console.log(nrOfPages)
     
     if (nrOfPages > 1) {
         for (let i = 0; i < 8; i++) {
@@ -129,11 +127,8 @@ function renderFavourites() {
         let link = document.createElement('a');
         link.innerHTML = i + 1;
         link.id = (i + 1);
-        console.log(link.id)
         document.querySelector('#nr-of-pages').appendChild(link);
     };
-
-    console.log('length: ' + getAllFavourites.length)
 }
 
 function getFavourites() {
@@ -151,9 +146,7 @@ function removeFromAllFavourites() {
 
     localStorage.setItem('Favourites', JSON.stringify(getAllFavourites))
 
-    console.log('end: ' + end)
     if (getAllFavourites.length > end) {
-        console.log(getAllFavourites.length, end)
         displaySelectedCategories(end-1);
     }
 
