@@ -93,7 +93,8 @@ h2 {
     margin-top: 1rem;
 }
 
-.logos {
+header {
+    margin-bottom: 2%;
     display: flex; 
     justify-content: flex-start;
     align-items: center;
@@ -134,4 +135,14 @@ main {
     -ms-transform: scale(1.05); /* IE 9 */
     -webkit-transform: scale(1.05); /* Safari 3-8 */
     transform: scale(1.05); 
-  }
+}
+
+
+@media only screen and (min-width: 1070px) {
+    .jokes,
+    .pickup-lines,
+    .facts,
+    .conversation {
+    width: 413px;
+    }
+}

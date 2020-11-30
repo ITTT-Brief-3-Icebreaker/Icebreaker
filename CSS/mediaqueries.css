@@ -19,7 +19,7 @@
         justify-content: center;
     }
 
-    .logos {
+    header {
         justify-content: center;
     }
 
@@ -59,13 +59,6 @@
 }
 
 @media only screen and (min-width: 1070px) {
-        .jokes,
-        .pickup-lines,
-        .facts,
-        .conversation {
-        width: 413px;
-    }
-    
     .showDesciption {
         display: flex;
     }

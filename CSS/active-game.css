@@ -9,6 +9,18 @@
     padding: 6%;
 }
 
+/* .jokes-back:hover {
+    -ms-transform: scale(1.05);
+    -webkit-transform: scale(1.05);
+    transform: scale(1.05); 
+}
+
+.jokes-back:active {
+    -ms-transform: scale(1.0);
+    -webkit-transform: scale(1.0); 
+    transform: scale(1.0); 
+} */
+
 .jokes {
     grid-column: 2 / 5;
     grid-row-start: 1;
@@ -33,4 +45,11 @@
 
 .answer {
     margin-top: 1rem;
+}
+
+div.jokes.flexCenter,
+div.pickup-lines.flexCenter,
+div.facts.flexCenter,
+div.conversation.flexCenter {
+    width: 215px;
 }

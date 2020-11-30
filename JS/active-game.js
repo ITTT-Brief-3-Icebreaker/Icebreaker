@@ -124,7 +124,7 @@ function loadConversation() {
 
 function displayFact() {
     quote.innerHTML = game[ID].question + '<br> <br> A: ' +
-        game[ID].correct_answer + '<br> <br> Incorrect Answers: ' + game[ID].incorrect_answers;
+    game[ID].correct_answer + '<br> <br> Incorrect Answers: ' + game[ID].incorrect_answers;
 }
 
 function displayJoke() {
@@ -143,6 +143,12 @@ function next() {
     ID++;
     toggle = true;
     heart.src = "./images/heart.svg";
+    
+    cardBack.classList.add('animate__animated', 'animate__rollIn');
+    
+    cardBack.addEventListener('animationend', () => {
+        cardBack.classList.remove('animate__animated', 'animate__rollIn');
+    })
 
     if (selected == 'Jokes') {
         displayJoke();
@@ -222,6 +228,19 @@ function removeFromFavourites() {
 
     localStorage.setItem('Favourites', JSON.stringify(savedFavourites))
 }
+
+// let cardLink = document.querySelectorAll(".cardLink").forEach(card => {
+//     card.addEventListener("click", event => {
+//         card.classList.add('animate__animated', 'animate__flipOutY');
+//     })
+// })
+
+// cardBack.addEventListener("click", function(){
+//     card.classList.add('animate__animated', 'animate__flipOutY');
+// })
+
+
+
 
 // setTimeout(() => {
 loadPage();
