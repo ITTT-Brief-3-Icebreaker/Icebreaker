@@ -8,6 +8,8 @@
     <link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed&display=swap" rel="stylesheet" />
 
     <link href="./CSS/index.css" type="text/css" rel="stylesheet" />
+    <link href="./CSS/navbar.css" type="text/css" rel="stylesheet" />
+    
     <link href="./CSS/carousel.css" type="text/css" rel="stylesheet" />
     <link href="./CSS/mediaqueries.css" type="text/css" rel="stylesheet" />
 
@@ -19,10 +21,27 @@
 
 <body>
     <header>
+        <div class="menuWrapper">
+            <div id="navIcon" href="javascript:void(0);" class="icon" onclick="navPopOut()">
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+
+            <div class="topnav">
+                <div id="myLinks">
+                    <a id="link1" href="#about">Home</a>
+                    <a id="link2" href="#skills" onclick="closeNav()">Favourites</a>
+                    <a id="link3" href="#projects" onclick="closeNav()">Categories</a>
+                </div>
+            </div>
+        </div>
+    </header>
+    <div class="logos">
         <img src="./images/Logo.png" alt="Icebreaker title" id="desktopLogo">
         <img src="./images/Logo small.png" alt="Icebreaker title" id="mobileLogo">
-    </header>
-
+    </div>
     <main class="cards desktop">
         <div class="jokes flexCenter">
             <a href="javascript:void(0)" class="cardLink" onclick="selectedJokes()">

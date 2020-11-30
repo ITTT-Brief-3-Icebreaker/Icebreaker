@@ -13,8 +13,9 @@ body {
     rgba(255,255, 255, 60),
     rgba(255, 255, 255, 0)
   ),url(../images/Ice.jpg);
-    height: 100vh;
-    background-repeat: no-repeat;
+    /* height: 100vh; */
+    /* background-image: url(../images/Ice.jpg); */
+    background-repeat: repeat;
 }
 
 :root {
@@ -96,10 +97,7 @@ h2 {
     margin-top: 1rem;
 }
 
-header {
-    /* height: 20vh; */
-    margin-top: 20px;
-    margin-bottom: 30px;
+.logos {
     display: flex; 
     justify-content: flex-start;
     align-items: center;

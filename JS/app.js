@@ -1,3 +1,34 @@
+let navIcon = document.getElementById("navIcon")
+navIcon.addEventListener("click", toggleNavIvon)
+
+function toggleNavIvon() {
+    navIcon.classList.toggle("open");
+}
+
+const links = document.getElementById("myLinks");
+function navPopOut() {
+  if (links.style.display === "block") {
+    links.style.display = "none";
+  } else {
+    links.style.display = "block";
+  }
+}
+
+
+// very handsome yes close nav pls
+const link1 = document.getElementById("link1")
+const link2 = document.getElementById("link2")
+const link3 = document.getElementById("link3")
+
+link1.addEventListener("click", closeNav)
+link2.addEventListener("click", closeNav)
+link3.addEventListener("click", closeNav)
+
+function closeNav() {
+    links.style.display = "none";
+    toggleNavIvon();
+}
+
 function getJokes() {
     // if (JSON.parse(localStorage.getItem('Jokes')) == undefined) {
     console.log('get new Jokes')
@@ -23,9 +54,9 @@ function getFacts() {
     // localStorage.setItem('Clicked', JSON.stringify('Facts'));
 }
 
-let apiURL = "https://codeshifu-pickup-lines.glitch.me/api";
 
 async function getPickupLines() {
+    let apiURL = "https://codeshifu-pickup-lines.glitch.me/api";
     let response = await fetch(apiURL);
     pickUpData = await response.json();
     localStorage.setItem("pickUpLines", JSON.stringify(pickUpData.data));
