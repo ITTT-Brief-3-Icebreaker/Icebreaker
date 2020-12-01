@@ -1,7 +1,10 @@
-let getAllFavourites, selected, favouritesContainer, heartSvg, nrOfPages;
+
+
+let getAllFavourites, heartSvg, nrOfPages;
 let toggle = false;
 let pageID = 1;
 let end = 8;
+let selected = [];
 
 document.querySelector('.select_btn').addEventListener('click', chooseCategories);
 
@@ -26,7 +29,7 @@ function chooseCategories() {
     favouritesContainer.innerHTML = "";
 
     for (i = 0; i < getAllFavourites.length; i++) {
-        for (j = 0; j < selected.length; j++)
+        for (j = 0; j < selected.length; j++) 
 
             if (getAllFavourites[i].type == selected[j]) {
             displaySelectedCategories(i);
@@ -84,13 +87,8 @@ function displaySelectedCategories(i) {
     favouritesContainer.appendChild(container);
 }
 
-function renderFavourites() {
-
-    favouritesContainer = document.querySelector(".favourites-container");
-    
-
-    setAmountOfCards();
-}
+// function renderFavourites() {
+// }
 
 function getFavourites() {
     getAllFavourites = JSON.parse(localStorage.getItem('Favourites'));
@@ -119,10 +117,17 @@ function removeFromAllFavourites() {
     }
 }
 
-getFavourites()
-renderFavourites();
-setupRemoveFunction();
+window.onload = function (){
+    getFavourites();
+    setAmountOfCards();
+    setupRemoveFunction();
+}
 
 // TODO: reset nr:s of getAllFavourites after one has been removed on both favourites and active-game
 
 // TODO: change the nr of displayed cards depending on screen width
+
+// TODO: adjust the titles to the cards 
+// Clean up CSS of cards
+// add menu to all pages
+// make titles cohesive for all pages

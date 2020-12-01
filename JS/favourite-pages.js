@@ -1,13 +1,36 @@
+let favouritesContainer = document.querySelector(".favourites-container");
+
 let amountofCards;
 
 document.querySelector('#nr-of-pages').addEventListener('click', goToPage);
 
+document.querySelector('.fa-chevron-left').addEventListener('click', goLeft)
+document.querySelector('.fa-chevron-right').addEventListener('click', goRight)
+
+console.log(nrOfPages)
+function goLeft() {
+
+    if (pageID > 0) {
+        pageID--;
+        favouritesContainer.innerHTML = "";
+        displaySelectedCategories(pageID)   
+    }
+}
+
+function goRight() {
+    if (pageID < nrOfPages){
+        pageID++;
+        favouritesContainer.innerHTML = "";
+        displaySelectedCategories(pageID)   
+        console.log(pageID)
+    }
+}
+
 function goToPage() {
-    let pageID = event.target.id;
+    pageID = event.target.id;
     end = amountofCards * pageID;
     let start = end - amountofCards;
-
-    // console.log(nrOfPages)
+    
     favouritesContainer.innerHTML = "";
 
     if (nrOfPages > pageID) {
@@ -51,26 +74,47 @@ function setupPages() {
 }
 
 function setAmountOfCards() {
-    // let widthOfCard = 215;
-    if (window.innerWidth > 1100) {
-        amountofCards = 8
-    } else if (window.innerWidth > 860){
-        amountofCards = 6
-    } else if (window.innerWidth > 600){
-        amountofCards = 4
-    } else {
+    // if (window.innerWidth > 1100) {
+    //     amountofCards = 8
+    // } else if (window.innerWidth > 860){
+    //     amountofCards = 6
+    // } else if (window.innerWidth > 600){
+    //     amountofCards = 4
+    // } else {
+    //     amountofCards = 1;
+    // }
+
+    if (window.matchMedia("(min-width: 1100px)").matches) {
+        amountofCards = 8;
+        setupPages();
+      } else if (window.matchMedia("(min-width: 860px)").matches) {
+        amountofCards = 6;
+        setupPages();
+      } else if (window.matchMedia("(min-width: 600px)").matches) {
+        amountofCards = 4;
+        setupPages();
+      } else {
         amountofCards = 1;
-    }
+        setupPages();
+      }
 
-    // console.log(window.innerWidth)
-    // console.log(window.innerWidth / widthOfCard)
-    // console.log('amount of cards: ' + amountofCards)
-
-    setupPages();
+    // setupPages();
 }
 
-
+// if (window.matchMedia("(min-width: 1100px)").matches) {
+//     amountofCards = 8;
+//     setupPages();
+//   } else if (window.matchMedia("(min-width: 860px)").matches) {
+//     amountofCards = 6;
+//     setupPages();
+//   } else if (window.matchMedia("(min-width: 600px)").matches) {
+//     amountofCards = 4;
+//     setupPages();
+//   } else {
+//     amountofCards = 1;
+//     setupPages();
+//   }
 window.onresize = setAmountOfCards;
-// window.onload = setAmountOfCards;
+
 
 // if search results have been filtered, they dont display correctly on resize
