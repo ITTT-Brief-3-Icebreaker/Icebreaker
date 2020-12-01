@@ -71,8 +71,10 @@ function displaySelectedCategories(i) {
         quote.innerHTML = getAllFavourites[i].entry.joke;
 
     } else if (getAllFavourites[i].type == "Facts") {
-        quote.innerHTML = getAllFavourites[i].entry.question + '<br> <br> A: ' +
-            getAllFavourites[i].entry.correct_answer + '<br> <br> Incorrect Answers: ' + getAllFavourites[i].entry.incorrect_answers;
+        quote.innerHTML = getAllFavourites[i].entry.question + 
+        '<br> <br> Correct answer: <br>' + getAllFavourites[i].entry.correct_answer
+            // + '<br> <br> Incorrect Answers: ' + 
+            //getAllFavourites[i].entry.incorrect_answers;
 
     } else if (getAllFavourites[i].type == "pickUpLines") {
         quote.innerHTML = getAllFavourites[i].entry;

@@ -30,6 +30,28 @@ body {
     --gray: #696773;
 }
 
+.dropdown-menu.show {
+    background-color: transparent;
+    border: none;
+}
+
+.navbar-toggler {
+    border: none;
+    outline: none;
+}
+
+.navbar-toggler:focus {
+    outline: none;
+}
+
+.navbar-toggler {
+    padding-left: 0px;
+}
+
+#mobileLogo {
+    padding-left: 12px;
+}
+
 .card {
     width: 215px;
     height: 315px;
@@ -137,6 +159,14 @@ main {
     -ms-transform: scale(1.05); /* IE 9 */
     -webkit-transform: scale(1.05); /* Safari 3-8 */
     transform: scale(1.05); 
+}
+
+.arrowContainer {
+    width: 100%;
+    height: 320px;
+    position: relative;
+    bottom: 50.5%;
+    margin-bottom: -320px;
 }
 
 

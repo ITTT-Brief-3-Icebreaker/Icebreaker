@@ -10,7 +10,15 @@
     padding: 1%;
     margin: 2%;
     overflow: auto;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
 }
+
+.jokes-back::-webkit-scrollbar {
+    display: none;
+}
+
+
 
 .checkboxes {
     display: flex;
