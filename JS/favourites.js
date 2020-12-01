@@ -59,7 +59,19 @@ function displaySelectedCategories(i) {
 
     let title = document.createElement("h3")
     title.id = "card-title";
-    title.innerHTML = getAllFavourites[i].type
+    if (getAllFavourites[i].type == "Jokes") {
+        title.innerHTML = "JOKES"
+    }
+    if (getAllFavourites[i].type == "Facts") {
+        title.innerHTML = "TRIVIA"
+    }
+    if (getAllFavourites[i].type == "pickUpLines") {
+        title.innerHTML = "PICK-UP LINES"
+    }
+    if (getAllFavourites[i].type == "Conversation") {
+        title.innerHTML = "TOPICS"
+    }
+
 
     let quote = document.createElement("p")
     quote.id = "quote";
