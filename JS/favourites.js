@@ -54,6 +54,7 @@ function displaySelectedCategories(i) {
     title.id = "card-title";
     title.innerHTML = getAllFavourites[i].type
 
+
     let quote = document.createElement("p")
     quote.id = "quote";
     quote.className = "answer";
@@ -74,8 +75,8 @@ function displaySelectedCategories(i) {
 
     container.appendChild(next);
     next.appendChild(heartContainer);
+    heartContainer.appendChild(title);
     heartContainer.appendChild(heartSvg);
-    next.appendChild(title);
     next.appendChild(quote);
     favouritesContainer.appendChild(container);
 }
