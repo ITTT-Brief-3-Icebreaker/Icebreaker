@@ -7,8 +7,6 @@ function getJokes() {
             localStorage.setItem('Jokes', JSON.stringify(data.jokes)),
                 setup()
         })
-
-    // localStorage.setItem('Clicked', JSON.stringify('Jokes'))
 }
 
 function getFacts() {
@@ -19,8 +17,6 @@ function getFacts() {
             localStorage.setItem('Facts', JSON.stringify(data.results)),
                 setup()
         })
-
-    // localStorage.setItem('Clicked', JSON.stringify('Facts'));
 }
 
 
