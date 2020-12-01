@@ -52,8 +52,16 @@ function displaySelectedCategories(i) {
 
     let title = document.createElement("h3")
     title.id = "card-title";
-    title.innerHTML = getAllFavourites[i].type
 
+    if (getAllFavourites[i].type == "pickUpLines") {
+        title.innerHTML = "Pick Up Lines"
+    } else if (getAllFavourites[i].type == "Conversation") {
+        title.innerHTML = "Topics"
+    } else if (getAllFavourites[i].type == "Facts") {
+        title.innerHTML = "Trivia"
+    } else {
+        title.innerHTML = getAllFavourites[i].type
+    }
 
     let quote = document.createElement("p")
     quote.id = "quote";
