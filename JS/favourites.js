@@ -5,27 +5,7 @@ let end = 8;
 
 document.querySelector('.select_btn').addEventListener('click', chooseCategories);
 
-document.querySelector('#nr-of-pages').addEventListener('click', goToPage);
 
-function goToPage() {
-    let pageID = event.target.id;
-    end = 8 * pageID;
-    let start = end - 8;
-
-    favouritesContainer.innerHTML = "";
-
-    if (nrOfPages > pageID) {
-        for (let i = start; i < end; i++) {
-            displaySelectedCategories(i)   
-        }
-    } else {
-        for (let i = start; i < getAllFavourites.length; i++) {
-            displaySelectedCategories(i);
-        }
-    }
-
-    setupRemoveFunction();
-}
 
 function chooseCategories() {
     let selected = [];
@@ -107,32 +87,11 @@ function displaySelectedCategories(i) {
 function renderFavourites() {
 
     favouritesContainer = document.querySelector(".favourites-container");
-    favouritesContainer.innerHTML = "";
+    
 
-    setupPages()
-
+    setAmountOfCards();
 }
 
-function setupPages() {
-    nrOfPages = Math.ceil(getAllFavourites.length / 8)
-    
-    if (nrOfPages > 1) {
-        for (let i = 0; i < 8; i++) {
-            displaySelectedCategories(i);
-        }
-    } else {
-        for (let i = 0; i < getAllFavourites.length; i++) {
-            displaySelectedCategories(i);
-        }
-    }
-    
-    for (i = 0; i < nrOfPages; i++) {
-        let link = document.createElement('a');
-        link.innerHTML = i + 1;
-        link.id = (i + 1);
-        document.querySelector('#nr-of-pages').appendChild(link);
-    };
-}
 function getFavourites() {
     getAllFavourites = JSON.parse(localStorage.getItem('Favourites'));
 }
@@ -154,8 +113,8 @@ function removeFromAllFavourites() {
 
     setupRemoveFunction();
 
-    if (nrOfPages > Math.ceil(getAllFavourites.length / 8)) {
-        nrOfPages = Math.ceil(getAllFavourites.length / 8);
+    if (nrOfPages > Math.ceil(getAllFavourites.length / amountofCards)) {
+        nrOfPages = Math.ceil(getAllFavourites.length / amountofCards);
         document.querySelector('#nr-of-pages').lastChild.style = 'display: none;';
     }
 }
@@ -166,4 +125,4 @@ setupRemoveFunction();
 
 // TODO: reset nr:s of getAllFavourites after one has been removed on both favourites and active-game
 
-// BUG: doesnt display the last entry when the previous is deleted
+// TODO: change the nr of displayed cards depending on screen width
