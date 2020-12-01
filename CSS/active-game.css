@@ -48,7 +48,7 @@
 
 #next {
     height: 100%;
-    overflow: scroll;
+    overflow: auto;
 }
 
 .answer {
