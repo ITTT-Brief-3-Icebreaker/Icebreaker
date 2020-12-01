@@ -72,8 +72,8 @@ function loadJokes() {
 
     color = '#564787';
 
-    backTitle.innerHTML = 'JOKE'
-    frontTitle.innerHTML = 'JOKE CARD'
+    backTitle.innerHTML = 'JOKES'
+    frontTitle.innerHTML = 'JOKES'
 
     document.querySelector('.jokes-front').style = 'background-color: ' + color + ';';
     document.querySelector('.jokes-back').style = 'border-color: ' + color + ';';
@@ -83,8 +83,8 @@ function loadFacts() {
     displayFact();
 
     // TODO : change title of front card
-    backTitle.innerHTML = 'QUESTION';
-    frontTitle.innerHTML = 'QUESTION';
+    backTitle.innerHTML = 'TRIVIA';
+    frontTitle.innerHTML = 'TRIVIA';
 
     color = '#696773';
     document.querySelector('.jokes-front').style = 'background-color: ' + color + ';';
@@ -95,8 +95,8 @@ function loadPickUpLines() {
     displayPickUpLine();
 
     // TODO : change title of front card
-    backTitle.innerHTML = 'PICK-UP LINE'
-    frontTitle.innerHTML = 'PICK-UP LINE'
+    backTitle.innerHTML = 'PICK UP LINES'
+    frontTitle.innerHTML = 'PICK UP LINES'
 
     color = '#009FB7';
     document.querySelector('.jokes-front').style = 'background-color: ' + color + ';';
@@ -107,8 +107,8 @@ function loadPickUpLines() {
 function loadConversation() {
     displayConversation();
 
-    backTitle.innerHTML = 'TALKING TOPICS'
-    frontTitle.innerHTML = 'TALKING TOPICS'
+    backTitle.innerHTML = 'TOPICS'
+    frontTitle.innerHTML = 'TOPICS'
 
     color = '#FED766';
     let black = '#000000';
@@ -123,8 +123,9 @@ function loadConversation() {
 }
 
 function displayFact() {
-    quote.innerHTML = game[ID].question + '<br> <br> A: ' +
-    game[ID].correct_answer + '<br> <br> Incorrect Answers: ' + game[ID].incorrect_answers;
+    quote.innerHTML = game[ID].question + 
+    '<br> <br> Correct answer: <br>' + game[ID].correct_answer 
+    //Incorrect Answers: ' + game[ID].incorrect_answers;
 }
 
 function displayJoke() {

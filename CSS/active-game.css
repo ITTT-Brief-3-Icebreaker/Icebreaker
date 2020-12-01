@@ -32,8 +32,15 @@
 
 .heartContainer {
     display: flex;
-    justify-content: flex-end;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0;
 }
+
+.heartContainer h3 {
+    margin: 0;
+}
+
 .heart {
     display: block;
     height: 20px;
@@ -41,6 +48,7 @@
 
 #next {
     height: 100%;
+    overflow: scroll;
 }
 
 .answer {
