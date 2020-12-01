@@ -104,6 +104,7 @@ function displaySelectedCategories(i) {
 
 function getFavourites() {
     getAllFavourites = JSON.parse(localStorage.getItem('Favourites'));
+    console.log('get favs')
 }
 
 function removeFromAllFavourites() {
@@ -117,7 +118,13 @@ function removeFromAllFavourites() {
 
     localStorage.setItem('Favourites', JSON.stringify(getAllFavourites))
 
-    if (getAllFavourites.length >= end) {
+    if (window.matchMedia("(max-width: 600px)").matches) {
+        if (getAllFavourites.length >= pageID) {
+            console.log(pageID)
+            displaySelectedCategories(pageID - 1);
+            document.querySelector('#nr-of-pages').lastChild.style = 'display: none;';
+        }
+      } else if (getAllFavourites.length >= end) {
         displaySelectedCategories(end - 1);
     }
 
@@ -126,6 +133,10 @@ function removeFromAllFavourites() {
     if (nrOfPages > Math.ceil(getAllFavourites.length / amountofCards)) {
         nrOfPages = Math.ceil(getAllFavourites.length / amountofCards);
         document.querySelector('#nr-of-pages').lastChild.style = 'display: none;';
+    }
+
+    if (getAllFavourites.length <= 0) {
+        noFavourites()
     }
 }
 

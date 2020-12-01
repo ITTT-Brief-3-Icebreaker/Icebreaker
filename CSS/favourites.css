@@ -32,6 +32,7 @@
 }
 
 #nr-of-pages a {
+    color: gray;
     padding: 0.5rem;
     font-size: 1.2rem;
 }
@@ -53,4 +54,39 @@
     top: 90%;
     right: 2%;
     font-size: 3rem;
+}
+
+.jokes-back {
+    border-color: #E2E2E2;
+  }
+
+#go-home {
+    position: relative;
+    top: 15%;
+    left: 15%;
+
+    height: 120px;
+    width: 120px;
+
+    color: black;
+    font-size: 1.2rem;
+    text-decoration: none;
+
+    display: block;
+    padding: 8%;
+
+    background-color: #E2E2E2;
+    border-radius: 7px;
+    border: 2px solid gray;
+    box-shadow: 2px 2px 5px gray;
+}
+
+#go-home:hover {
+    -ms-transform: scale(1.05); /* IE 9 */
+    -webkit-transform: scale(1.05); /* Safari 3-8 */
+    transform: scale(1.05); 
+}
+
+.fa-arrow-left {
+    padding: 5px;
 }

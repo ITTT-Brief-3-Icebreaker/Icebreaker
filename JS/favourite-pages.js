@@ -1,36 +1,81 @@
 let favouritesContainer = document.querySelector(".favourites-container");
 
+
 let amountofCards;
+
 
 document.querySelector('#nr-of-pages').addEventListener('click', goToPage);
 
 document.querySelector('.fa-chevron-left').addEventListener('click', goLeft)
 document.querySelector('.fa-chevron-right').addEventListener('click', goRight)
 
-console.log(nrOfPages)
-function goLeft() {
 
-    if (pageID > 0) {
+function noFavourites() {
+    console.log('no favourites')
+
+        let container = document.createElement('div')
+        container.className = "jokes-back card";
+
+        let title = document.createElement("h3")
+        title.innerHTML = "OOPS!"
+
+        let quote = document.createElement('p')
+        quote.classList.add('answer')
+        quote.innerHTML = 'You don\'t seem to have any saved favourites';
+
+        let goHome = document.createElement('a')
+        goHome.id = 'go-home'
+        goHome.href = 'index.html'
+        goHome.innerHTML = 'Go back to add favourites <br> <i class="fas fa-arrow-left"></i>'
+
+        container.appendChild(title);
+        container.appendChild(quote);
+        container.appendChild(goHome);
+        favouritesContainer.appendChild(container);
+}
+
+function goLeft() {
+    console.log('left')
+
+    if (pageID > 1) {
+
         pageID--;
+
         favouritesContainer.innerHTML = "";
-        displaySelectedCategories(pageID)   
+
+        displaySelectedCategories(pageID -1)
+        setCurrentPage(pageID)  
+
+        console.log(pageID)
+        setupRemoveFunction();
     }
 }
 
 function goRight() {
-    if (pageID < nrOfPages){
-        pageID++;
+    console.log('right')
+
+    if (pageID < (nrOfPages)) {
+        
         favouritesContainer.innerHTML = "";
         displaySelectedCategories(pageID)   
+        
+        // if (pageID < (nrOfPages -1)){
+            pageID++
+        // }
+        setCurrentPage(pageID)
         console.log(pageID)
+        setupRemoveFunction();
     }
 }
 
 function goToPage() {
-    pageID = event.target.id;
+    
+    splitID = event.target.id.split('e');
+    pageID = splitID[1];
     end = amountofCards * pageID;
     let start = end - amountofCards;
     
+    console.log(pageID)
     favouritesContainer.innerHTML = "";
 
     if (nrOfPages > pageID) {
@@ -43,6 +88,7 @@ function goToPage() {
         }
     }
 
+    setCurrentPage(pageID)
     setupRemoveFunction();
 }
 
@@ -68,11 +114,22 @@ function setupPages() {
     for (i = 0; i < nrOfPages; i++) {
         let link = document.createElement('a');
         link.innerHTML = i + 1;
-        link.id = (i + 1);
+        link.id = ('page' + (i + 1));
         document.querySelector('#nr-of-pages').appendChild(link);
     };
+
+    setCurrentPage(pageID)
+    
 }
 
+function setCurrentPage(current) {
+    let setCurrent = document.querySelector('#page' + current);
+
+    if(setCurrent){
+        setCurrent.style = 'color: black;';
+    }
+    // console.log(setCurrent)
+}
 function setAmountOfCards() {
     // if (window.innerWidth > 1100) {
     //     amountofCards = 8
@@ -97,6 +154,11 @@ function setAmountOfCards() {
         amountofCards = 1;
         setupPages();
       }
+
+    if (getAllFavourites.length <= 0) {
+        noFavourites()
+        
+    }
 
     // setupPages();
 }
