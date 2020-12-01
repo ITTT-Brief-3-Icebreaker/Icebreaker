@@ -15,6 +15,7 @@ body {
   ),url(../images/Ice.jpg);
     height: 100vh;
     background-repeat: no-repeat;
+    line-height: 1.2;
 }
 
 :root {
@@ -95,11 +96,23 @@ h2 {
     box-shadow: 2px 2px 5px black;
 }
 
-.jokes-front h3 {
+.jokes-front > .jokesH3 {
     color: white;
-    margin-top: 0.2rem;
+    margin: 0px;
+    font-size: 21px;
     padding: 0.5rem 0.2rem;
     border-bottom: 1px solid white;
+}
+
+.jokesH3 {
+    margin: 0px;
+    font-size: 21px;
+    padding: 0.5rem 0.2rem;
+    border-bottom: 1px solid white;
+}
+
+p {
+    margin: 0px;
 }
 
 .jokes-front p {
@@ -134,8 +147,8 @@ main {
     grid-gap: 2%;
 }
 
-.conversation h3,
-.conversation p {
+.conversation.jokesH3,
+.conversation.P {
     color: #000;
     border-color: #000;
 }
