@@ -147,8 +147,8 @@ main {
     grid-gap: 2%;
 }
 
-.conversation.jokesH3,
-.conversation.P {
+.conversations.jokesH3,
+.conversations.P {
     color: #000;
     border-color: #000;
 }
