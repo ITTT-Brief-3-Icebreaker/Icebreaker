@@ -50,8 +50,10 @@
 
 }
 
-@media only screen and (min-width: 500px) {
-   
+@media only screen and (min-width: 600px) {
+    .fa-chevron-right, .fa-chevron-left {
+        display: none;
+    }
 }
 
 @media only screen and (min-width: 700px) {

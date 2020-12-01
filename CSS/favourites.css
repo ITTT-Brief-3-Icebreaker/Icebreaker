@@ -31,3 +31,26 @@
     background: #fff;
 }
 
+#nr-of-pages a {
+    padding: 0.5rem;
+    font-size: 1.2rem;
+}
+
+#nr-of-pages a:hover, .fa-chevron-right:hover, .fa-chevron-left:hover {
+    opacity: 0.5;
+    cursor: pointer;
+}
+
+.fa-chevron-left {
+    position: absolute;
+    top: 90%;
+    left: 2%;
+    font-size: 3rem;
+}
+
+.fa-chevron-right {
+    position: absolute;
+    top: 90%;
+    right: 2%;
+    font-size: 3rem;
+}
