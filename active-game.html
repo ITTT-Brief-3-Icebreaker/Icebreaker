@@ -7,10 +7,11 @@
     <link rel="stylesheet" href="plugins/bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" href="plugins/fontawesome/fontawesome-free-5.15.1-web/css/all.min.css">
     <link href="CSS/index.css" type="text/css" rel="stylesheet" />
-    <link href="./CSS/app.css" type="text/css" rel="stylesheet" />
-    <link href="CSS/mediaqueries.css" type="text/css" rel="stylesheet" />
     <link href="CSS/active-game.css" type="text/css" rel="stylesheet" />
-    <!-- <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" /> -->
+    <link href="CSS/mediaqueries.css" type="text/css" rel="stylesheet" />
+    <link href="CSS/loading.css" type="text/css" rel="stylesheet" />
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
     
 
     <title>Playing | Icebreaker</title>
@@ -61,8 +62,7 @@
             <!-- Front side of card -->
             <div class="jokes flexCenter">
                 <div class="jokes-front front card loading"  id="get_jokes">
-                    <h2>ICE<br>BRE<br>AKER</h2>
-                    <div class="down-arrow"></div>
+                    <img src="./images/Icepick.png" alt="">
                     <h3 id="front-title" class="loading"></h3>
                     <p>Get to know each other</p>
                 </div>
@@ -70,7 +70,7 @@
             
             <!-- Back side of card to display joke -->
             <div class="jokes-back card load-border">
-                <div  id="next" >
+                <div id="next">
                     <div class="heartContainer">
                         <img class="heart" src="./images/heart.svg" alt="click heart to add to favourites">
                     </div>

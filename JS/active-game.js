@@ -107,18 +107,24 @@ function loadPickUpLines() {
 function loadConversation() {
     displayConversation();
 
-    backTitle.innerHTML = 'CONVERSATION STARTER'
-    frontTitle.innerHTML = 'CONVERSATION STARTER'
+    backTitle.innerHTML = 'TALKING TOPICS'
+    frontTitle.innerHTML = 'TALKING TOPICS'
 
     color = '#FED766';
-    document.querySelector('.jokes-front').style = 'background-color: ' + color + ';';
+    let black = '#000000';
+    let jokesFront = document.querySelector('.jokes-front')
+    jokesFront.style = 'background-color: ' + color + ';';
+    jokesFront.childNodes.forEach(element => {
+        element.style = 'color: ' + black + ';' + 'border-color: ' + black + ';';
+    })
+    jokesFront.fontcolor = black;
     document.querySelector('.jokes-back').style = 'border-color: ' + color + ';';
 
 }
 
 function displayFact() {
     quote.innerHTML = game[ID].question + '<br> <br> A: ' +
-        game[ID].correct_answer + '<br> <br> Incorrect Answers: ' + game[ID].incorrect_answers;
+    game[ID].correct_answer + '<br> <br> Incorrect Answers: ' + game[ID].incorrect_answers;
 }
 
 function displayJoke() {
@@ -137,6 +143,12 @@ function next() {
     ID++;
     toggle = true;
     heart.src = "./images/heart.svg";
+    
+    cardBack.classList.add('animate__animated', 'animate__rollIn');
+    
+    cardBack.addEventListener('animationend', () => {
+        cardBack.classList.remove('animate__animated', 'animate__rollIn');
+    })
 
     if (selected == 'Jokes') {
         displayJoke();
@@ -216,6 +228,19 @@ function removeFromFavourites() {
 
     localStorage.setItem('Favourites', JSON.stringify(savedFavourites))
 }
+
+// let cardLink = document.querySelectorAll(".cardLink").forEach(card => {
+//     card.addEventListener("click", event => {
+//         card.classList.add('animate__animated', 'animate__flipOutY');
+//     })
+// })
+
+// cardBack.addEventListener("click", function(){
+//     card.classList.add('animate__animated', 'animate__flipOutY');
+// })
+
+
+
 
 // setTimeout(() => {
 loadPage();
