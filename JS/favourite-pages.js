@@ -124,7 +124,7 @@ function setCurrentPage(current) {
 }
 function setAmountOfCards() {
 
-    if (window.matchMedia("(min-width: 1100px)").matches) {
+    if (window.matchMedia("(min-width: 1204px)").matches) {
         amountofCards = 8;
         setupPages();
       } else if (window.matchMedia("(min-width: 860px)").matches) {

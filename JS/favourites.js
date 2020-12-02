@@ -80,7 +80,9 @@ function displaySelectedCategories(i) {
     quote.className = "answer";
 
     if (getAllFavourites[i].type == "Jokes") {
-        quote.innerHTML = getAllFavourites[i].entry.joke;
+        quote.innerHTML = getAllFavourites[i].entry.setup +
+        '<br> <br>' + getAllFavourites[i].entry.punchline ;
+
 
     } else if (getAllFavourites[i].type == "Facts") {
         quote.innerHTML = getAllFavourites[i].entry.question + '<br> <br> A: ' +

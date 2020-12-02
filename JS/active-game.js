@@ -129,7 +129,8 @@ function displayFact() {
 }
 
 function displayJoke() {
-    quote.innerHTML = game[ID].joke;
+    quote.innerHTML = game[ID].setup +
+    '<br> <br>' + game[ID].punchline ;
 }
 
 function displayPickUpLine() {

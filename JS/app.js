@@ -1,10 +1,10 @@
 function getJokes() {
     // if (JSON.parse(localStorage.getItem('Jokes')) == undefined) {
     console.log('get new Jokes')
-    fetch('https://sv443.net/jokeapi/v2/joke/Any?blacklistFlags=nsfw,religious,political,racist,sexist&type=single&amount=100')
+    fetch('https://run.mocky.io/v3/dde3b884-8754-42e3-8356-dd95babeb521')
         .then(response => response.json())
         .then(data => {
-            localStorage.setItem('Jokes', JSON.stringify(data.jokes)),
+            localStorage.setItem('Jokes', JSON.stringify(data)),
                 setup()
         })
 }
