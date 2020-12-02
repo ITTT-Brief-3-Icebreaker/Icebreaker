@@ -37,7 +37,7 @@ function goLeft() {
         favouritesContainer.innerHTML = "";
 
         if (selected.length > 0) {
-            displaySelectedCategories(selectedEntries[pageID] -1)
+            displaySelectedCategories(selectedEntries[pageID - 1])
         } else {
             displaySelectedCategories(pageID -1)
         }
