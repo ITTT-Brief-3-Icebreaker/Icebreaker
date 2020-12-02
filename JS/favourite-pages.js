@@ -6,6 +6,7 @@ document.querySelector('.fa-chevron-left').addEventListener('click', goLeft);
 document.querySelector('.fa-chevron-right').addEventListener('click', goRight);
 
 function noFavourites(category) {
+    favouritesContainer.innerHTML = "";
 
     let container = document.createElement('div')
     container.className = "jokes-back card";
@@ -76,6 +77,10 @@ function goToPage() {
     
     favouritesContainer.innerHTML = "";
 
+    if (getAllFavourites.length <= 0) {
+        noFavourites('favourites')   
+    }
+
     if (nrOfPages > pageID) {
         if (selected.length > 0) {
             for (let i = start; i < end; i++) {
@@ -109,9 +114,6 @@ function setupPages() {
         noFavourites('favourites')   
     }
 
-    document.querySelector('#nr-of-pages').innerHTML = "";
-    
-
     if (selected.length > 0) {
         nrOfPages = Math.ceil(amountSelected / amountofCards)    
     } else {
@@ -123,7 +125,6 @@ function setupPages() {
             checkIfHasFavourite();
             for (i = 0; i < amountofCards; i++) {
                 displaySelectedCategories(selectedEntries[i]);
-              
         }
         } else {
             for (let i = 0; i < amountofCards; i++) {
@@ -145,16 +146,22 @@ function setupPages() {
             }
         }
     }    
+    
+    setPageNumbers()
+    setCurrentPage(pageID)
+    setupRemoveFunction();
+}
+
+function setPageNumbers() {
+    document.querySelector('#nr-of-pages').innerHTML = "";
+    console.log(nrOfPages)
     for (i = 0; i < nrOfPages; i++) {
         let link = document.createElement('a');
         link.innerHTML = i + 1;
         link.id = ('page' + (i + 1));
         document.querySelector('#nr-of-pages').appendChild(link);
     };
-
-    setCurrentPage(pageID)
 }
-
 function setCurrentPage(current) {
     for (let i = 0; i < nrOfPages; i++) {
         document.querySelector('#page' + (i + 1)).style  = 'color: #6A6674;';
@@ -164,7 +171,6 @@ function setCurrentPage(current) {
     
     if(setCurrent){
         setCurrent.style = 'color: #000;';
-        console.log(pageID)
     }
 }
 
@@ -172,17 +178,15 @@ function setAmountOfCards() {
 
     if (window.matchMedia("(min-width: 1204px)").matches) {
         amountofCards = 8;
-        setupPages();
       } else if (window.matchMedia("(min-width: 860px)").matches) {
         amountofCards = 6;
-        setupPages();
       } else if (window.matchMedia("(min-width: 600px)").matches) {
         amountofCards = 4;
-        setupPages();
       } else {
         amountofCards = 1;
-        setupPages();
       }
+
+      setupPages();
 }
 
 window.onresize = setAmountOfCards;

@@ -18,12 +18,7 @@
     display: none;
 }
 
-/* .hideCheckbox {
-    opacity: 0;
-} */
-
 .checkboxes {
-    /* background-color: aqua; */
     display: flex;
     justify-content: space-evenly;
     padding: 20px;
@@ -43,12 +38,6 @@
     box-shadow: 5px 5px 10px 5px rgba(0, 0, 0, 0.25);
 }
 
-/* /* .check:focus {
-    outline: none;
-    background: #9AD4D6;
-    color: #fff;
-} */
-
 .check:hover:focus {
     outline: none;
     background: #9AD4D6;
@@ -63,14 +52,6 @@ label {
     margin: 0;
 }
 
-/* 
-.heartContainer {
-    position: absolute;
-    top: 5px;
-    right: 5px;
-
-} */
-
 #nr-of-pages a {
     color: #6A6674;
     padding: 0.5rem;
@@ -83,10 +64,6 @@ label {
 }
 
 .fa-chevron-left {
-/* 
-        position: relative;
-        bottom: 40.5%;
-        margin-bottom: -320px; */
     position: relative;
     bottom: 200px;
     left: 2%;

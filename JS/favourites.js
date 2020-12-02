@@ -25,10 +25,6 @@ function chooseCategories() {
     selectedEntries = [];
     amountSelected = 0;
     pageID = 1;
-     
-    // for (let i = 0; i < 4; i++) {
-    //     document.querySelectorAll('.check' + (i + 1)).style  = 'background: #fff;';
-    // }
 
     document.querySelectorAll('.check').forEach(element => {
         element.style = 'background: #fff; color: #000'
@@ -56,7 +52,6 @@ function chooseCategories() {
     }
 
     if (getAllFavourites.length <= 0) {
-        favouritesContainer.innerHTML = "";
         noFavourites('favourites')   
     }
 
@@ -79,7 +74,9 @@ function chooseCategories() {
 };
 
 function checkIfHasFavourite() {
-    if (selectedEntries.length <= 0) {
+    if (selected.length > 1 && selectedEntries.length <= 0) {
+        noFavourites('favourites')
+    } else if (selectedEntries.length <= 0) {
         if (selected[i] == 'Jokes'){
             noFavourites('Jokes')
         } else if (selected[i] == 'Facts'){
@@ -130,19 +127,15 @@ function displaySelectedCategories(i) {
     if (getAllFavourites[i].type == "Jokes") {
         quote.innerHTML = getAllFavourites[i].entry.setup +
         '<br> <br>' + getAllFavourites[i].entry.punchline ;
-
-
     } else if (getAllFavourites[i].type == "Facts") {
         quote.innerHTML = getAllFavourites[i].entry.question + 
         '<br> <br> Correct answer: <br>' + getAllFavourites[i].entry.correct_answer
-            // + '<br> <br> Incorrect Answers: ' + 
-            //getAllFavourites[i].entry.incorrect_answers;
-
     } else if (getAllFavourites[i].type == "pickUpLines") {
         quote.innerHTML = getAllFavourites[i].entry;
     } else if (getAllFavourites[i].type == "Conversation") {
         quote.innerHTML = getAllFavourites[i].entry.text;
     }
+
     container.style = 'border-color: ' + getAllFavourites[i].color + ';';
 
     container.appendChild(next);
@@ -152,9 +145,6 @@ function displaySelectedCategories(i) {
     next.appendChild(quote);
     favouritesContainer.appendChild(container);
 }
-
-// function renderFavourites() {
-// }
 
 function getFavourites() {
     if (JSON.parse(localStorage.getItem('Favourites'))) {
@@ -172,41 +162,40 @@ function removeFromAllFavourites() {
             getAllFavourites.splice(i, 1);
         }
     }
-
+    
     localStorage.setItem('Favourites', JSON.stringify(getAllFavourites))
 
-    if (window.matchMedia("(max-width: 600px)").matches) {
-        if (getAllFavourites.length >= pageID) {
-            displaySelectedCategories(pageID - 1);
-            document.querySelector('#nr-of-pages').lastChild.style = 'display: none;';
-        }
-    } else if (getAllFavourites.length >= end) {
-        displaySelectedCategories(end - 1);
-    }
-
-    setupRemoveFunction();
-
-    if (nrOfPages > Math.ceil(getAllFavourites.length / amountofCards)) {
-        nrOfPages = Math.ceil(getAllFavourites.length / amountofCards);
-        document.querySelector('#nr-of-pages').lastChild.style = 'display: none;';
-    }
-
-    if (getAllFavourites.length <= 0) {
+    console.log(pageID , getAllFavourites.length)
+    if (getAllFavourites == undefined || getAllFavourites.length <= 0 || getAllFavourites[0].length <= 0) {
         noFavourites('favourites')
+    } else {
+        if (window.matchMedia("(max-width: 600px)").matches) {
+            if (getAllFavourites.length < pageID) {
+                displaySelectedCategories(pageID - 2);  
+            } else if (getAllFavourites.length == 1) {
+                displaySelectedCategories(0);
+            } else if (getAllFavourites.length > pageID) {
+                displaySelectedCategories(pageID - 1);
+            } else if (getAllFavourites.length == pageID){
+                displaySelectedCategories(pageID - 2);
+                console.log(pageID - 2)
+            } 
+            pageID--;
+        } else if (getAllFavourites.length >= end) {
+            displaySelectedCategories(end - 1);
+        }
+
+        setupRemoveFunction();
+
+        if (nrOfPages > Math.ceil(getAllFavourites.length / amountofCards)) {
+            nrOfPages = Math.ceil(getAllFavourites.length / amountofCards);
+            setPageNumbers()
+        }
     }
 }
 
 window.onload = function (){
     getFavourites();
     setAmountOfCards();
-    setupRemoveFunction();
 }
 
-// TODO: reset nr:s of getAllFavourites after one has been removed on both favourites and active-game
-
-// TODO: change the nr of displayed cards depending on screen width
-
-// TODO: adjust the titles to the cards 
-// Clean up CSS of cards
-// add menu to all pages
-// make titles cohesive for all pages
