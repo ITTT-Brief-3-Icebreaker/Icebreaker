@@ -1,12 +1,14 @@
 function getJokes() {
     // if (JSON.parse(localStorage.getItem('Jokes')) == undefined) {
     console.log('get new Jokes')
-    fetch('https://run.mocky.io/v3/dde3b884-8754-42e3-8356-dd95babeb521')
+    fetch('https://sv443.net/jokeapi/v2/joke/Any?blacklistFlags=nsfw,religious,political,racist,sexist&type=single&amount=100')
         .then(response => response.json())
         .then(data => {
-            localStorage.setItem('Jokes', JSON.stringify(data)),
+            localStorage.setItem('Jokes', JSON.stringify(data.jokes)),
                 setup()
         })
+
+    // localStorage.setItem('Clicked', JSON.stringify('Jokes'))
 }
 
 function getFacts() {
@@ -17,6 +19,8 @@ function getFacts() {
             localStorage.setItem('Facts', JSON.stringify(data.results)),
                 setup()
         })
+
+    // localStorage.setItem('Clicked', JSON.stringify('Facts'));
 }
 
 
@@ -44,7 +48,6 @@ function getConversation() {
         })
 }
 
-// if (window.location)
 var swiper = new Swiper('.swiper-container', {
     navigation: {
         nextEl: '.swiper-button-next',

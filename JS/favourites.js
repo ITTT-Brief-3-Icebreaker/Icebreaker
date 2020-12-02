@@ -1,10 +1,5 @@
-let getAllFavourites, heartSvg, nrOfPages;
+let getAllFavourites, selected, favouritesContainer, heartSvg;
 let toggle = false;
-let pageID = 1;
-let end = 8;
-let selected = [];
-let amountSelected = 0;
-let selectedEntries = [];
 
 
 document.querySelector('.add_jokes').addEventListener('click', chooseCategories)
@@ -13,13 +8,8 @@ document.querySelector('.add_pickup_lines').addEventListener('click', chooseCate
 document.querySelector('.add_conversation').addEventListener('click', chooseCategories)
 document.querySelector('.select_btn').addEventListener('click', chooseCategories);
 
-
-
 function chooseCategories() {
-    selected = [];
-    selectedEntries = [];
-    amountSelected = 0;
-
+    let selected = [];
     if (event.target == document.querySelector('.add_jokes')) {
         selected.push('Jokes');
     } 
@@ -36,24 +26,14 @@ function chooseCategories() {
         selected.push('Jokes', 'Facts', 'pickUpLines', 'Conversation');
     }
 
-    if (getAllFavourites.length <= 0) {
-        favouritesContainer.innerHTML = "";
-        noFavourites()   
-    }
+    favouritesContainer.innerHTML = "";
 
-    if (selected.length > 0) {
-        for (i = 0; i < getAllFavourites.length; i++) {
-            for (j = 0; j < selected.length; j++) {
-                if (getAllFavourites[i].type == selected[j]) {
-                    selectedEntries.push(i)
-                    amountSelected++
-                }
-            }
+    for (i = 0; i < getAllFavourites.length; i++) {
+        for (j = 0; j < selected.length; j++)
+
+            if (getAllFavourites[i].type == selected[j]) {
+            displaySelectedCategories(i);
         }
-            console.log(amountSelected)
-        setupPages();
-    } else {
-        alert('select category')
     }
 
     setupRemoveFunction();
@@ -95,9 +75,7 @@ function displaySelectedCategories(i) {
     quote.className = "answer";
 
     if (getAllFavourites[i].type == "Jokes") {
-        quote.innerHTML = getAllFavourites[i].entry.setup +
-        '<br> <br>' + getAllFavourites[i].entry.punchline ;
-
+        quote.innerHTML = getAllFavourites[i].entry.joke;
 
     } else if (getAllFavourites[i].type == "Facts") {
         quote.innerHTML = getAllFavourites[i].entry.question + 
@@ -120,12 +98,18 @@ function displaySelectedCategories(i) {
     favouritesContainer.appendChild(container);
 }
 
-// function renderFavourites() {
-// }
+function renderFavourites() {
+
+    favouritesContainer = document.querySelector(".favourites-container");
+    favouritesContainer.innerHTML = "";
+
+    for (let i = 0; i < getAllFavourites.length; i++) {
+        displaySelectedCategories(i);
+    };
+}
 
 function getFavourites() {
     getAllFavourites = JSON.parse(localStorage.getItem('Favourites'));
-    console.log('get favs')
 }
 
 function removeFromAllFavourites() {
@@ -138,40 +122,10 @@ function removeFromAllFavourites() {
     }
 
     localStorage.setItem('Favourites', JSON.stringify(getAllFavourites))
-
-    if (window.matchMedia("(max-width: 600px)").matches) {
-        if (getAllFavourites.length >= pageID) {
-            console.log(pageID)
-            displaySelectedCategories(pageID - 1);
-            document.querySelector('#nr-of-pages').lastChild.style = 'display: none;';
-        }
-    } else if (getAllFavourites.length >= end) {
-        displaySelectedCategories(end - 1);
-    }
-
-    setupRemoveFunction();
-
-    if (nrOfPages > Math.ceil(getAllFavourites.length / amountofCards)) {
-        nrOfPages = Math.ceil(getAllFavourites.length / amountofCards);
-        document.querySelector('#nr-of-pages').lastChild.style = 'display: none;';
-    }
-
-    if (getAllFavourites.length <= 0) {
-        noFavourites()
-    }
 }
 
-window.onload = function (){
-    getFavourites();
-    setAmountOfCards();
-    setupRemoveFunction();
-}
+getFavourites()
+renderFavourites();
+setupRemoveFunction();
 
 // TODO: reset nr:s of getAllFavourites after one has been removed on both favourites and active-game
-
-// TODO: change the nr of displayed cards depending on screen width
-
-// TODO: adjust the titles to the cards 
-// Clean up CSS of cards
-// add menu to all pages
-// make titles cohesive for all pages

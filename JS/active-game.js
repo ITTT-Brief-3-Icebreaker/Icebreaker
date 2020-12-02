@@ -129,8 +129,7 @@ function displayFact() {
 }
 
 function displayJoke() {
-    quote.innerHTML = game[ID].setup +
-    '<br> <br>' + game[ID].punchline ;
+    quote.innerHTML = game[ID].joke;
 }
 
 function displayPickUpLine() {
@@ -145,9 +144,9 @@ function next() {
     ID++;
     toggle = true;
     heart.src = "./images/heart.svg";
-
+    
     cardBack.classList.add('animate__animated', 'animate__rollIn');
-
+    
     cardBack.addEventListener('animationend', () => {
         cardBack.classList.remove('animate__animated', 'animate__rollIn');
     })
