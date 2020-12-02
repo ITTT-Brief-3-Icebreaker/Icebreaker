@@ -7,11 +7,16 @@ let amountSelected = 0;
 let selectedEntries = [];
 
 
-document.querySelector('.add_jokes').addEventListener('click', chooseCategories)
-document.querySelector('.add_facts').addEventListener('click', chooseCategories)
-document.querySelector('.add_pickup_lines').addEventListener('click', chooseCategories)
-document.querySelector('.add_conversation').addEventListener('click', chooseCategories)
-document.querySelector('.select_btn').addEventListener('click', chooseCategories);
+let addJokes = document.querySelector('.add_jokes')
+addJokes.addEventListener('click', chooseCategories)
+let addFacts = document.querySelector('.add_facts')
+addFacts.addEventListener('click', chooseCategories)
+let addPickup = document.querySelector('.add_pickup_lines')
+addPickup.addEventListener('click', chooseCategories)
+let addConversation = document.querySelector('.add_conversation')
+addConversation.addEventListener('click', chooseCategories)
+let addAll = document.querySelector('.select_btn')
+addAll.addEventListener('click', chooseCategories);
 
 
 
@@ -21,20 +26,33 @@ function chooseCategories() {
     amountSelected = 0;
     pageID = 1;
      
+    // for (let i = 0; i < 4; i++) {
+    //     document.querySelectorAll('.check' + (i + 1)).style  = 'background: #fff;';
+    // }
+
+    document.querySelectorAll('.check').forEach(element => {
+        element.style = 'background: #fff; color: #000'
+    })
+
     if (event.target == document.querySelector('.add_jokes')) {
         selected.push('Jokes');
+        addJokes.style  = 'outline: none; background: #9AD4D6; color: #fff;';
     } 
     if (event.target == document.querySelector('.add_facts')) {
         selected.push('Facts');
+        addFacts.style  = 'outline: none; background: #9AD4D6; color: #fff;';
     }
     if (event.target == document.querySelector('.add_pickup_lines')) {
         selected.push('pickUpLines');
+        addPickup.style  = 'outline: none; background: #9AD4D6; color: #fff;';
     }
     if (event.target == document.querySelector('.add_conversation')) {
         selected.push('Conversation');
+        addConversation.style  = 'outline: none; background: #9AD4D6; color: #fff;';
     }
     if (event.target == document.querySelector('.select_btn')) {
         selected.push('Jokes', 'Facts', 'pickUpLines', 'Conversation');
+        addAll.style  = 'outline: none; background: #9AD4D6; color: #fff;';
     }
 
     if (getAllFavourites.length <= 0) {
