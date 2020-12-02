@@ -6,6 +6,11 @@ let selected = [];
 let amountSelected = 0;
 let selectedEntries = [];
 
+
+document.querySelector('.add_jokes').addEventListener('click', chooseCategories)
+document.querySelector('.add_facts').addEventListener('click', chooseCategories)
+document.querySelector('.add_pickup_lines').addEventListener('click', chooseCategories)
+document.querySelector('.add_conversation').addEventListener('click', chooseCategories)
 document.querySelector('.select_btn').addEventListener('click', chooseCategories);
 
 
@@ -15,17 +20,20 @@ function chooseCategories() {
     selectedEntries = [];
     amountSelected = 0;
 
-    if (document.querySelector('.add_jokes').checked) {
+    if (event.target == document.querySelector('.add_jokes')) {
         selected.push('Jokes');
-    }
-    if (document.querySelector('.add_facts').checked) {
+    } 
+    if (event.target == document.querySelector('.add_facts')) {
         selected.push('Facts');
     }
-    if (document.querySelector('.add_pickup_lines').checked) {
+    if (event.target == document.querySelector('.add_pickup_lines')) {
         selected.push('pickUpLines');
     }
-    if (document.querySelector('.add_conversation').checked) {
+    if (event.target == document.querySelector('.add_conversation')) {
         selected.push('Conversation');
+    }
+    if (event.target == document.querySelector('.select_btn')) {
+        selected.push('Jokes', 'Facts', 'pickUpLines', 'Conversation');
     }
 
     if (getAllFavourites.length <= 0) {

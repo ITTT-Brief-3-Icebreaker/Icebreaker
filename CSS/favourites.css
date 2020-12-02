@@ -7,7 +7,7 @@
 }
 
 .jokes-back {
-    padding: 1%;
+    padding: 15px;
     margin: 2%;
     overflow: auto;
     -ms-overflow-style: none;
@@ -18,28 +18,43 @@
     display: none;
 }
 
-
+/* .hideCheckbox {
+    opacity: 0;
+} */
 
 .checkboxes {
     /* background-color: aqua; */
     display: flex;
     justify-content: space-evenly;
     padding: 20px;
-    margin: 0 10% 4% 10%;
+    margin: 0 7% 4% 7%;
     border-radius: 15px;
     flex-wrap: wrap;
 }
 
 .check {
     margin: 5px;
+    padding: 8px;
+    width: 130px;
+    background: #fff;
+    border: none;
+    border-radius: 12px;
+    text-align: center;
+    box-shadow: 5px 5px 10px 5px rgba(0, 0, 0, 0.25);
 }
 
-.select_btn {
-    border: 1px solid #272727;
-    border-radius: 6px;
-    /* padding-left: 4px;
-    padding-right: 4px; */
-    background: #fff;
+.check:focus {
+    outline: none;
+    background: #9AD4D6;
+    color: #fff;
+}
+
+#card-title {
+    font-size: 21px;
+}
+
+label {
+    margin: 0;
 }
 /* 
 .heartContainer {
