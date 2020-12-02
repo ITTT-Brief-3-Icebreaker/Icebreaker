@@ -6,7 +6,6 @@ document.querySelector('.fa-chevron-left').addEventListener('click', goLeft);
 document.querySelector('.fa-chevron-right').addEventListener('click', goRight);
 
 function noFavourites() {
-    console.log('no favourites')
 
     let container = document.createElement('div')
     container.className = "jokes-back card";
@@ -30,7 +29,6 @@ function noFavourites() {
 }
 
 function goLeft() {
-    console.log('left')
 
     if (pageID > 1) {
 
@@ -44,13 +42,11 @@ function goLeft() {
         }
         setCurrentPage(pageID)  
 
-        console.log(pageID)
         setupRemoveFunction();
     }
 }
 
 function goRight() {
-    console.log('right')
 
     if (pageID < (nrOfPages)) {
         
@@ -65,14 +61,13 @@ function goRight() {
         pageID++
 
         setCurrentPage(pageID)
-        console.log(pageID)
+
         setupRemoveFunction();
     }
 }
 
 function goToPage() {
     
-    console.log('selected: ' + selected)
     splitID = event.target.id.split('e');
     pageID = splitID[1];
     end = amountofCards * pageID;
@@ -125,15 +120,10 @@ function setupPages() {
     if (nrOfPages > 1) {
         if (selected.length > 0){ 
             for (i = 0; i < amountofCards; i++) {
-                // for (j = 0; j < selected.length; j++) {
-                //     if (getAllFavourites[i].type == selected[j]) {
-                        displaySelectedCategories(selectedEntries[i]);
-                    // }
-                // }
+                displaySelectedCategories(selectedEntries[i]);
             }   
         } else {
             for (let i = 0; i < amountofCards; i++) {
-                
                 displaySelectedCategories(i);
             }
         }
@@ -150,8 +140,7 @@ function setupPages() {
                 displaySelectedCategories(i);
             }
         }
-    }
-
+    }    
     for (i = 0; i < nrOfPages; i++) {
         let link = document.createElement('a');
         link.innerHTML = i + 1;
@@ -192,6 +181,3 @@ function setAmountOfCards() {
 }
 
 window.onresize = setAmountOfCards;
-
-
-// if search results have been filtered, they dont display correctly on resize

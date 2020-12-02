@@ -19,7 +19,8 @@ function chooseCategories() {
     selected = [];
     selectedEntries = [];
     amountSelected = 0;
-
+    pageID = 1;
+     
     if (event.target == document.querySelector('.add_jokes')) {
         selected.push('Jokes');
     } 
@@ -50,7 +51,6 @@ function chooseCategories() {
                 }
             }
         }
-            console.log(amountSelected)
         setupPages();
     } else {
         alert('select category')
@@ -124,8 +124,11 @@ function displaySelectedCategories(i) {
 // }
 
 function getFavourites() {
-    getAllFavourites = JSON.parse(localStorage.getItem('Favourites'));
-    console.log('get favs')
+    if (JSON.parse(localStorage.getItem('Favourites'))) {
+        getAllFavourites = JSON.parse(localStorage.getItem('Favourites'));
+    } else {
+        getAllFavourites = [];
+    }
 }
 
 function removeFromAllFavourites() {
@@ -141,7 +144,6 @@ function removeFromAllFavourites() {
 
     if (window.matchMedia("(max-width: 600px)").matches) {
         if (getAllFavourites.length >= pageID) {
-            console.log(pageID)
             displaySelectedCategories(pageID - 1);
             document.querySelector('#nr-of-pages').lastChild.style = 'display: none;';
         }
