@@ -124,7 +124,6 @@ function setupPages() {
 
     if (nrOfPages > 1) {
         if (selected.length > 0){ 
-            console.log('selection has been made')
             for (i = 0; i < amountofCards; i++) {
                 // for (j = 0; j < selected.length; j++) {
                 //     if (getAllFavourites[i].type == selected[j]) {
@@ -140,7 +139,6 @@ function setupPages() {
         }
     } else {
         if (selected.length > 0){ 
-            console.log('selection has been made')
             for (i = 0; i < getAllFavourites.length; i++) {
                     for (j = 0; j < selected.length; j++) 
                         if (getAllFavourites[i].type == selected[j]) {
@@ -153,13 +151,6 @@ function setupPages() {
             }
         }
     }
-    
-
-
-
-    console.log('nr Pages: ' + nrOfPages)
-    console.log('nr of cards ' + getAllFavourites.length)
-    console.log('amount per page: ' + amountofCards)
 
     for (i = 0; i < nrOfPages; i++) {
         let link = document.createElement('a');
@@ -169,16 +160,20 @@ function setupPages() {
     };
 
     setCurrentPage(pageID)
-    
 }
 
-function setCurrentPage(current) {
-    let setCurrent = document.querySelector('#page' + current);
+// function setCurrentPage(current) {
+//     let setCurrent = document.querySelector('#page' + current);
+//     // let setColor = document.querySelector('.nr-color');
 
-    if(setCurrent){
-        setCurrent.style = 'color: black;';
-    }
-}
+//     if(setCurrent){
+//         setCurrent.style = 'color: #000;';
+//         console.log(pageID)
+//     } else {
+//         setColor.style = 'color: #6A6674;'
+//     }
+// }
+
 function setAmountOfCards() {
 
     if (window.matchMedia("(min-width: 1204px)").matches) {

@@ -65,13 +65,13 @@ label {
 } */
 
 #nr-of-pages a {
-    color: gray;
+    color: #6A6674;
     padding: 0.5rem;
     font-size: 1.2rem;
 }
 
 #nr-of-pages a:hover, .fa-chevron-right:hover, .fa-chevron-left:hover {
-    opacity: 0.5;
+    color: #000;
     cursor: pointer;
 }
 
@@ -122,4 +122,9 @@ label {
 
 .fa-arrow-left {
     padding: 5px;
+}
+
+.nr-of-pages-container {
+    display: flex;
+    justify-content: center;
 }
