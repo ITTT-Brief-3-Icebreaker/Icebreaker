@@ -9,17 +9,9 @@
     padding: 15px;
 }
 
-/* .jokes-back:hover {
-    -ms-transform: scale(1.05);
-    -webkit-transform: scale(1.05);
-    transform: scale(1.05); 
-}
-
-.jokes-back:active {
-    -ms-transform: scale(1.0);
-    -webkit-transform: scale(1.0); 
-    transform: scale(1.0); 
-} */
+.animate__animated.animate__rollIn {
+    --animate-duration: 0.5s;
+  }
 
 .jokes {
     grid-column: 2 / 5;
