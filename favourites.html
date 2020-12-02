@@ -5,9 +5,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+    <!-- FONTS -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed&display=swap" rel="stylesheet" />
+
+    <!-- LIBRARIES -->
     <link rel="stylesheet" href="plugins/bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" href="plugins/fontawesome/fontawesome-free-5.15.1-web/css/all.min.css">
 
+    <!-- CSS -->
     <link href="./CSS/index.css" type="text/css" rel="stylesheet" />
     <link href="./CSS/active-game.css" type="text/css" rel="stylesheet" />
     <link href="./CSS/favourites.css" type="text/css" rel="stylesheet" />
@@ -57,7 +62,6 @@
             <button class="add_all check select_btn" check" id="addAll" value="Select">All</button>
         </section>
     </apart>
-
     <main class="cards favourites-container">
         <!-- Back side of card to display joke -->
         <div class="jokes-back card">
@@ -71,6 +75,11 @@
             </div>
         </div>
     </main>
+    
+<i class="fas fa-chevron-left"></i>
+<i class="fas fa-chevron-right"></i>
+
+    <span id="nr-of-pages" style="margin-left: 30%;"></span>
 
     <footer></footer>
 
@@ -79,6 +88,7 @@
     <script src="./JS/app.js" defer></script>
     <script src="./JS/event-listeners.js"></script>
     <script src="./JS/favourites.js"></script>
+    <script src="./JS/favourite-pages.js"></script>
 
     <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
 </body>
