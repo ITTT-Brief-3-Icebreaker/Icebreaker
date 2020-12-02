@@ -18,12 +18,7 @@
     display: none;
 }
 
-/* .hideCheckbox {
-    opacity: 0;
-} */
-
 .checkboxes {
-    /* background-color: aqua; */
     display: flex;
     justify-content: space-evenly;
     padding: 20px;
