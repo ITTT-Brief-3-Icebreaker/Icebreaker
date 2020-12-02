@@ -95,8 +95,8 @@ function loadPickUpLines() {
     displayPickUpLine();
 
     // TODO : change title of front card
-    backTitle.innerHTML = 'PICK-UP LINE'
-    frontTitle.innerHTML = 'PICK-UP LINE'
+    backTitle.innerHTML = 'PICK UP LINES'
+    frontTitle.innerHTML = 'PICK UP LINES'
 
     color = '#009FB7';
     document.querySelector('.jokes-front').style = 'background-color: ' + color + ';';
@@ -123,8 +123,9 @@ function loadConversation() {
 }
 
 function displayFact() {
-    quote.innerHTML = game[ID].question + '<br> <br> A: ' +
-        game[ID].correct_answer + '<br> <br> Incorrect Answers: ' + game[ID].incorrect_answers;
+    quote.innerHTML = game[ID].question + 
+    '<br> <br> Correct answer: <br>' + game[ID].correct_answer 
+    //Incorrect Answers: ' + game[ID].incorrect_answers;
 }
 
 function displayJoke() {
