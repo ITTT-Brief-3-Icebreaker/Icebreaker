@@ -3,13 +3,17 @@ let toggle = false;
 let pageID = 1;
 let end = 8;
 let selected = [];
+let amountSelected = 0;
+let selectedEntries = [];
 
 document.querySelector('.select_btn').addEventListener('click', chooseCategories);
 
 
 
 function chooseCategories() {
-    let selected = [];
+    selected = [];
+    selectedEntries = [];
+    amountSelected = 0;
 
     if (document.querySelector('.add_jokes').checked) {
         selected.push('Jokes');
@@ -24,18 +28,24 @@ function chooseCategories() {
         selected.push('Conversation');
     }
 
-    favouritesContainer.innerHTML = "";
-
     if (getAllFavourites.length <= 0) {
+        favouritesContainer.innerHTML = "";
         noFavourites()   
     }
 
-    for (i = 0; i < getAllFavourites.length; i++) {
-        for (j = 0; j < selected.length; j++) 
-
-            if (getAllFavourites[i].type == selected[j]) {
-            displaySelectedCategories(i);
+    if (selected.length > 0) {
+        for (i = 0; i < getAllFavourites.length; i++) {
+            for (j = 0; j < selected.length; j++) {
+                if (getAllFavourites[i].type == selected[j]) {
+                    selectedEntries.push(i)
+                    amountSelected++
+                }
+            }
         }
+            console.log(amountSelected)
+        setupPages();
+    } else {
+        alert('select category')
     }
 
     setupRemoveFunction();
@@ -61,21 +71,6 @@ function displaySelectedCategories(i) {
 
     let title = document.createElement("h3")
     title.id = "card-title";
-<<<<<<< HEAD
-    if (getAllFavourites[i].type == "Jokes") {
-        title.innerHTML = "JOKES"
-    }
-    if (getAllFavourites[i].type == "Facts") {
-        title.innerHTML = "TRIVIA"
-    }
-    if (getAllFavourites[i].type == "pickUpLines") {
-        title.innerHTML = "PICK-UP LINES"
-    }
-    if (getAllFavourites[i].type == "Conversation") {
-        title.innerHTML = "TOPICS"
-    }
-
-=======
 
     if (getAllFavourites[i].type == "pickUpLines") {
         title.innerHTML = "Pick Up Lines"
@@ -86,7 +81,6 @@ function displaySelectedCategories(i) {
     } else {
         title.innerHTML = getAllFavourites[i].type
     }
->>>>>>> c4c33394918940f7668f10b84f4478cbf3ab5729
 
     let quote = document.createElement("p")
     quote.id = "quote";
@@ -143,7 +137,7 @@ function removeFromAllFavourites() {
             displaySelectedCategories(pageID - 1);
             document.querySelector('#nr-of-pages').lastChild.style = 'display: none;';
         }
-      } else if (getAllFavourites.length >= end) {
+    } else if (getAllFavourites.length >= end) {
         displaySelectedCategories(end - 1);
     }
 

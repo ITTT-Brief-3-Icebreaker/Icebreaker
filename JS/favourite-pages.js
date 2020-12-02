@@ -63,21 +63,33 @@ function goRight() {
 
 function goToPage() {
     
+    console.log('selected: ' + selected)
     splitID = event.target.id.split('e');
     pageID = splitID[1];
     end = amountofCards * pageID;
     let start = end - amountofCards;
     
-    console.log(pageID)
     favouritesContainer.innerHTML = "";
 
     if (nrOfPages > pageID) {
-        for (let i = start; i < end; i++) {
-            displaySelectedCategories(i)   
+        if (selected.length > 0) {
+            for (let i = start; i < end; i++) {
+                displaySelectedCategories(selectedEntries[i])   
+            }
+        } else {
+            for (let i = start; i < end; i++) {
+                displaySelectedCategories(i)   
+            }
         }
     } else {
-        for (let i = start; i < getAllFavourites.length; i++) {
-            displaySelectedCategories(i);
+        if (selected.length > 0) {
+            for (let i = start; i < getAllFavourites.length; i++) {
+                displaySelectedCategories(selectedEntries[i])   
+            }
+        } else {    
+            for (let i = start; i < getAllFavourites.length; i++) {
+                displaySelectedCategories(i);
+            }
         }
     }
 
@@ -87,23 +99,59 @@ function goToPage() {
 
 function setupPages() {
 
+    if (getAllFavourites.length <= 0) {
+        noFavourites()   
+    }
+
     favouritesContainer.innerHTML = "";
     document.querySelector('#nr-of-pages').innerHTML = "";
-
-    nrOfPages = Math.ceil(getAllFavourites.length / amountofCards)
-    console.log('nr Pages: ' + nrOfPages)
-    console.log('nr of cards' + getAllFavourites.length)
     
+
+    if (selected.length > 0) {
+        nrOfPages = Math.ceil(amountSelected / amountofCards)    
+    } else {
+        nrOfPages = Math.ceil(getAllFavourites.length / amountofCards)
+    }
+
     if (nrOfPages > 1) {
-        for (let i = 0; i < amountofCards; i++) {
-            displaySelectedCategories(i);
+        if (selected.length > 0){ 
+            console.log('selection has been made')
+            for (i = 0; i < amountofCards; i++) {
+                // for (j = 0; j < selected.length; j++) {
+                //     if (getAllFavourites[i].type == selected[j]) {
+                        displaySelectedCategories(selectedEntries[i]);
+                    // }
+                // }
+            }   
+        } else {
+            for (let i = 0; i < amountofCards; i++) {
+                
+                displaySelectedCategories(i);
+            }
         }
     } else {
-        for (let i = 0; i < getAllFavourites.length; i++) {
-            displaySelectedCategories(i);
+        if (selected.length > 0){ 
+            console.log('selection has been made')
+            for (i = 0; i < getAllFavourites.length; i++) {
+                    for (j = 0; j < selected.length; j++) 
+                        if (getAllFavourites[i].type == selected[j]) {
+                        displaySelectedCategories(i);
+                    }
+                }    
+        } else {
+            for (let i = 0; i < getAllFavourites.length; i++) {
+                displaySelectedCategories(i);
+            }
         }
     }
     
+
+
+
+    console.log('nr Pages: ' + nrOfPages)
+    console.log('nr of cards ' + getAllFavourites.length)
+    console.log('amount per page: ' + amountofCards)
+
     for (i = 0; i < nrOfPages; i++) {
         let link = document.createElement('a');
         link.innerHTML = i + 1;
@@ -137,10 +185,6 @@ function setAmountOfCards() {
         amountofCards = 1;
         setupPages();
       }
-
-    if (getAllFavourites.length <= 0) {
-        noFavourites()   
-    }
 }
 
 window.onresize = setAmountOfCards;

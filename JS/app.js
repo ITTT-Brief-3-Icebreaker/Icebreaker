@@ -44,6 +44,7 @@ function getConversation() {
         })
 }
 
+// if (window.location)
 var swiper = new Swiper('.swiper-container', {
     navigation: {
         nextEl: '.swiper-button-next',
