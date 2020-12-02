@@ -7,11 +7,13 @@
 }
 
 .jokes-back {
-    padding: 2%;
+    padding: 1%;
     margin: 2%;
+    overflow: scroll;
 }
 
 .checkboxes {
+    /* background-color: aqua; */
     display: flex;
     justify-content: space-evenly;
     padding: 20px;
@@ -27,8 +29,20 @@
 .select_btn {
     border: 1px solid #272727;
     border-radius: 6px;
-    padding: 4px;
+    /* padding-left: 4px;
+    padding-right: 4px; */
     background: #fff;
+}
+
+.heartContainer {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+
+}
+
+#card-title {
+    font-size: 1.5rem;
 }
 
 #nr-of-pages a {
