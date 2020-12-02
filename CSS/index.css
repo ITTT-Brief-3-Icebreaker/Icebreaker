@@ -7,7 +7,6 @@
 body {
     margin: 0 auto;
     font-family: 'Roboto Condensed', sans-serif;
-    ;
     background: linear-gradient(
     to bottom,
     rgba(255,255, 255, 60),
@@ -74,6 +73,8 @@ h2 {
 }
 
 .jokes-front h3 {
+    min-width: 80%;
+    font-size: 1.5rem;
     color: white;
     margin-top: 0.2rem;
     padding: 0.5rem 0.2rem;

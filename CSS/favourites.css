@@ -58,14 +58,14 @@
 
 .fa-chevron-left {
     position: absolute;
-    top: 90%;
+    top: 60%;
     left: 2%;
     font-size: 3rem;
 }
 
 .fa-chevron-right {
     position: absolute;
-    top: 90%;
+    top: 60%;
     right: 2%;
     font-size: 3rem;
 }
@@ -76,18 +76,18 @@
 
 #go-home {
     position: relative;
-    top: 15%;
-    left: 10%;
+    top: 5%;
+    left: 13%;
 
     height: 120px;
-    width: 120px;
+    width: 130px;
 
     color: black;
-    font-size: 1.2rem;
+    font-size: 1.1rem;
     text-decoration: none;
 
     display: block;
-    padding: 8%;
+    padding: 6%;
 
     background-color: #E2E2E2;
     border-radius: 7px;
