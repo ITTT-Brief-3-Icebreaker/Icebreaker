@@ -37,7 +37,11 @@ function goLeft() {
         pageID--;
         favouritesContainer.innerHTML = "";
 
-        displaySelectedCategories(pageID -1)
+        if (selected.length > 0) {
+            displaySelectedCategories(selectedEntries[pageID] -1)
+        } else {
+            displaySelectedCategories(pageID -1)
+        }
         setCurrentPage(pageID)  
 
         console.log(pageID)
@@ -51,7 +55,12 @@ function goRight() {
     if (pageID < (nrOfPages)) {
         
         favouritesContainer.innerHTML = "";
-        displaySelectedCategories(pageID)   
+
+        if (selected.length > 0) {
+            displaySelectedCategories(selectedEntries[pageID])
+        } else {
+            displaySelectedCategories(pageID)   
+        }
         
         pageID++
 
