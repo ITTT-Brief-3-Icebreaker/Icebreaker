@@ -1,37 +1,32 @@
 let favouritesContainer = document.querySelector(".favourites-container");
-
-
 let amountofCards;
 
-
 document.querySelector('#nr-of-pages').addEventListener('click', goToPage);
-
-document.querySelector('.fa-chevron-left').addEventListener('click', goLeft)
-document.querySelector('.fa-chevron-right').addEventListener('click', goRight)
-
+document.querySelector('.fa-chevron-left').addEventListener('click', goLeft);
+document.querySelector('.fa-chevron-right').addEventListener('click', goRight);
 
 function noFavourites() {
     console.log('no favourites')
 
-        let container = document.createElement('div')
-        container.className = "jokes-back card";
+    let container = document.createElement('div')
+    container.className = "jokes-back card";
 
-        let title = document.createElement("h3")
-        title.innerHTML = "OOPS!"
+    let title = document.createElement("h3")
+    title.innerHTML = "OOPS!"
 
-        let quote = document.createElement('p')
-        quote.classList.add('answer')
-        quote.innerHTML = 'You don\'t seem to have any saved favourites';
+    let quote = document.createElement('p')
+    quote.classList.add('answer')
+    quote.innerHTML = 'You don\'t seem to have any saved favourites';
 
-        let goHome = document.createElement('a')
-        goHome.id = 'go-home'
-        goHome.href = 'index.html'
-        goHome.innerHTML = 'Go back to add favourites <br> <i class="fas fa-arrow-left"></i>'
+    let goHome = document.createElement('a')
+    goHome.id = 'go-home'
+    goHome.href = 'index.html'
+    goHome.innerHTML = 'Go back to add favourites <br> <i class="fas fa-arrow-left"></i>'
 
-        container.appendChild(title);
-        container.appendChild(quote);
-        container.appendChild(goHome);
-        favouritesContainer.appendChild(container);
+    container.appendChild(title);
+    container.appendChild(quote);
+    container.appendChild(goHome);
+    favouritesContainer.appendChild(container);
 }
 
 function goLeft() {
@@ -40,7 +35,6 @@ function goLeft() {
     if (pageID > 1) {
 
         pageID--;
-
         favouritesContainer.innerHTML = "";
 
         displaySelectedCategories(pageID -1)
@@ -59,9 +53,8 @@ function goRight() {
         favouritesContainer.innerHTML = "";
         displaySelectedCategories(pageID)   
         
-        // if (pageID < (nrOfPages -1)){
-            pageID++
-        // }
+        pageID++
+
         setCurrentPage(pageID)
         console.log(pageID)
         setupRemoveFunction();
@@ -128,18 +121,8 @@ function setCurrentPage(current) {
     if(setCurrent){
         setCurrent.style = 'color: black;';
     }
-    // console.log(setCurrent)
 }
 function setAmountOfCards() {
-    // if (window.innerWidth > 1100) {
-    //     amountofCards = 8
-    // } else if (window.innerWidth > 860){
-    //     amountofCards = 6
-    // } else if (window.innerWidth > 600){
-    //     amountofCards = 4
-    // } else {
-    //     amountofCards = 1;
-    // }
 
     if (window.matchMedia("(min-width: 1100px)").matches) {
         amountofCards = 8;
@@ -156,26 +139,10 @@ function setAmountOfCards() {
       }
 
     if (getAllFavourites.length <= 0) {
-        noFavourites()
-        
+        noFavourites()   
     }
-
-    // setupPages();
 }
 
-// if (window.matchMedia("(min-width: 1100px)").matches) {
-//     amountofCards = 8;
-//     setupPages();
-//   } else if (window.matchMedia("(min-width: 860px)").matches) {
-//     amountofCards = 6;
-//     setupPages();
-//   } else if (window.matchMedia("(min-width: 600px)").matches) {
-//     amountofCards = 4;
-//     setupPages();
-//   } else {
-//     amountofCards = 1;
-//     setupPages();
-//   }
 window.onresize = setAmountOfCards;
 
 

@@ -1,5 +1,3 @@
-
-
 let getAllFavourites, heartSvg, nrOfPages;
 let toggle = false;
 let pageID = 1;
@@ -27,6 +25,10 @@ function chooseCategories() {
     }
 
     favouritesContainer.innerHTML = "";
+
+    if (getAllFavourites.length <= 0) {
+        noFavourites()   
+    }
 
     for (i = 0; i < getAllFavourites.length; i++) {
         for (j = 0; j < selected.length; j++) 
