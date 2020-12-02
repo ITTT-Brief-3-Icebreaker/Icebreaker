@@ -49,6 +49,12 @@
     color: #fff;
 }
 
+.check:hover:focus {
+    outline: none;
+    background: #9AD4D6;
+    color: #fff;
+}
+
 #card-title {
     font-size: 21px;
 }
