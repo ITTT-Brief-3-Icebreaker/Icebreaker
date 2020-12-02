@@ -7,7 +7,6 @@
 body {
     margin: 0 auto;
     font-family: 'Roboto Condensed', sans-serif;
-    ;
     background: linear-gradient(
     to bottom,
     rgba(255,255, 255, 60),
@@ -15,6 +14,7 @@ body {
   ),url(../images/Ice.jpg);
     height: 100vh;
     background-repeat: no-repeat;
+    line-height: 1.2;
 }
 
 :root {
@@ -25,19 +25,41 @@ body {
     --font-smallest: calc(6px + (14 - 6) * ((100vw - 375px) / (1600 - 375)));
 
     --purple: #564787;
-    
+    --yellow: #fed766;
+    --blue: #009fb7;
+    --gray: #696773;
 }
+
+.dropdown-menu.show {
+    background-color: transparent;
+    border: none;
+}
+
+.navbar-toggler {
+    border: none;
+    outline: none;
+}
+
+.navbar-toggler:focus {
+    outline: none;
+}
+
+.navbar-toggler {
+    padding-left: 0px;
+}
+
+#mobileLogo {
+    padding-left: 12px;
+}
+
 .card {
     width: 215px;
     height: 315px;
-
     border-radius: 10px;
     border: 7px solid;
-
     box-shadow: 2px 2px 5px gray;
-
-    /* overflow: scroll; */
 }
+
 
 .front {
     display: flex;
@@ -50,8 +72,17 @@ body {
 
 .flexCenter {
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
+    color: #555050;
+}
+
+#topicsDescription {
+    color: #555050;
+}
+
+.desciptionP {
+    margin-left: 10px;
 }
 
 h2 {
@@ -64,24 +95,23 @@ h2 {
     box-shadow: 2px 2px 5px black;
 }
 
-.down-arrow {
-    padding: 0;
-    width: 20px;
-    height: 20px;
-    background-color: white;
-    border: none;
-    transform: rotate(45deg);
-    position: relative;
-    top: -10px;
-    /* box-shadow: 2px 2px 5px black; */
-
-}
-
-.jokes-front h3 {
+.jokes-front > .jokesH3 {
     color: white;
-    margin-top: 0.2rem;
+    margin: 0px;
+    font-size: 21px;
     padding: 0.5rem 0.2rem;
     border-bottom: 1px solid white;
+}
+
+.jokesH3 {
+    margin: 0px;
+    min-width: 80%;
+    font-size: 21px;
+    border-bottom: 1px solid white;
+}
+
+p {
+    margin: 0px;
 }
 
 .jokes-front p {
@@ -99,9 +129,7 @@ h2 {
 }
 
 header {
-    /* height: 20vh; */
-    margin-top: 20px;
-    margin-bottom: 30px;
+    margin-bottom: 2%;
     display: flex; 
     justify-content: flex-start;
     align-items: center;
@@ -115,8 +143,50 @@ footer {
 main {
     display: grid;
     grid-template-columns: minmax(auto, 400px) repeat(4, minmax(71px, auto)) minmax(auto, 400px);
+    grid-gap: 2%;
 }
+
+.conversations.jokesH3,
+.conversations.P {
+    color: #000;
+    border-color: #000;
+}
+
+.border {
+    border-bottom: 1px solid #fff;
+} 
 
 .dummy {
     border: 2px solid orange;
+}
+
+.cardLink {
+    outline: none;
+    text-decoration: none;
+    color: #000;
+}
+
+.cardLink:hover {
+    text-decoration: none;
+    -ms-transform: scale(1.05); /* IE 9 */
+    -webkit-transform: scale(1.05); /* Safari 3-8 */
+    transform: scale(1.05); 
+}
+
+.arrowContainer {
+    width: 100%;
+    height: 320px;
+    position: relative;
+    bottom: 50.5%;
+    margin-bottom: -320px;
+}
+
+
+@media only screen and (min-width: 1070px) {
+    .jokes,
+    .pickup-lines,
+    .facts,
+    .conversation {
+    width: 413px;
+    }
 }

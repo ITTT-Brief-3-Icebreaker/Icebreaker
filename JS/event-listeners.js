@@ -25,6 +25,6 @@ if (document.querySelector('#next')) {
 
 function setupRemoveFunction() {
     document.querySelectorAll('.remove').forEach(element => {
-        console.log(element), element.addEventListener('click', removeFromAllFavourites)
+        element.addEventListener('click', removeFromAllFavourites)
     })
 }

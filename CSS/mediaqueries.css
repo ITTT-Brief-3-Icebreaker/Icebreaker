@@ -7,7 +7,8 @@
 
 @media only screen and (min-width:885px) {
     .cards.mobile,
-    #mobileLogo {
+    #mobileLogo,
+    .arrowContainer {
         display: none;
     }
     .cards.desktop {
@@ -35,7 +36,7 @@
         grid-column: 2 / 4;
     }
     
-    .cat-facts {
+    .conversation {
         grid-column: 4 / 6;
     }
 
@@ -44,16 +45,32 @@
         margin-top: 0%;
     }
 
+    .showDesciption {
+        display: none;
+    }
+
 }
 
-@media only screen and (min-width: 500px) {
-   
+@media only screen and (min-width: 600px) {
+    .fa-chevron-right, .fa-chevron-left {
+        display: none;
+    }
 }
 
 @media only screen and (min-width: 700px) {
    
 }
 
-@media only screen and (min-width: 900px) {
-    
+@media only screen and (min-width: 1070px) {
+    .showDesciption {
+        display: flex;
+    }
 }
+
+/* @media only screen and (max-width: 1199px) {
+    .navbar {
+        position: absolute;
+        width: 100%;
+        z-index: 9999;
+    }
+} */

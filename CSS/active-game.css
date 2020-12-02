@@ -6,8 +6,20 @@
     z-index: 1;
     grid-row-start: 1;
     margin-top: 50%;
-    padding: 6%;
+    padding: 15px;
 }
+
+/* .jokes-back:hover {
+    -ms-transform: scale(1.05);
+    -webkit-transform: scale(1.05);
+    transform: scale(1.05); 
+}
+
+.jokes-back:active {
+    -ms-transform: scale(1.0);
+    -webkit-transform: scale(1.0); 
+    transform: scale(1.0); 
+} */
 
 .jokes {
     grid-column: 2 / 5;
@@ -20,17 +32,39 @@
 
 .heartContainer {
     display: flex;
-    justify-content: flex-end;
+    justify-content: space-between  ;
+    align-items: center;
+    margin: 0;
 }
+
+.heartContainer h3 {
+    font-size: 1.5rem;
+    margin: 0;
+}
+
+
 .heart {
+
+    position: absolute;
+    top: 10px;
+    right: 10px;
+
     display: block;
     height: 20px;
 }
 
 #next {
     height: 100%;
+    overflow: auto;
 }
 
 .answer {
     margin-top: 1rem;
+}
+
+div.jokes.flexCenter,
+div.pickup-lines.flexCenter,
+div.facts.flexCenter,
+div.conversation.flexCenter {
+    width: 215px;
 }

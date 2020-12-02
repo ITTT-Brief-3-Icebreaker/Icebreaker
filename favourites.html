@@ -5,6 +5,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+    <!-- FONTS -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed&display=swap" rel="stylesheet" />
+
+    <!-- LIBRARIES -->
+    <link rel="stylesheet" href="plugins/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="plugins/fontawesome/fontawesome-free-5.15.1-web/css/all.min.css">
+
+    <!-- CSS -->
     <link href="./CSS/index.css" type="text/css" rel="stylesheet" />
     <link href="./CSS/active-game.css" type="text/css" rel="stylesheet" />
     <link href="./CSS/favourites.css" type="text/css" rel="stylesheet" />
@@ -14,6 +22,31 @@
 </head>
 
 <body>
+    <nav class="navbar navbar-expand-xl navbar-light">
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class=" collapse navbar-collapse" id="navbarNavDropdown">
+            <ul class="nav navbar-nav ml-auto">
+                <li class=" nav-item">
+                    <a class=" nav-link" href="index.html">Home</a>
+                </li>
+                <li class=" nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Games</a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                        <a class="dropdown-item" href="active-game.html?selected=Jokes">Jokes</a>
+                        <a class="dropdown-item" href="active-game.html?selected=Facts">Trivia</a>
+                        <a class="dropdown-item" href="active-game.html?selected=pickUpLines">Pick Up Lines</a>
+                        <a class="dropdown-item" href="active-game.html?selected=Conversation">Topics</a>
+                    </div>
+                </li>
+                <li class=" nav-item active">
+                    <a class=" nav-link" href="#">Favourites</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
     <header>
         <a href="index.html"><img src="./images/Logo.png" alt="Icebreaker title" id="desktopLogo"></a>
         <a href="index.html"><img src="./images/Logo small.png" alt="Icebreaker title" id="mobileLogo"></a>
@@ -22,51 +55,42 @@
 
     <apart>
         <section class="checkboxes">
-            <!-- <p>What do you want to display?</p> -->
-
-            <div class="check">
-                <input type="checkbox" class="add_jokes" id="jokes" name="jokes" value="1">
-                <label for="jokes">Jokes</label>
-            </div>
-
-            <div class="check">
-                <input type="checkbox" class="add_facts" id="facts" name="facts" value="2">
-                <label for="facts">Facts</label>
-            </div>
-
-            <div class="check">
-                <input type="checkbox" class="add_pickup_lines" id="pickup" name="pickup" value="3">
-                <label for="pickup">Pickup Lines</label>
-            </div>
-            <div class="check">
-                <input type="checkbox" class="add_conversation" id="conversation" name="conversation" value="4">
-                <label for="conversation">Conversation Starter</label>
-            </div>
-
-            <!-- Submit button -->
-            <input type="submit" value="Select" class="select_btn">
+            <button class="add_jokes check" id="jokes">Jokes</button>
+            <button class="add_facts check" id="facts">Trivia</button>
+            <button class="add_pickup_lines check" id="pickup">Pick Up Lines</button>
+            <button class="add_conversation check" id="conversation">Topics</button>
+            <button class="add_all check select_btn" id="addAll" value="Select">All</button>
         </section>
     </apart>
-
     <main class="cards favourites-container">
         <!-- Back side of card to display joke -->
         <div class="jokes-back card">
             <div id="next">
                 <div class="heartContainer">
+                    <h3 id="card-title">JOKE CARD</h3>
                     <img class="heart" src="./images/heart.svg" alt="click heart to add to favourites">
                 </div>
 
-                <h3 id="card-title">JOKE CARD</h3>
                 <p id="quote" class="answer"></p>
             </div>
         </div>
     </main>
+    
+<i class="fas fa-chevron-left"></i>
+<i class="fas fa-chevron-right"></i>
+
+    <div class="nr-of-pages-container">
+        <span id="nr-of-pages" class="nr-color"></span>
+    </div>
 
     <footer></footer>
 
+    <script src="plugins/jquery/jquery-3.5.1.min.js"></script>
+    <script src="plugins/bootstrap/js/bootstrap.min.js"></script>
     <script src="./JS/app.js" defer></script>
     <script src="./JS/event-listeners.js"></script>
     <script src="./JS/favourites.js"></script>
+    <script src="./JS/favourite-pages.js"></script>
 
     <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
 </body>

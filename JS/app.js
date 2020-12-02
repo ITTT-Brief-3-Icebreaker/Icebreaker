@@ -1,14 +1,12 @@
 function getJokes() {
     // if (JSON.parse(localStorage.getItem('Jokes')) == undefined) {
     console.log('get new Jokes')
-    fetch('https://sv443.net/jokeapi/v2/joke/Any?blacklistFlags=nsfw,religious,political,racist,sexist&type=single&amount=100')
+    fetch('https://run.mocky.io/v3/dde3b884-8754-42e3-8356-dd95babeb521')
         .then(response => response.json())
         .then(data => {
-            localStorage.setItem('Jokes', JSON.stringify(data.jokes)),
+            localStorage.setItem('Jokes', JSON.stringify(data)),
                 setup()
         })
-
-    // localStorage.setItem('Clicked', JSON.stringify('Jokes'))
 }
 
 function getFacts() {
@@ -19,22 +17,11 @@ function getFacts() {
             localStorage.setItem('Facts', JSON.stringify(data.results)),
                 setup()
         })
-
-    // localStorage.setItem('Clicked', JSON.stringify('Facts'));
 }
 
-function getInsults() {
-    console.log('Insult')
-    fetch('https://api.fungenerators.com/taunt/generate?category=new-age-insult&limit=5')
-        .then(response => response.json())
-        .then(data => { localStorage.setItem('Insults', JSON.stringify(data.results)) })
-
-    localStorage.setItem('Clicked', JSON.stringify('Insult'));
-}
-
-let apiURL = "https://codeshifu-pickup-lines.glitch.me/api";
 
 async function getPickupLines() {
+    let apiURL = "https://codeshifu-pickup-lines.glitch.me/api";
     let response = await fetch(apiURL);
     pickUpData = await response.json();
     localStorage.setItem("pickUpLines", JSON.stringify(pickUpData.data));
@@ -57,12 +44,47 @@ function getConversation() {
         })
 }
 
+// if (window.location)
 var swiper = new Swiper('.swiper-container', {
     navigation: {
         nextEl: '.swiper-button-next',
         prevEl: '.swiper-button-prev',
     },
 });
+
+
+let cardLink = document.querySelectorAll(".cardLink").forEach(card => {
+    card.addEventListener("click", event => {
+        card.classList.add('animate__animated', 'animate__flipOutY');
+    })
+})
+
+function selectedJokes() {
+    setTimeout(function(){
+        window.location.href = "active-game.html?selected=Jokes"
+    }, 600)
+}
+
+function selectedPickup() {
+    setTimeout(function(){
+        window.location.href = "active-game.html?selected=pickUpLines"
+    }, 600)
+}
+
+function selectedTrivia() {
+    setTimeout(function(){
+        window.location.href = "active-game.html?selected=Facts"
+    }, 600)
+}
+
+function selectedTopics() {
+    setTimeout(function(){
+        window.location.href = "active-game.html?selected=Conversation"
+    }, 600)
+}
+
+
+
 
 // ALTERNATIVE WAY OF WRITING
 // async function componentDidMount() {
@@ -73,3 +95,10 @@ var swiper = new Swiper('.swiper-container', {
 //     // const posts = [...this.state.posts, ...data]
 //     console.log("fetch done")
 //   }
+
+var swiper = new Swiper('.swiper-container', {
+  navigation: {
+    nextEl: '.swiper-button-next',
+    prevEl: '.swiper-button-prev',
+  },
+});

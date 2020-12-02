@@ -23,6 +23,16 @@
     align-items: center;
 }
 
+.swiper-button-next:focus,
+.swiper-button-prev:focus {
+    outline: none;
+}
+
+div.swiper-button-next,
+div.swiper-button-prev {
+    color: #6A6674;
+}
+
 .jokes,
 .pickup-lines,
 .facts,

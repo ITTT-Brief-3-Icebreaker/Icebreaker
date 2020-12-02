@@ -1,4 +1,3 @@
-
 .cards.favourites-container {
     display: flex;
     flex-wrap: wrap;
@@ -8,22 +7,129 @@
 }
 
 .jokes-back {
-    padding: 2%;
+    padding: 15px;
     margin: 2%;
+    overflow: auto;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
 }
 
+.jokes-back::-webkit-scrollbar {
+    display: none;
+}
+
+/* .hideCheckbox {
+    opacity: 0;
+} */
+
 .checkboxes {
+    /* background-color: aqua; */
     display: flex;
-    justify-content: center;
+    justify-content: space-evenly;
+    padding: 20px;
+    margin: 0 7% 4% 7%;
+    border-radius: 15px;
+    flex-wrap: wrap;
 }
 
 .check {
-    margin: 2px 5px 2px 5px;
+    margin: 5px;
+    padding: 8px;
+    width: 130px;
+    background: #fff;
+    border: none;
+    border-radius: 12px;
+    text-align: center;
+    box-shadow: 5px 5px 10px 5px rgba(0, 0, 0, 0.25);
 }
 
-.select_btn {
-    border: 1px solid #272727;
-    border-radius: 6px;
-    padding: 4px;
-    background: #fff;
+.check:focus {
+    outline: none;
+    background: #9AD4D6;
+    color: #fff;
+}
+
+#card-title {
+    font-size: 21px;
+}
+
+label {
+    margin: 0;
+}
+
+/* 
+.heartContainer {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+
+} */
+
+#nr-of-pages a {
+    color: #6A6674;
+    padding: 0.5rem;
+    font-size: 1.2rem;
+}
+
+#nr-of-pages a:hover, .fa-chevron-right:hover, .fa-chevron-left:hover {
+    color: #000;
+    cursor: pointer;
+}
+
+.fa-chevron-left {
+/* 
+        position: relative;
+        bottom: 40.5%;
+        margin-bottom: -320px; */
+    position: relative;
+    bottom: 200px;
+    left: 2%;
+    font-size: 3rem;
+}
+
+.fa-chevron-right {
+    position: relative;
+    bottom: 200px;
+    left: 85%;
+    font-size: 3rem;
+}
+
+.jokes-back {
+    border-color: #E2E2E2;
+}
+
+#go-home {
+    position: relative;
+    top: 5%;
+    left: 13%;
+
+    height: 120px;
+    width: 130px;
+
+    color: black;
+    font-size: 1.1rem;
+    text-decoration: none;
+
+    display: block;
+    padding: 6%;
+
+    background-color: #E2E2E2;
+    border-radius: 7px;
+    border: 2px solid gray;
+    box-shadow: 2px 2px 5px gray;
+}
+
+#go-home:hover {
+    -ms-transform: scale(1.05); /* IE 9 */
+    -webkit-transform: scale(1.05); /* Safari 3-8 */
+    transform: scale(1.05); 
+}
+
+.fa-arrow-left {
+    padding: 5px;
+}
+
+.nr-of-pages-container {
+    display: flex;
+    justify-content: center;
 }

@@ -4,14 +4,47 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <link href="CSS/index.css" type="text/css" rel="stylesheet" />
-    <link href="CSS/mediaqueries.css" type="text/css" rel="stylesheet" />
-    <link href="CSS/active-game.css" type="text/css" rel="stylesheet" />
-    <link href="CSS/loading.css" type="text/css" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed&display=swap" rel="stylesheet" />
     
+    <link rel="stylesheet" href="plugins/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="plugins/fontawesome/fontawesome-free-5.15.1-web/css/all.min.css">
+
+    <link href="CSS/index.css" type="text/css" rel="stylesheet" />
+    <link href="CSS/active-game.css" type="text/css" rel="stylesheet" />
+    <link href="CSS/mediaqueries.css" type="text/css" rel="stylesheet" />
+    <link href="CSS/loading.css" type="text/css" rel="stylesheet" />
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+    
+
     <title>Playing | Icebreaker</title>
 </head>
 <body>
+    <nav class="navbar navbar-expand-xl navbar-light">
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavDropdown">
+            <ul class="nav navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="index.html">Home</a>
+                </li>
+                <li class="nav-item dropdown active">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Games</a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                        <a class="dropdown-item" href="active-game.html?selected=Jokes">Jokes</a>
+                        <a class="dropdown-item" href="active-game.html?selected=Facts">Trivia</a>
+                        <a class="dropdown-item" href="active-game.html?selected=pickUpLines">Pick Up Lines</a>
+                        <a class="dropdown-item" href="active-game.html?selected=Conversation">Topics</a>
+                    </div>
+                </li>
+                <li class=" nav-item">
+                    <a class=" nav-link" href="favourites.html">Favourites</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
    <header>
     <a href="index.html"><img src="./images/Logo.png" alt="Icebreaker title" id="desktopLogo"></a>
     <a href="index.html"><img src="./images/Logo small.png" alt="Icebreaker title" id="mobileLogo"></a>
@@ -22,21 +55,20 @@
             <!-- Front side of card -->
             <div class="jokes flexCenter">
                 <div class="jokes-front front card loading"  id="get_jokes">
-                    <h2>ICE<br>BRE<br>AKER</h2>
-                    <div class="down-arrow"></div>
-                    <h3 id="front-title" class="loading"></h3>
+                    <img src="./images/Icepick.png" alt="">
+                    <h3 id="front-title" class="loading jokesH3"></h3>
                     <p>Get to know each other</p>
                 </div>
             </div>
             
             <!-- Back side of card to display joke -->
             <div class="jokes-back card load-border">
-                <div  id="next" >
+                <div id="next">
                     <div class="heartContainer">
+                        <h3 id="card-title" class="loading jokesH3"></h3>
                         <img class="heart" src="./images/heart.svg" alt="click heart to add to favourites">
                     </div>
                 
-                    <h3 id="card-title" class="loading"></h3>
                     <p id="quote" class="answer loading"></p>
                 </div>
             </div>
@@ -46,8 +78,10 @@
    <footer></footer>
 
    <script src="./JS/app.js"></script>
-   <script src="./JS/active-game.js"></script>
+   <script src="plugins/jquery/jquery-3.5.1.min.js"></script>
+   <script src="plugins/bootstrap/js/bootstrap.min.js"></script>
    <script src="./JS/event-listeners.js" defer></script>
+   <script src="./JS/active-game.js"></script>
    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
 </body>
 </html>
