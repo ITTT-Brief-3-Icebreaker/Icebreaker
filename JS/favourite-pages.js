@@ -5,7 +5,7 @@ document.querySelector('#nr-of-pages').addEventListener('click', goToPage);
 document.querySelector('.fa-chevron-left').addEventListener('click', goLeft);
 document.querySelector('.fa-chevron-right').addEventListener('click', goRight);
 
-function noFavourites() {
+function noFavourites(category) {
 
     let container = document.createElement('div')
     container.className = "jokes-back card";
@@ -15,12 +15,13 @@ function noFavourites() {
 
     let quote = document.createElement('p')
     quote.classList.add('answer')
-    quote.innerHTML = 'You don\'t seem to have any saved favourites';
+    quote.innerHTML = 'You don\'t seem to have any saved ' + category;
 
     let goHome = document.createElement('a')
     goHome.id = 'go-home'
     goHome.href = 'index.html'
-    goHome.innerHTML = 'Go back to add favourites <br> <i class="fas fa-arrow-left"></i>'
+    goHome.innerHTML = 'Go back to add ' +
+        category + ' <br> <br> <i class="fas fa-arrow-left"></i>'
 
     container.appendChild(title);
     container.appendChild(quote);
@@ -105,7 +106,7 @@ function setupPages() {
     favouritesContainer.innerHTML = "";
 
     if (getAllFavourites.length <= 0) {
-        noFavourites()   
+        noFavourites('favourites')   
     }
 
     document.querySelector('#nr-of-pages').innerHTML = "";

@@ -57,7 +57,7 @@ function chooseCategories() {
 
     if (getAllFavourites.length <= 0) {
         favouritesContainer.innerHTML = "";
-        noFavourites()   
+        noFavourites('favourites')   
     }
 
     if (selected.length > 0) {
@@ -70,9 +70,21 @@ function chooseCategories() {
             }
         }
         setupPages();
-    } else {
-        alert('select category')
+    } 
+    
+    if (selectedEntries.length <= 0) {
+        if (selected[i] == 'Jokes'){
+            noFavourites('Jokes')
+        } else if (selected[i] == 'Facts'){
+            noFavourites('Trivia')
+        } else if (selected[i] == 'pickUpLines'){
+            noFavourites('Pick-up Lines')
+        } else if (selected[i] == 'Conversation'){
+            noFavourites('Topics')
+        } 
     }
+        
+    
 
     setupRemoveFunction();
 };
@@ -177,7 +189,7 @@ function removeFromAllFavourites() {
     }
 
     if (getAllFavourites.length <= 0) {
-        noFavourites()
+        noFavourites('favourites')
     }
 }
 
