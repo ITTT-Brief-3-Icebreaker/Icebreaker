@@ -120,9 +120,11 @@ function setupPages() {
 
     if (nrOfPages > 1) {
         if (selected.length > 0){ 
+            checkIfHasFavourite();
             for (i = 0; i < amountofCards; i++) {
                 displaySelectedCategories(selectedEntries[i]);
-            }   
+              
+        }
         } else {
             for (let i = 0; i < amountofCards; i++) {
                 displaySelectedCategories(i);
@@ -130,6 +132,7 @@ function setupPages() {
         }
     } else {
         if (selected.length > 0){ 
+            checkIfHasFavourite();
             for (i = 0; i < getAllFavourites.length; i++) {
                     for (j = 0; j < selected.length; j++) 
                         if (getAllFavourites[i].type == selected[j]) {

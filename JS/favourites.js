@@ -70,8 +70,15 @@ function chooseCategories() {
             }
         }
         setupPages();
+        setupRemoveFunction();
     } 
     
+    checkIfHasFavourite();
+    
+    
+};
+
+function checkIfHasFavourite() {
     if (selectedEntries.length <= 0) {
         if (selected[i] == 'Jokes'){
             noFavourites('Jokes')
@@ -83,11 +90,7 @@ function chooseCategories() {
             noFavourites('Topics')
         } 
     }
-        
-    
-
-    setupRemoveFunction();
-};
+}
 
 function displaySelectedCategories(i) {
 
