@@ -40,7 +40,7 @@ function goLeft() {
         } else {
             displaySelectedCategories(pageID -1)
         }
-        // setCurrentPage(pageID)  
+        setCurrentPage(pageID)  
 
         setupRemoveFunction();
     }
@@ -60,7 +60,7 @@ function goRight() {
         
         pageID++
 
-        // setCurrentPage(pageID)
+        setCurrentPage(pageID)
 
         setupRemoveFunction();
     }
@@ -97,7 +97,7 @@ function goToPage() {
         }
     }
 
-    // setCurrentPage(pageID)
+    setCurrentPage(pageID)
     setupRemoveFunction();
 }
 
@@ -148,20 +148,21 @@ function setupPages() {
         document.querySelector('#nr-of-pages').appendChild(link);
     };
 
-    // setCurrentPage(pageID)
+    setCurrentPage(pageID)
 }
 
-// function setCurrentPage(current) {
-//     let setCurrent = document.querySelector('#page' + current);
-//     // let setColor = document.querySelector('.nr-color');
+function setCurrentPage(current) {
+    for (let i = 0; i < nrOfPages; i++) {
+        document.querySelector('#page' + (i + 1)).style  = 'color: #6A6674;';
+    }
 
-//     if(setCurrent){
-//         setCurrent.style = 'color: #000;';
-//         console.log(pageID)
-//     } else {
-//         setColor.style = 'color: #6A6674;'
-//     }
-// }
+    let setCurrent = document.querySelector('#page' + current);
+    
+    if(setCurrent){
+        setCurrent.style = 'color: #000;';
+        console.log(pageID)
+    }
+}
 
 function setAmountOfCards() {
 
