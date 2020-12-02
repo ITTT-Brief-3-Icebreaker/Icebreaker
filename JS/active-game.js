@@ -72,7 +72,7 @@ function loadJokes() {
 
     color = '#564787';
 
-    backTitle.innerHTML = 'JOKES'
+    backTitle.innerHTML = 'Jokes'
     frontTitle.innerHTML = 'JOKES'
 
     document.querySelector('.jokes-front').style = 'background-color: ' + color + ';';
@@ -83,7 +83,7 @@ function loadFacts() {
     displayFact();
 
     // TODO : change title of front card
-    backTitle.innerHTML = 'TRIVIA';
+    backTitle.innerHTML = 'Trivia';
     frontTitle.innerHTML = 'TRIVIA';
 
     color = '#696773';
@@ -95,7 +95,7 @@ function loadPickUpLines() {
     displayPickUpLine();
 
     // TODO : change title of front card
-    backTitle.innerHTML = 'PICK UP LINES'
+    backTitle.innerHTML = 'Pick Up Lines'
     frontTitle.innerHTML = 'PICK UP LINES'
 
     color = '#009FB7';
@@ -107,7 +107,7 @@ function loadPickUpLines() {
 function loadConversation() {
     displayConversation();
 
-    backTitle.innerHTML = 'TOPICS'
+    backTitle.innerHTML = 'Topics'
     frontTitle.innerHTML = 'TOPICS'
 
     color = '#FED766';
@@ -123,14 +123,14 @@ function loadConversation() {
 }
 
 function displayFact() {
-    quote.innerHTML = game[ID].question + 
-    '<br> <br> Correct answer: <br>' + game[ID].correct_answer 
-    //Incorrect Answers: ' + game[ID].incorrect_answers;
+    quote.innerHTML = game[ID].question +
+        '<br> <br> Correct answer: <br>' + game[ID].correct_answer
+        //Incorrect Answers: ' + game[ID].incorrect_answers;
 }
 
 function displayJoke() {
     quote.innerHTML = game[ID].setup +
-    '<br> <br>' + game[ID].punchline ;
+        '<br> <br>' + game[ID].punchline;
 }
 
 function displayPickUpLine() {
