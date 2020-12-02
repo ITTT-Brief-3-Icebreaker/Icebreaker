@@ -31,7 +31,6 @@ function noFavourites() {
 function goLeft() {
 
     if (pageID > 1) {
-
         pageID--;
         favouritesContainer.innerHTML = "";
 
@@ -155,6 +154,11 @@ function setupPages() {
 }
 
 function setCurrentPage(current) {
+
+    for (let i = 0; i < nrOfPages; i++) {
+        document.querySelector('#page' + (i + 1)).style  = 'color: gray;';
+    }
+
     let setCurrent = document.querySelector('#page' + current);
 
     if(setCurrent){
