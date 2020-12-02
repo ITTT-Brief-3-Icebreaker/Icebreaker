@@ -185,6 +185,7 @@ function removeFromAllFavourites() {
             displaySelectedCategories(end - 1);
         }
 
+        checkIfHasFavourite();
         setupRemoveFunction();
 
         if (nrOfPages > Math.ceil(getAllFavourites.length / amountofCards)) {
