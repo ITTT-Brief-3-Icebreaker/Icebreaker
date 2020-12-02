@@ -107,12 +107,12 @@ function goToPage() {
 }
 
 function setupPages() {
+    favouritesContainer.innerHTML = "";
 
     if (getAllFavourites.length <= 0) {
         noFavourites()   
     }
 
-    favouritesContainer.innerHTML = "";
     document.querySelector('#nr-of-pages').innerHTML = "";
     
 
