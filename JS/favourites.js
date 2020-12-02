@@ -61,6 +61,7 @@ function displaySelectedCategories(i) {
 
     let title = document.createElement("h3")
     title.id = "card-title";
+<<<<<<< HEAD
     if (getAllFavourites[i].type == "Jokes") {
         title.innerHTML = "JOKES"
     }
@@ -74,6 +75,18 @@ function displaySelectedCategories(i) {
         title.innerHTML = "TOPICS"
     }
 
+=======
+
+    if (getAllFavourites[i].type == "pickUpLines") {
+        title.innerHTML = "Pick Up Lines"
+    } else if (getAllFavourites[i].type == "Conversation") {
+        title.innerHTML = "Topics"
+    } else if (getAllFavourites[i].type == "Facts") {
+        title.innerHTML = "Trivia"
+    } else {
+        title.innerHTML = getAllFavourites[i].type
+    }
+>>>>>>> c4c33394918940f7668f10b84f4478cbf3ab5729
 
     let quote = document.createElement("p")
     quote.id = "quote";
@@ -85,8 +98,10 @@ function displaySelectedCategories(i) {
 
 
     } else if (getAllFavourites[i].type == "Facts") {
-        quote.innerHTML = getAllFavourites[i].entry.question + '<br> <br> A: ' +
-            getAllFavourites[i].entry.correct_answer + '<br> <br> Incorrect Answers: ' + getAllFavourites[i].entry.incorrect_answers;
+        quote.innerHTML = getAllFavourites[i].entry.question + 
+        '<br> <br> Correct answer: <br>' + getAllFavourites[i].entry.correct_answer
+            // + '<br> <br> Incorrect Answers: ' + 
+            //getAllFavourites[i].entry.incorrect_answers;
 
     } else if (getAllFavourites[i].type == "pickUpLines") {
         quote.innerHTML = getAllFavourites[i].entry;
@@ -97,8 +112,8 @@ function displaySelectedCategories(i) {
 
     container.appendChild(next);
     next.appendChild(heartContainer);
+    heartContainer.appendChild(title);
     heartContainer.appendChild(heartSvg);
-    next.appendChild(title);
     next.appendChild(quote);
     favouritesContainer.appendChild(container);
 }

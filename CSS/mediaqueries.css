@@ -7,7 +7,8 @@
 
 @media only screen and (min-width:885px) {
     .cards.mobile,
-    #mobileLogo {
+    #mobileLogo,
+    .arrowContainer {
         display: none;
     }
     .cards.desktop {
@@ -65,3 +66,11 @@
         display: flex;
     }
 }
+
+/* @media only screen and (max-width: 1199px) {
+    .navbar {
+        position: absolute;
+        width: 100%;
+        z-index: 9999;
+    }
+} */

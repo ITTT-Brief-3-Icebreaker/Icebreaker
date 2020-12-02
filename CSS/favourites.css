@@ -9,8 +9,16 @@
 .jokes-back {
     padding: 1%;
     margin: 2%;
-    overflow: scroll;
+    overflow: auto;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
 }
+
+.jokes-back::-webkit-scrollbar {
+    display: none;
+}
+
+
 
 .checkboxes {
     /* background-color: aqua; */
