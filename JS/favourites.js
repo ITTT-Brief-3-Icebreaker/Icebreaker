@@ -8,17 +8,38 @@ let selectedEntries = [];
 
 
 let addJokes = document.querySelector('.add_jokes')
-addJokes.addEventListener('click', chooseCategories)
+let addJokesMobile = document.querySelector('.add_jokes_mobile')
+
 let addFacts = document.querySelector('.add_facts')
-addFacts.addEventListener('click', chooseCategories)
+let addFactsMobile = document.querySelector('.add_facts_mobile')
+
 let addPickup = document.querySelector('.add_pickup_lines')
-addPickup.addEventListener('click', chooseCategories)
+let addPickupMobile = document.querySelector('.add_pickup_lines_mobile')
+
 let addConversation = document.querySelector('.add_conversation')
-addConversation.addEventListener('click', chooseCategories)
+let addConversationMobile = document.querySelector('.add_conversation_mobile')
+
 let addAll = document.querySelector('.select_btn')
-addAll.addEventListener('click', chooseCategories);
+let addAllMobile = document.querySelector('.add_all_mobile')
 
 
+function filterDropdown() {
+    document.getElementById("myDropdown").classList.toggle("showFilter");
+  }
+  
+  // Close the dropdown if the user clicks outside of it
+  window.onclick = function(event) {
+    if (!event.target.matches('.dropbtn')) {
+      var dropdowns = document.getElementsByClassName("dropdown-content");
+      var i;
+      for (i = 0; i < dropdowns.length; i++) {
+        var openDropdown = dropdowns[i];
+        if (openDropdown.classList.contains('showFilter')) {
+          openDropdown.classList.remove('showFilter');
+        }
+      }
+    }
+  }
 
 function chooseCategories() {
     selected = [];
@@ -26,33 +47,40 @@ function chooseCategories() {
     amountSelected = 0;
     pageID = 1;
      
-    // for (let i = 0; i < 4; i++) {
-    //     document.querySelectorAll('.check' + (i + 1)).style  = 'background: #fff;';
-    // }
-
     document.querySelectorAll('.check').forEach(element => {
         element.style = 'background: #fff; color: #000'
     })
 
-    if (event.target == document.querySelector('.add_jokes')) {
+    if (event.target == document.querySelector('.add_jokes') ||
+        event.target == document.querySelector('.add_jokes_mobile')) {
         selected.push('Jokes');
         addJokes.style  = 'outline: none; background: #9AD4D6; color: #fff;';
+        addJokesMobile.style  = 'outline: none; background: #9AD4D6; color: #fff;';
     } 
-    if (event.target == document.querySelector('.add_facts')) {
+    if (event.target == document.querySelector('.add_facts') ||
+        event.target == document.querySelector('.add_facts_mobile')) {
         selected.push('Facts');
         addFacts.style  = 'outline: none; background: #9AD4D6; color: #fff;';
+        addFactsMobile.style  = 'outline: none; background: #9AD4D6; color: #fff;';
     }
-    if (event.target == document.querySelector('.add_pickup_lines')) {
+    if (event.target == document.querySelector('.add_pickup_lines') ||
+        event.target == document.querySelector('.add_pickup_lines_mobile')) {
         selected.push('pickUpLines');
         addPickup.style  = 'outline: none; background: #9AD4D6; color: #fff;';
+        addPickupMobile.style  = 'outline: none; background: #9AD4D6; color: #fff;';
     }
-    if (event.target == document.querySelector('.add_conversation')) {
+    if (event.target == document.querySelector('.add_conversation') ||
+        event.target == document.querySelector('.add_conversation_mobile')) {
         selected.push('Conversation');
         addConversation.style  = 'outline: none; background: #9AD4D6; color: #fff;';
+        addConversationMobile.style  = 'outline: none; background: #9AD4D6; color: #fff;';
     }
-    if (event.target == document.querySelector('.select_btn')) {
+    if (event.target == document.querySelector('.select_btn') ||
+        event.target == document.querySelector('.add_all_mobile')) {
         selected.push('Jokes', 'Facts', 'pickUpLines', 'Conversation');
         addAll.style  = 'outline: none; background: #9AD4D6; color: #fff;';
+        addAllMobile.style  = 'outline: none; background: #9AD4D6; color: #fff;';
+        console.log(selected);
     }
 
     if (getAllFavourites.length <= 0) {

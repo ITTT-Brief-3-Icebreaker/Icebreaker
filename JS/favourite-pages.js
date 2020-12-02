@@ -164,7 +164,6 @@ function setCurrentPage(current) {
     
     if(setCurrent){
         setCurrent.style = 'color: #000;';
-        console.log(pageID)
     }
 }
 

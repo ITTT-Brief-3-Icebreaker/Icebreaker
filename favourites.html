@@ -55,11 +55,25 @@
 
     <apart>
         <section class="checkboxes">
-            <button class="add_jokes check" id="jokes">Jokes</button>
-            <button class="add_facts check" id="facts">Trivia</button>
-            <button class="add_pickup_lines check" id="pickup">Pick Up Lines</button>
-            <button class="add_conversation check" id="conversation">Topics</button>
-            <button class="add_all check select_btn" id="addAll" value="Select">All</button>
+            <button class="add_jokes check" id="jokes" onclick="chooseCategories()">Jokes</button>
+            <button class="add_facts check" id="facts" onclick="chooseCategories()">Trivia</button>
+            <button class="add_pickup_lines check" id="pickup" onclick="chooseCategories()">Pick Up Lines</button>
+            <button class="add_conversation check" id="conversation" onclick="chooseCategories()">Topics</button>
+            <button class="add_all check select_btn" id="addAll" value="Select" onclick="chooseCategories()">All</button>
+        </section>
+    </apart>
+    <apart>
+        <section class="checkboxes-mobile">
+            <div class="dropdown">
+                <button onclick="filterDropdown()" class="dropbtn check">Filter</button>
+                <div id="myDropdown" class="dropdown-content">
+                    <button class="add_jokes_mobile check" onclick="chooseCategories()">Jokes</button>
+                    <button class="add_facts_mobile check" onclick="chooseCategories()">Trivia</button>
+                    <button class="add_pickup_lines_mobile check" onclick="chooseCategories()">Pick Up Lines</button>
+                    <button class="add_conversation_mobile check" onclick="chooseCategories()">Topics</button>
+                    <button class="add_all_mobile check select_btn" id="addAll" onclick="chooseCategories()">All</button>
+                </div>
+              </div>
         </section>
     </apart>
     <main class="cards favourites-container">
@@ -76,9 +90,10 @@
         </div>
     </main>
     
-<i class="fas fa-chevron-left"></i>
-<i class="fas fa-chevron-right"></i>
-
+    <div class="arrow-container">
+        <i class="fas fa-chevron-left"></i>
+        <i class="fas fa-chevron-right"></i>
+    </div>
     <div class="nr-of-pages-container">
         <span id="nr-of-pages" class="nr-color"></span>
     </div>

@@ -1,6 +1,7 @@
 @media only screen and (min-width:0px) {
     .cards.desktop,
-    #desktopLogo {
+    #desktopLogo,
+    .checkboxes {
         display: none;
     }
 }
@@ -8,9 +9,15 @@
 @media only screen and (min-width:885px) {
     .cards.mobile,
     #mobileLogo,
-    .arrowContainer {
+    .arrowContainer,
+    .checkboxes-mobile {
         display: none;
     }
+
+    .checkboxes {
+        display: flex;
+    }
+
     .cards.desktop {
         display: grid;
     }
