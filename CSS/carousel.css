@@ -31,6 +31,8 @@
 div.swiper-button-next,
 div.swiper-button-prev {
     color: #6A6674;
+    top: auto;
+    bottom: 134px;
 }
 
 .jokes,

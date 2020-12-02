@@ -142,7 +142,7 @@ footer {
 
 main {
     display: grid;
-    grid-template-columns: minmax(auto, 400px) repeat(4, minmax(71px, auto)) minmax(auto, 400px);
+    grid-template-columns: 1fr repeat(4, minmax(71px, auto)) 1fr;
     grid-gap: 2%;
 }
 
@@ -175,10 +175,7 @@ main {
 
 .arrowContainer {
     width: 100%;
-    height: 320px;
     position: relative;
-    bottom: 50.5%;
-    margin-bottom: -320px;
 }
 
 
