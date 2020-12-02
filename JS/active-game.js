@@ -124,8 +124,7 @@ function loadConversation() {
 
 function displayFact() {
     quote.innerHTML = game[ID].question + 
-    '<br> <br> Correct answer: <br>' + game[ID].correct_answer 
-    //Incorrect Answers: ' + game[ID].incorrect_answers;
+    '<br> <br> Correct answer: <br>' + game[ID].correct_answer
 }
 
 function displayJoke() {
