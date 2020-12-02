@@ -124,7 +124,11 @@ function displaySelectedCategories(i) {
 // }
 
 function getFavourites() {
-    getAllFavourites = JSON.parse(localStorage.getItem('Favourites'));
+    if (JSON.parse(localStorage.getItem('Favourites'))) {
+        getAllFavourites = JSON.parse(localStorage.getItem('Favourites'));
+    } else {
+        getAllFavourites = [];
+    }
     console.log('get favs')
 }
 
