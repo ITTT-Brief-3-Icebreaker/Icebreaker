@@ -40,7 +40,7 @@ function goLeft() {
         } else {
             displaySelectedCategories(pageID -1)
         }
-        setCurrentPage(pageID)  
+        // setCurrentPage(pageID)  
 
         setupRemoveFunction();
     }
@@ -60,7 +60,7 @@ function goRight() {
         
         pageID++
 
-        setCurrentPage(pageID)
+        // setCurrentPage(pageID)
 
         setupRemoveFunction();
     }
@@ -97,7 +97,7 @@ function goToPage() {
         }
     }
 
-    setCurrentPage(pageID)
+    // setCurrentPage(pageID)
     setupRemoveFunction();
 }
 
@@ -148,7 +148,7 @@ function setupPages() {
         document.querySelector('#nr-of-pages').appendChild(link);
     };
 
-    setCurrentPage(pageID)
+    // setCurrentPage(pageID)
 }
 
 // function setCurrentPage(current) {
