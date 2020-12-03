@@ -42,46 +42,35 @@ function filterDropdown() {
   }
 
 function chooseCategories() {
-    selected = [];
     selectedEntries = [];
     amountSelected = 0;
     pageID = 1;
-     
 
-    document.querySelectorAll('.check').forEach(element => {
-        element.style = 'background: #fff; color: #000'
-    })
+    addAll.style  = 'background: #fff; color: #000';
+    addAllMobile.style  = 'background: #fff; color: #000';
 
     if (event.target == document.querySelector('.add_jokes') ||
         event.target == document.querySelector('.add_jokes_mobile')) {
-        selected.push('Jokes');
-        addJokes.style  = 'outline: none; background: #9AD4D6; color: #fff;';
-        addJokesMobile.style  = 'outline: none; background: #9AD4D6; color: #fff;';
+            addToSelected('Jokes')
     } 
     if (event.target == document.querySelector('.add_facts') ||
         event.target == document.querySelector('.add_facts_mobile')) {
-        selected.push('Facts');
-        addFacts.style  = 'outline: none; background: #9AD4D6; color: #fff;';
-        addFactsMobile.style  = 'outline: none; background: #9AD4D6; color: #fff;';
+            addToSelected('Facts')
     }
     if (event.target == document.querySelector('.add_pickup_lines') ||
         event.target == document.querySelector('.add_pickup_lines_mobile')) {
-        selected.push('pickUpLines');
-        addPickup.style  = 'outline: none; background: #9AD4D6; color: #fff;';
-        addPickupMobile.style  = 'outline: none; background: #9AD4D6; color: #fff;';
+            addToSelected('pickUpLines');
     }
     if (event.target == document.querySelector('.add_conversation') ||
         event.target == document.querySelector('.add_conversation_mobile')) {
-        selected.push('Conversation');
-        addConversation.style  = 'outline: none; background: #9AD4D6; color: #fff;';
-        addConversationMobile.style  = 'outline: none; background: #9AD4D6; color: #fff;';
+            addToSelected('Conversation');
     }
     if (event.target == document.querySelector('.select_btn') ||
         event.target == document.querySelector('.add_all_mobile')) {
+        selected = [];
         selected.push('Jokes', 'Facts', 'pickUpLines', 'Conversation');
         addAll.style  = 'outline: none; background: #9AD4D6; color: #fff;';
         addAllMobile.style  = 'outline: none; background: #9AD4D6; color: #fff;';
-        console.log(selected);
     }
 
     if (getAllFavourites.length <= 0) {
@@ -97,14 +86,56 @@ function chooseCategories() {
                 }
             }
         }
-        setupPages();
-        setupRemoveFunction();
     } 
-    
-    checkIfHasFavourite();
-    
-    
+
+    setupPages();
+    checkIfHasFavourite(); 
 };
+
+function addToSelected(type) {
+    console.log(type)
+    if(selected.indexOf(type) !== -1) {
+        let index = selected.indexOf(type);
+        selected.splice(index, 1);
+        removeColor(type);
+    } else {
+        selected.push(type);
+        setColor(type)
+        
+    }
+};
+
+function setColor(type) {
+    if (type == 'Jokes') {
+        addJokes.style  = 'outline: none; background: #9AD4D6; color: #fff;';
+        addJokesMobile.style  = 'outline: none; background: #9AD4D6; color: #fff;';
+    } else if (type == 'Facts') {
+        addFacts.style  = 'outline: none; background: #9AD4D6; color: #fff;';
+        addFactsMobile.style  = 'outline: none; background: #9AD4D6; color: #fff;';
+    } else if (type == 'pickUpLines') {
+        addPickup.style  = 'outline: none; background: #9AD4D6; color: #fff;';
+        addPickupMobile.style  = 'outline: none; background: #9AD4D6; color: #fff;';
+    } else if (type == 'Conversation') {
+        addConversation.style  = 'outline: none; background: #9AD4D6; color: #fff;';
+        addConversationMobile.style  = 'outline: none; background: #9AD4D6; color: #fff;';
+    } 
+}
+
+function removeColor(type) {
+    if (type == 'Jokes') {
+        addJokes.style  = 'background: #fff; color: #000';
+        addJokesMobile.style  = 'background: #fff; color: #000';
+    } else if (type == 'Facts') {
+        addFacts.style  = 'background: #fff; color: #000';
+        addFactsMobile.style  = 'background: #fff; color: #000';
+    } else if (type == 'pickUpLines') {
+        addPickup.style  = 'background: #fff; color: #000';
+        addPickupMobile.style  = 'background: #fff; color: #000';
+    } else if (type == 'Conversation') {
+        addConversation.style  = 'background: #fff; color: #000';
+        addConversationMobile.style  = 'background: #fff; color: #000';
+    }
+}
 
 function checkIfHasFavourite() {
     if (selected.length > 1 && selectedEntries.length <= 0) {
