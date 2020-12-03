@@ -4,6 +4,9 @@
     justify-content: center;
     align-items: center;
     margin: 20px 50px 0 50px;
+
+    
+    margin-top: 4rem;
 }
 
 .jokes-back {
@@ -44,6 +47,11 @@
 }
 
 .checkboxes-mobile{
+    position: absolute;
+    left: calc(50% - 70px);
+    z-index: 10;
+
+
     display: flex;
     justify-content: center;
 }
@@ -98,17 +106,19 @@ label {
 }
 
 .fa-chevron-left {
-    position: absolute;
+    position: relative;
     left: 3%;
-    bottom: 150px;
+    top: -190px;
+
     font-size: 30px;
     color: #6A6674;
 }
 
 .fa-chevron-right {
-    position: absolute;
-    right: 3%;
-    bottom: 150px;
+    position: relative;
+    left: 89%;
+    top: -190px;
+    
     font-size: 30px;
     color: #6A6674;
 }

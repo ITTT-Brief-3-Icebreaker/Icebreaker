@@ -14,6 +14,9 @@
         display: none;
     }
 
+    .cards.favourites-container {
+        margin-top: 20px; /* ta bort om inte gillar */
+    }
     .checkboxes {
         display: flex;
     }
@@ -75,6 +78,20 @@
     }
 }
 
+@media only screen and (max-width: 450px) {
+    .fa-chevron-right {
+        left: 87%;
+    }
+}
+
+@media only screen and (max-width: 380px) {
+    .fa-chevron-right {
+        left: 86%;
+    }
+    .fa-chevron-left {
+        left: 2%;
+    }
+}
 /* @media only screen and (max-width: 1199px) {
     .navbar {
         position: absolute;
