@@ -49,6 +49,10 @@ function chooseCategories() {
     addAll.style  = 'background: #fff; color: #000';
     addAllMobile.style  = 'background: #fff; color: #000';
 
+    if(selected.length == 4) {
+        selected = [];
+    }
+
     if (event.target == document.querySelector('.add_jokes') ||
         event.target == document.querySelector('.add_jokes_mobile')) {
             addToSelected('Jokes')
@@ -68,6 +72,10 @@ function chooseCategories() {
     if (event.target == document.querySelector('.select_btn') ||
         event.target == document.querySelector('.add_all_mobile')) {
         selected = [];
+
+        document.querySelectorAll('.check').forEach(element => {
+            element.style = 'background: #fff; color: #000';
+        })
         selected.push('Jokes', 'Facts', 'pickUpLines', 'Conversation');
         addAll.style  = 'outline: none; background: #9AD4D6; color: #fff;';
         addAllMobile.style  = 'outline: none; background: #9AD4D6; color: #fff;';
