@@ -101,7 +101,6 @@ function chooseCategories() {
 };
 
 function addToSelected(type) {
-    console.log(type)
     if(selected.indexOf(type) !== -1) {
         let index = selected.indexOf(type);
         selected.splice(index, 1);
@@ -148,7 +147,7 @@ function removeColor(type) {
 function checkIfHasFavourite() {
     if (selected.length > 1 && selectedEntries.length <= 0) {
         noFavourites('favourites')
-    } else if (selectedEntries.length <= 0) {
+    } else if (amountSelected <= 0) {
         if (selected[i] == 'Jokes'){
             noFavourites('Jokes')
         } else if (selected[i] == 'Facts'){
@@ -237,7 +236,6 @@ function removeFromAllFavourites() {
     
     localStorage.setItem('Favourites', JSON.stringify(getAllFavourites))
 
-    console.log(pageID , getAllFavourites.length)
     if (getAllFavourites == undefined || getAllFavourites.length <= 0 || getAllFavourites[0].length <= 0) {
         noFavourites('favourites')
     } else {

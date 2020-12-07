@@ -63,7 +63,6 @@ function goRight() {
         pageID++
 
         setCurrentPage(pageID)
-
         setupRemoveFunction();
     }
 }
@@ -154,7 +153,7 @@ function setupPages() {
 
 function setPageNumbers() {
     document.querySelector('#nr-of-pages').innerHTML = "";
-    console.log(nrOfPages)
+
     for (i = 0; i < nrOfPages; i++) {
         let link = document.createElement('a');
         link.innerHTML = i + 1;
@@ -162,6 +161,7 @@ function setPageNumbers() {
         document.querySelector('#nr-of-pages').appendChild(link);
     };
 }
+
 function setCurrentPage(current) {
     for (let i = 0; i < nrOfPages; i++) {
         document.querySelector('#page' + (i + 1)).style  = 'color: #6A6674;';

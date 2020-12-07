@@ -1,6 +1,4 @@
 function getJokes() {
-    // if (JSON.parse(localStorage.getItem('Jokes')) == undefined) {
-    console.log('get new Jokes')
     fetch('https://run.mocky.io/v3/dde3b884-8754-42e3-8356-dd95babeb521')
         .then(response => response.json())
         .then(data => {
@@ -18,7 +16,6 @@ function getFacts() {
                 setup()
         })
 }
-
 
 async function getPickupLines() {
     let apiURL = "https://codeshifu-pickup-lines.glitch.me/api";
@@ -44,13 +41,13 @@ function getConversation() {
         })
 }
 
-// if (window.location)
-var swiper = new Swiper('.swiper-container', {
-    navigation: {
-        nextEl: '.swiper-button-next',
-        prevEl: '.swiper-button-prev',
-    },
-});
+
+    var swiper = new Swiper('.swiper-container', {
+        navigation: {
+            nextEl: '.swiper-button-next',
+            prevEl: '.swiper-button-prev',
+        },
+    });
 
 
 let cardLink = document.querySelectorAll(".cardLink").forEach(card => {
@@ -82,23 +79,3 @@ function selectedTopics() {
         window.location.href = "active-game.html?selected=Conversation"
     }, 600)
 }
-
-
-
-
-// ALTERNATIVE WAY OF WRITING
-// async function componentDidMount() {
-//     console.log("fetch init")
-//     const response = await fetch('https://callook.info/W1AW/json')
-//     const data = await response.json()
-//     console.log(data)
-//     // const posts = [...this.state.posts, ...data]
-//     console.log("fetch done")
-//   }
-
-var swiper = new Swiper('.swiper-container', {
-  navigation: {
-    nextEl: '.swiper-button-next',
-    prevEl: '.swiper-button-prev',
-  },
-});
