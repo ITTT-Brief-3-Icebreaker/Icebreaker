@@ -1,0 +1,101 @@
+@media only screen and (min-width:0px) {
+    .cards.desktop,
+    #desktopLogo,
+    .checkboxes {
+        display: none;
+    }
+}
+
+@media only screen and (min-width:885px) {
+    .cards.mobile,
+    #mobileLogo,
+    .arrowContainer,
+    .checkboxes-mobile {
+        display: none;
+    }
+
+    .cards.favourites-container {
+        margin-top: 20px; /* ta bort om inte gillar */
+    }
+    .checkboxes {
+        display: flex;
+    }
+
+    .cards.desktop {
+        display: grid;
+    }
+
+    #desktopLogo {
+        display: flex;
+        justify-content: center;
+        margin-left: 27px;
+    }
+
+    header {
+        justify-content: center;
+    }
+
+    .jokes {
+        grid-column: 2 / 4;
+    }
+    
+    .pickup-lines {
+        grid-column: 4 / 6;
+    }
+    
+    .facts {
+        grid-column: 2 / 4;
+    }
+    
+    .conversation {
+        grid-column: 4 / 6;
+    }
+
+    .jokes-back {
+        grid-column: 4 / 6;
+        margin-top: 0%;
+    }
+
+    .showDesciption {
+        display: none;
+    }
+
+}
+
+@media only screen and (min-width: 600px) {
+    .fa-chevron-right, .fa-chevron-left {
+        display: none;
+    }
+}
+
+@media only screen and (min-width: 700px) {
+   
+}
+
+@media only screen and (min-width: 1070px) {
+    .showDesciption {
+        display: flex;
+    }
+}
+
+@media only screen and (max-width: 450px) {
+    .fa-chevron-right {
+        left: 87%;
+    }
+}
+
+@media only screen and (max-width: 380px) {
+    .fa-chevron-right {
+        left: 86%;
+    }
+    .fa-chevron-left {
+        left: 2%;
+    }
+}
+/* @media only screen and (max-width: 1199px) {
+    .navbar {
+        position: absolute;
+        width: 100%;
+        z-index: 9999;
+    }
+} */

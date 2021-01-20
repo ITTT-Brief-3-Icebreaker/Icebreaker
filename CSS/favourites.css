@@ -1,0 +1,169 @@
+.cards.favourites-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    margin: 20px 50px 0 50px;
+
+    
+    margin-top: 4rem;
+}
+
+.jokes-back {
+    padding: 15px;
+    margin: 2%;
+    overflow: auto;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+
+.jokes-back::-webkit-scrollbar {
+    display: none;
+}
+
+.checkboxes {
+    display: flex;
+    justify-content: space-evenly;
+    padding: 20px;
+    margin: 0 7% 4% 7%;
+    border-radius: 15px;
+    flex-wrap: wrap;
+}
+
+.check {
+    margin: 5px;
+    padding: 8px;
+    width: 130px;
+    background: #fff;
+    border: none;
+    border-radius: 12px;
+    text-align: center;
+    box-shadow: 5px 5px 10px 5px rgba(0, 0, 0, 0.25);
+}
+
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.checkboxes-mobile{
+    position: absolute;
+    left: calc(50% - 70px);
+    z-index: 10;
+
+
+    display: flex;
+    justify-content: center;
+}
+
+.dropdown-content {
+    display: none;
+    z-index: 1;
+    margin-left: 13%;
+    margin-right: 13%;
+}
+
+  
+.showFilter {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.checked {
+    background: #9AD4D6;
+    color: #fff;
+}
+
+.check:hover {
+    outline: none;
+    background: #9AD4D6;
+    color: #fff;
+} 
+
+.check:focus {
+    outline: none;
+} 
+
+#card-title {
+    font-size: 21px;
+}
+
+label {
+    margin: 0;
+}
+
+#nr-of-pages a {
+    color: #6A6674;
+    padding: 0.5rem;
+    font-size: 1.2rem;
+}
+
+#nr-of-pages a:hover, .fa-chevron-right:hover, .fa-chevron-left:hover {
+    color: #000;
+    cursor: pointer;
+}
+
+.arrow-container {
+    width: 100%;
+    height: 10px;
+}
+
+.fa-chevron-left {
+    position: relative;
+    left: 3%;
+    top: -190px;
+
+    font-size: 30px;
+    color: #6A6674;
+}
+
+.fa-chevron-right {
+    position: relative;
+    left: 89%;
+    top: -190px;
+    
+    font-size: 30px;
+    color: #6A6674;
+}
+
+.jokes-back {
+    border-color: #E2E2E2;
+}
+
+#go-home {
+    position: relative;
+    top: 5%;
+    left: 13%;
+
+    height: 120px;
+    width: 130px;
+
+    color: black;
+    font-size: 1.1rem;
+    text-decoration: none;
+
+    display: block;
+    padding: 6%;
+
+    background-color: #E2E2E2;
+    border-radius: 7px;
+    border: 2px solid gray;
+    box-shadow: 2px 2px 5px gray;
+}
+
+#go-home:hover {
+    -ms-transform: scale(1.05); /* IE 9 */
+    -webkit-transform: scale(1.05); /* Safari 3-8 */
+    transform: scale(1.05); 
+}
+
+.fa-arrow-left {
+    padding: 5px;
+}
+
+.nr-of-pages-container {
+    display: flex;
+    justify-content: center;
+}

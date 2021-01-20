@@ -1,0 +1,47 @@
+.swiper-container {
+    width: 100%;
+    height: 100%;
+    grid-column: 1/-1;
+  }
+
+.swiper-slide {
+    text-align: center;
+    font-size: 18px;
+
+    /* Center slide text vertically */
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    -webkit-justify-content: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    -webkit-align-items: center;
+    align-items: center;
+}
+
+.swiper-button-next:focus,
+.swiper-button-prev:focus {
+    outline: none;
+}
+
+div.swiper-button-next,
+div.swiper-button-prev {
+    color: #6A6674;
+    top: auto;
+    bottom: 134px;
+}
+
+.jokes,
+.pickup-lines,
+.facts,
+.cat-facts {
+    grid-column: 2 / 6;
+}
+
+.cards-container {
+    grid-column: 1/-1;
+}

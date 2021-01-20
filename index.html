@@ -5,20 +5,126 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+<<<<<<< HEAD
 
     <link href="index.css" type="text/css" rel="stylesheet" />
+=======
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed&display=swap" rel="stylesheet" />
+
+    <link rel="stylesheet" href="plugins/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="plugins/fontawesome/fontawesome-free-5.15.1-web/css/all.min.css">
+
+    <link href="./CSS/index.css" type="text/css" rel="stylesheet" />
+    <link href="./CSS/carousel.css" type="text/css" rel="stylesheet" />
+    <link href="./CSS/mediaqueries.css" type="text/css" rel="stylesheet" />
+
+>>>>>>> main
     <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
 
     <title>Home | Icebreaker</title>
 </head>
 
 <body>
+<<<<<<< HEAD
 
     <header>
         <h1>Icebreaker</h1>
         <nav></nav>
     </header>
 
+=======
+    <nav class="navbar navbar-expand-xl navbar-light">
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class=" collapse navbar-collapse" id="navbarNavDropdown">
+            <ul class="nav navbar-nav ml-auto">
+                <li class=" nav-item active">
+                    <a class=" nav-link" href="#">Home</a>
+                </li>
+                <li class=" nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Games</a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                        <a class="dropdown-item" href="active-game.html?selected=Jokes">Jokes</a>
+                        <a class="dropdown-item" href="active-game.html?selected=Facts">Trivia</a>
+                        <a class="dropdown-item" href="active-game.html?selected=pickUpLines">Pick Up Lines</a>
+                        <a class="dropdown-item" href="active-game.html?selected=Conversation">Topics</a>
+                    </div>
+                </li>
+                <li class=" nav-item">
+                    <a class=" nav-link" href="favourites.html">Favourites</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <header>
+        <img src="./images/Logo.png" alt="Icebreaker title" id="desktopLogo">
+        <img src="./images/Logo small.png" alt="Icebreaker title" id="mobileLogo">
+    </header>
+
+    <main class="cards desktop">
+        <div class="jokes flexCenter">
+            <div class="showDesciption flexCenter">
+                <p>Need to ease up </br> the tension? </br> Click me!</p>
+                <img src="./images/arrowJokes.png" alt="">
+            </div>
+            <a href="javascript:void(0)" class="cardLink" onclick="selectedJokes()">
+                <div class="jokes-front front card" id="get_jokes" style="background-color: var(--purple);">
+                    <img src="./images/Icepick.png" alt="">
+                    <h3 class="jokesH3">JOKES</h3>
+                    <p>Get to know each other</p>
+                </div>
+            </a>
+        </div>
+
+        <div class="pickup-lines flexCenter">
+            <a href="javascript:void(0)" class="cardLink" onclick="selectedPickup()">
+                <div class="jokes-front front card" style="background-color: var(--blue);">
+                    <img src="./images/Icepick.png" alt="">
+                    <h3 class="jokesH3">PICK UP LINES</h3>
+                    <p>Get to know each other</p>
+                </div>
+            </a>
+            <div class="showDesciption flexCenter">
+                <img src="./images/arrowPickup.png" alt="">
+                <p class="desciptionP">Want to impress </br>someone? </br> Click me!</p>
+            </div>
+        </div>
+
+        <div class="facts flexCenter">
+            <div class="showDesciption flexCenter">
+                <p>Want to </br> sound smart? </br> Click me!</p>
+                <img src="./images/arrowTrivia.png" alt="">
+            </div>
+            <a href="javascript:void(0)" class="cardLink" onclick="selectedTrivia()">
+                <div class="jokes-front front card" style="background-color: var(--gray);">
+                    <img src="./images/Icepick.png" alt="">
+                    <h3 class="jokesH3">TRIVIA</h3>
+                    <p>Get to know each other</p>
+                </div>
+            </a>
+        </div>
+
+        <div class="conversation flexCenter">
+            <a href="javascript:void(0)" class="cardLink" onclick="selectedTopics()">
+                <div class="jokes-front front card" style="background-color: var(--yellow);">
+                    <img src="./images/Icepick.png" alt="">
+                    <h3 class="conversations jokesH3">TOPICS</h3>
+                    <p class="conversations P">Get to know each other</p>
+                </div>
+            </a>
+            <div class="showDesciption flexCenter">
+                <img src="./images/arrowTopics.png" alt="">
+                <p id="topicsDescription" class="desciptionP">Awkward silence? </br> Click me!</p>
+            </div>
+        </div>
+    </main>
+
+
+>>>>>>> main
     <main class="cards mobile">
         <!-- Slider main container -->
         <div class="swiper-container">
@@ -27,31 +133,52 @@
 
                 <!-- Slides -->
                 <div class="swiper-slide">
-                    <div class="jokes dummy">
-                        <img src="images/Rule Card Purple.png" alt="">
-                        <button id="get_jokes">Get jokes</button>
+                    <div class="jokes">
+                        <a href="active-game.html?selected=Jokes" class="cardLink">
+                            <div class="jokes-front front card" id="get_jokes_mobile" style="background-color: var(--purple);">
+                                <img src="./images/Icepick.png" alt="">
+                                <h3 class="jokesH3">JOKES</h3>
+                                <p>Get to know each other</p>
+                            </div>
+                        </a>
                     </div>
                 </div>
 
                 <div class="swiper-slide">
-                    <div class="pickup-lines dummy">
-                        <img src="images/Play Card Blue.png" alt="">
+                    <div class="pickup-lines">
+                        <a href="active-game.html?selected=pickUpLines" class="cardLink">
+                            <div class="jokes-front front card" style="background-color: var(--blue);">
+                                <img src="./images/Icepick.png" alt="">
+                                <h3 class="jokesH3">PICK UP LINES</h3>
+                                <p>Get to know each other</p>
+                            </div>
+                        </a>
                     </div>
                 </div>
 
                 <div class="swiper-slide">
-                    <div class="facts dummy">
-                        <img src="images/Rule Card Gray.png" alt="">
-                        <button id="get_lines">Get lines</button>
+                    <div class="facts">
+                        <a href="active-game.html?selected=Facts" class="cardLink">
+                            <div class="jokes-front front card" style="background-color: var(--gray);">
+                                <img src="./images/Icepick.png" alt="">
+                                <h3 class="jokesH3">TRIVIA</h3>
+                                <p>Get to know each other</p>
+                            </div>
+                        </a>
                     </div>
                 </div>
 
                 <div class="swiper-slide">
-                    <div class="cat-facts dummy">
-                        <img src="images/Play Card Yellow.png" alt="">
-                    </div>
+                    <a href="active-game.html?selected=Conversation" class="cardLink">
+                        <div class="jokes-front front card" style="background-color: var(--yellow);">
+                            <img src="./images/Icepick.png" alt="">
+                            <h3 class="conversations jokesH3">TOPICS</h3>
+                            <p class="conversations P">Get to know each other</p>
+                        </div>
+                    </a>
                 </div>
             </div>
+<<<<<<< HEAD
 
             <!-- navigation buttons -->
             <div class="swiper-button-prev"></div>
@@ -93,6 +220,25 @@
     <script src="event-listeners.js" defer></script>
     <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
 
+=======
+        </div>
+
+    </main>
+    
+    <!-- navigation buttons -->
+    <div class="arrowContainer">
+        <div class="swiper-button-prev"></div>
+        <div class="swiper-button-next"></div>
+    </div>
+    
+    <footer></footer>
+    
+    <script src="plugins/jquery/jquery-3.5.1.min.js"></script>
+    <script src="plugins/bootstrap/js/bootstrap.min.js"></script>
+    <script src="./JS/app.js" defer></script>
+    <script src="./JS/event-listeners.js" defer></script>
+    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+>>>>>>> main
 </body>
 
 </html>
