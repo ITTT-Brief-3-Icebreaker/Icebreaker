@@ -71,6 +71,11 @@
     align-items: center;
 }
 
+.checked {
+    background: #9AD4D6;
+    color: #fff;
+}
+
 .check:hover {
     outline: none;
     background: #9AD4D6;
